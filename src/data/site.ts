@@ -19,10 +19,6 @@ export const site = {
     ar: 'استشاري جراحة السمنة والجراحة الأيضية والروبوتية',
   },
   credentials: 'MD, FACS, ABS, ABOM, MBA',
-  location: {
-    en: 'Dr. Sulaiman Al Habib Hospital, Al-Takhassusi, Riyadh',
-    ar: 'مستشفى د. سليمان الحبيب، فرع التخصصي، الرياض',
-  },
 };
 
 export const phone = {
