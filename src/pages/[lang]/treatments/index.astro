@@ -1,0 +1,35 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { langPaths, treatments, ui, type Lang } from '../../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Treatments', ar: 'العلاجات' },
+  description: {
+    en: 'Bariatric, metabolic, robotic and general surgery, and obesity medicine with Dr. Alaa Alhazmi in Riyadh.',
+    ar: 'جراحات السمنة والجراحة الأيضية والروبوتية والجراحة العامة وطب السمنة مع د. علاء الحازمي في الرياض.',
+  },
+  intro: {
+    en: 'Every plan starts with a full assessment. These pages explain each treatment in general terms; your options are discussed at your consultation.',
+    ar: 'تبدأ كل خطة علاجية بتقييم شامل. تشرح هذه الصفحات كل علاج بشكل عام، وتُناقَش الخيارات المناسبة لك خلال الاستشارة.',
+  },
+};
+---
+<Base lang={lang} path="treatments" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap">
+      <h1>{c.title[lang]}</h1>
+      <p class="lead">{c.intro[lang]}</p>
+      <div class="cards">
+        {treatments.map((t) => (
+          <article class="card">
+            <h3><a href={`/${lang}/treatments/${t.slug}/`}>{t.name[lang]}</a></h3>
+            <p>{t.summary[lang]}</p>
+            <a href={`/${lang}/treatments/${t.slug}/`}>{ui.learnMore[lang]}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

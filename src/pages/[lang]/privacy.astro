@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, phone, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Privacy', ar: 'الخصوصية' },
+  description: {
+    en: 'How information is handled on dralhazmi.com and when you contact Dr. Alaa Alhazmi.',
+    ar: 'كيفية التعامل مع المعلومات في موقع dralhazmi.com وعند تواصلك مع د. علاء الحازمي.',
+  },
+  updated: { en: 'Last updated: draft, not yet in effect', ar: 'آخر تحديث: مسودة، لم تدخل حيز التنفيذ بعد' },
+  sections: [
+    {
+      h: { en: 'This website', ar: 'هذا الموقع' },
+      p: {
+        en: 'This website has no forms, accounts, advertising or tracking cookies, and does not collect personal information. Fonts are served from this website, not from third parties.',
+        ar: 'لا يحتوي هذا الموقع على نماذج أو حسابات أو إعلانات أو ملفات تعريف ارتباط للتتبع، ولا يجمع معلومات شخصية. وتُحمَّل الخطوط من الموقع نفسه وليس من جهات خارجية.',
+      },
+    },
+    {
+      h: { en: 'When you message or call us', ar: 'عند مراسلتنا أو الاتصال بنا' },
+      p: {
+        en: 'When you contact us on WhatsApp or by phone, we receive the information you choose to send, such as your name, number, question and medical reports. We use it only to respond to you, arrange your care or give the second opinion you asked for. Calls are answered by Faisal, an AI assistant, who records your message for the team.',
+        ar: 'عند تواصلك معنا عبر واتساب أو الهاتف، نتلقى المعلومات التي تختار إرسالها، مثل اسمك ورقمك وسؤالك وتقاريرك الطبية. ونستخدمها فقط للرد عليك أو ترتيب رعايتك أو تقديم الرأي الطبي الثاني الذي طلبته. يرد على الاتصالات فيصل، وهو مساعد ذكي يسجّل رسالتك للفريق.',
+      },
+    },
+    {
+      h: { en: 'Who sees it and how long we keep it', ar: 'من يطّلع عليها ومدة الاحتفاظ بها' },
+      p: {
+        en: 'Only Dr. Alhazmi and authorized team members see your information. We do not sell it or use it for advertising. [Retention period and deletion process to be confirmed.]',
+        ar: 'لا يطّلع على معلوماتك إلا د. علاء الحازمي وأعضاء الفريق المخوّلون. ولا نبيعها ولا نستخدمها لأغراض إعلانية. [تُحدَّد مدة الاحتفاظ وآلية الحذف لاحقًا.]',
+      },
+    },
+    {
+      h: { en: 'Your rights', ar: 'حقوقك' },
+      p: {
+        en: 'Under Saudi Arabia’s Personal Data Protection Law, you can ask to see, correct or delete the information you sent us. Send your request on WhatsApp to +966 50 970 4040.',
+        ar: 'بموجب نظام حماية البيانات الشخصية في المملكة العربية السعودية، يحق لك طلب الاطلاع على المعلومات التي أرسلتها إلينا أو تصحيحها أو حذفها. أرسل طلبك عبر واتساب إلى ‎+966 50 970 4040.',
+      },
+    },
+  ],
+};
+---
+<Base lang={lang} path="privacy" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap" style="max-width: 780px;">
+      <h1>{c.title[lang]}</h1>
+      <p class="small">{c.updated[lang]}</p>
+      {c.sections.map((s) => <><h2>{s.h[lang]}</h2><p>{s.p[lang]}</p></>)}
+      <p class="small"><a href={phone.whatsapp}>WhatsApp <bdi dir="ltr">{phone.intl}</bdi></a></p>
+    </div>
+  </section>
+</Base>

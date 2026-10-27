@@ -1,0 +1,24 @@
+---
+// Entry page: sends visitors to Arabic if their browser prefers it, otherwise English.
+import { DRAFT } from '../data/site';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dr. Alaa Alhazmi | د. علاء الحازمي</title>
+    {DRAFT && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="alternate" hreflang="en" href="https://dralhazmi.com/en/" />
+    <link rel="alternate" hreflang="ar" href="https://dralhazmi.com/ar/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      var langs = navigator.languages || [navigator.language || ''];
+      var ar = langs.some(function (l) { return /^ar\b/i.test(l); });
+      location.replace(ar ? '/ar/' : '/en/');
+    </script>
+  </head>
+  <body style="font-family: system-ui, sans-serif; text-align: center; padding: 3rem 1rem;">
+    <p><a href="/en/">English</a> · <a href="/ar/" lang="ar">العربية</a></p>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, site, phone, ui, faisalNote, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Home', ar: 'الرئيسية' },
+  description: {
+    en: 'Dr. Alaa Alhazmi, consultant in bariatric, metabolic, robotic and general surgery and obesity medicine in Riyadh. Contact 050 970 4040.',
+    ar: 'د. علاء الحازمي، استشاري جراحة السمنة والجراحة الأيضية والروبوتية والجراحة العامة وطب السمنة في الرياض. للتواصل 050 970 4040.',
+  },
+  intro: {
+    en: 'Consultant surgeon with more than 15 years of experience in bariatric, metabolic and robotic surgery, and a diplomate of the American Board of Obesity Medicine.',
+    ar: 'استشاري جراحة بخبرة تزيد على 15 عامًا في جراحات السمنة والجراحة الأيضية والروبوتية، وحاصل على البورد الأمريكي لطب السمنة.',
+  },
+  reach: { en: 'Book or ask a question', ar: 'للحجز أو الاستفسار' },
+  treatments: { en: 'Treatments', ar: 'العلاجات' },
+  why: { en: 'Training and experience', ar: 'التدريب والخبرة' },
+  facts: [
+    { en: 'MD, The George Washington University, Washington, DC', ar: 'دكتوراه في الطب من جامعة جورج واشنطن، واشنطن العاصمة' },
+    { en: 'Fellowship in minimally invasive and bariatric surgery, UC Davis, California', ar: 'زمالة الجراحة طفيفة التوغل وجراحة السمنة، جامعة كاليفورنيا ديفيس' },
+    { en: 'Certified by the American Board of Surgery; Fellow of the American College of Surgeons', ar: 'البورد الأمريكي للجراحة، وزميل الكلية الأمريكية للجراحين' },
+    { en: 'Over 15 years at King Faisal Specialist Hospital & Research Centre, Riyadh', ar: 'أكثر من 15 عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض' },
+  ],
+  secondTitle: { en: 'Free second opinion', ar: 'رأي طبي ثانٍ مجاني' },
+  secondText: {
+    en: 'Already have a diagnosis or a surgery recommendation? Send your question and reports on WhatsApp for a second opinion, free during our pilot phase.',
+    ar: 'هل لديك تشخيص أو توصية بإجراء عملية؟ أرسل سؤالك وتقاريرك عبر واتساب للحصول على رأي طبي ثانٍ، مجانًا خلال المرحلة التجريبية.',
+  },
+};
+---
+<Base lang={lang} path="" title={c.title} description={c.description}>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>{site.name[lang]}</h1>
+        <p class="lead">{site.title[lang]}</p>
+        <p>{c.intro[lang]}</p>
+        <p class="small">{site.credentials} · {site.location[lang]}</p>
+        <p class="small">{c.reach[lang]}</p>
+        <p class="hero-phone"><a href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a></p>
+        <div class="btn-row">
+          <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
+          <a class="btn btn-call" href={phone.tel}>{ui.call[lang]}</a>
+        </div>
+        <p class="small">{faisalNote[lang]}</p>
+      </div>
+      <img class="hero-photo" src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" />
+    </div>
+  </section>
+
+  <section class="section section-sand">
+    <div class="wrap">
+      <h2>{c.treatments[lang]}</h2>
+      <div class="cards">
+        {treatments.map((t) => (
+          <article class="card">
+            <h3><a href={`/${lang}/treatments/${t.slug}/`}>{t.name[lang]}</a></h3>
+            <p>{t.summary[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{c.why[lang]}</h2>
+      <ul class="facts">
+        {c.facts.map((f) => <li>{f[lang]}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-sand">
+    <div class="wrap">
+      <h2>{c.secondTitle[lang]}</h2>
+      <p>{c.secondText[lang]}</p>
+      <a class="btn btn-primary" href={`/${lang}/second-opinion/`}>{ui.learnMore[lang]}</a>
+    </div>
+  </section>
+</Base>

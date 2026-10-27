@@ -1,0 +1,44 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { langs, treatments, asmbsSource, ui, whatsappLink, whatsappMessages, phone, type Lang } from '../../../data/site';
+export function getStaticPaths() {
+  return langs.flatMap((lang) => treatments.map((t) => ({ params: { lang, slug: t.slug }, props: { t } })));
+}
+const lang = Astro.params.lang as Lang;
+const { t } = Astro.props;
+
+const h = {
+  what: { en: 'What it is', ar: 'ما هو' },
+  who: { en: 'Who it may suit', ar: 'لمن يناسب' },
+  expect: { en: 'What to expect', ar: 'ماذا تتوقع' },
+  next: { en: 'Discuss your options', ar: 'ناقش خياراتك' },
+  sources: { en: 'Source', ar: 'المصدر' },
+  general: {
+    en: 'This page is general information, not medical advice for your situation.',
+    ar: 'هذه الصفحة معلومات عامة، وليست استشارة طبية لحالتك.',
+  },
+};
+---
+<Base lang={lang} path={`treatments/${t.slug}`} title={t.name} description={t.summary}>
+  <section class="section">
+    <div class="wrap" style="max-width: 780px;">
+      <h1>{t.name[lang]}</h1>
+      <p class="lead">{t.summary[lang]}</p>
+      <h2>{h.what[lang]}</h2>
+      <p>{t.what[lang]}</p>
+      <h2>{h.who[lang]}</h2>
+      <p>{t.who[lang]}</p>
+      <h2>{h.expect[lang]}</h2>
+      <p>{t.expect[lang]}</p>
+      <div class="notice">
+        <h3>{h.next[lang]}</h3>
+        <p><a href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a></p>
+        <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang] + t.name[lang])}>{ui.bookWhatsApp[lang]}</a>
+      </div>
+      <p class="small" style="margin-top: 1.5rem;">{h.general[lang]}</p>
+      {t.slug === 'bariatric-surgery' && (
+        <p class="sources">{h.sources[lang]}: <a href={asmbsSource.url} lang="en">{asmbsSource.label}</a></p>
+      )}
+    </div>
+  </section>
+</Base>

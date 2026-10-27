@@ -1,0 +1,88 @@
+---
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-sans-arabic/400.css';
+import '@fontsource/ibm-plex-sans-arabic/600.css';
+import '../styles/global.css';
+import { DRAFT, site, nav, ui, phone, faisalNote, whatsappLink, whatsappMessages, type Lang, type T } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  path: string; // page path without language prefix, e.g. 'about' or ''
+  title: T;
+  description: T;
+}
+const { lang, path, title, description } = Astro.props;
+const other: Lang = lang === 'en' ? 'ar' : 'en';
+const href = (l: Lang, p: string) => `/${l}/${p ? p + '/' : ''}`;
+const pageTitle = path ? `${title[lang]} | ${site.name[lang]}` : `${site.name[lang]} | ${site.title[lang]}`;
+const current = path.split('/')[0];
+---
+<!doctype html>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description[lang]} />
+    {DRAFT && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={site.url + href(lang, path)} />
+    <link rel="alternate" hreflang="en" href={site.url + href('en', path)} />
+    <link rel="alternate" hreflang="ar" href={site.url + href('ar', path)} />
+    <link rel="alternate" hreflang="x-default" href={site.url + '/'} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description[lang]} />
+    <meta property="og:image" content={site.url + '/images/dr-alaa-alhazmi.jpg'} />
+    <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
+  </head>
+  <body>
+    {DRAFT && <div class="draft">{ui.draft[lang]}</div>}
+    <header class="header">
+      <div class="wrap header-row">
+        <a class="brand" href={href(lang, '')}>
+          <span class="brand-name">{site.name[lang]}</span>
+          <span class="brand-title">{site.title[lang]}</span>
+        </a>
+        <div class="header-contact">
+          <a class="phone" href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a>
+          <a class="lang" href={href(other, path)} hreflang={other} lang={other}>{ui.switchLang[lang]}</a>
+        </div>
+      </div>
+      <nav class="wrap nav" aria-label="Main">
+        {nav.map((n) => (
+          <a href={href(lang, n.path)} aria-current={n.path === current ? 'page' : undefined}>{n.label[lang]}</a>
+        ))}
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-name">{site.name[lang]}</p>
+          <p>{site.credentials}</p>
+          <p>{site.location[lang]}</p>
+        </div>
+        <div>
+          <p class="footer-phone"><a href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a> · <bdi dir="ltr">{phone.intl}</bdi></p>
+          <p class="small">{faisalNote[lang]}</p>
+          <p class="small">{ui.emergency[lang]}</p>
+        </div>
+        <div>
+          <p><a href={href(lang, 'links')}>{ui.links[lang]}</a></p>
+          <p><a href={href(lang, 'privacy')}>{ui.privacy[lang]}</a></p>
+          <p class="small">© {new Date().getFullYear()} {site.name[lang]}. {ui.rights[lang]}</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="contact-bar" aria-label="Contact">
+      <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.whatsapp[lang]}</a>
+      <a class="btn btn-call" href={phone.tel}>{ui.call[lang]} <bdi dir="ltr">{phone.local}</bdi></a>
+    </div>
+  </body>
+</html>

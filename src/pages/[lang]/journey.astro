@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, ui, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Your Journey', ar: 'رحلتك العلاجية' },
+  description: {
+    en: 'What to expect from first contact to long-term follow-up with Dr. Alaa Alhazmi.',
+    ar: 'ما يمكن توقعه من أول تواصل حتى المتابعة طويلة الأمد مع د. علاء الحازمي.',
+  },
+  intro: {
+    en: 'Here is what to expect at each step, from your first message to long-term follow-up.',
+    ar: 'إليك ما يمكن توقعه في كل خطوة، من رسالتك الأولى حتى المتابعة طويلة الأمد.',
+  },
+  steps: [
+    { t: { en: 'Get in touch', ar: 'تواصل معنا' }, d: { en: 'Send a WhatsApp message or call to book a consultation.', ar: 'أرسل رسالة عبر واتساب أو اتصل لحجز استشارة.' } },
+    { t: { en: 'Consultation', ar: 'الاستشارة' }, d: { en: 'Meet Dr. Alhazmi to review your history, goals and options. Bring any reports, test results and a list of your medicines.', ar: 'قابل د. علاء الحازمي لمراجعة تاريخك الصحي وأهدافك وخياراتك. أحضر ما لديك من تقارير ونتائج فحوصات وقائمة بأدويتك.' } },
+    { t: { en: 'Assessment', ar: 'التقييم' }, d: { en: 'Tests and reviews by the team, such as nutrition, and other specialists when needed.', ar: 'فحوصات ومراجعات من الفريق، مثل التغذية، ومن تخصصات أخرى عند الحاجة.' } },
+    { t: { en: 'Your plan', ar: 'خطتك العلاجية' }, d: { en: 'A clear plan, surgical or medical, with time to ask questions before you decide.', ar: 'خطة واضحة، جراحية أو دوائية، مع وقت كافٍ لطرح أسئلتك قبل اتخاذ القرار.' } },
+    { t: { en: 'Treatment', ar: 'العلاج' }, d: { en: 'Your operation or the start of your medical treatment, with instructions for preparing and recovering.', ar: 'إجراء العملية أو بدء العلاج الدوائي، مع تعليمات للتهيئة والتعافي.' } },
+    { t: { en: 'Follow-up', ar: 'المتابعة' }, d: { en: 'Regular follow-up visits to support your progress over the long term.', ar: 'زيارات متابعة منتظمة لدعم تقدمك على المدى الطويل.' } },
+  ],
+  faqTitle: { en: 'Common questions', ar: 'أسئلة شائعة' },
+  faq: [
+    {
+      q: { en: 'Do I need a referral?', ar: 'هل أحتاج إلى إحالة؟' },
+      a: { en: 'No. You can book directly by WhatsApp or phone.', ar: 'لا. يمكنك الحجز مباشرة عبر واتساب أو الهاتف.' },
+    },
+    {
+      q: { en: 'Is surgery the only option for obesity?', ar: 'هل الجراحة هي الخيار الوحيد لعلاج السمنة؟' },
+      a: { en: 'No. Many people do well with a medical plan that may include nutrition, activity and medicines. Your options are discussed at your consultation.', ar: 'لا. يحقق كثيرون نتائج جيدة بخطة علاجية طبية قد تشمل التغذية والنشاط البدني والأدوية. وتُناقَش خياراتك خلال الاستشارة.' },
+    },
+    {
+      q: { en: 'I live outside Riyadh or outside Saudi Arabia. Can I still be seen?', ar: 'أسكن خارج الرياض أو خارج المملكة. هل يمكنني المراجعة؟' },
+      a: { en: 'Yes. Send a WhatsApp message to +966 50 970 4040 and the team will help you plan your visit.', ar: 'نعم. أرسل رسالة عبر واتساب إلى ‎+966 50 970 4040 وسيساعدك الفريق في ترتيب زيارتك.' },
+    },
+    {
+      q: { en: 'Who answers when I call?', ar: 'من يرد عند الاتصال؟' },
+      a: { en: 'Calls are answered by Faisal, Dr. Alhazmi’s AI assistant, who takes your message so the team can get back to you. For faster replies, use WhatsApp.', ar: 'يرد على الاتصالات فيصل، المساعد الذكي للدكتور علاء الحازمي، ويسجّل رسالتك ليتواصل معك الفريق. وللرد الأسرع استخدم واتساب.' },
+    },
+  ],
+};
+---
+<Base lang={lang} path="journey" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap" style="max-width: 820px;">
+      <h1>{c.title[lang]}</h1>
+      <p class="lead">{c.intro[lang]}</p>
+      <ol class="steps">
+        {c.steps.map((s) => <li><strong>{s.t[lang]}</strong><br />{s.d[lang]}</li>)}
+      </ol>
+      <div class="btn-row">
+        <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
+      </div>
+      <h2>{c.faqTitle[lang]}</h2>
+      {c.faq.map((f) => <details><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
+    </div>
+  </section>
+</Base>

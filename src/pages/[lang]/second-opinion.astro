@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, ui, phone, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Second Opinion', ar: 'رأي طبي ثانٍ' },
+  description: {
+    en: 'Free second opinion from Dr. Alaa Alhazmi on bariatric, metabolic and general surgery questions, by WhatsApp.',
+    ar: 'رأي طبي ثانٍ مجاني من د. علاء الحازمي في جراحات السمنة والجراحة الأيضية والعامة، عبر واتساب.',
+  },
+  intro: {
+    en: 'If you already have a diagnosis or a recommendation for surgery, Dr. Alhazmi can review your question and reports and share his opinion. This service is free during our pilot phase.',
+    ar: 'إذا كان لديك تشخيص أو توصية بإجراء عملية، يمكن للدكتور علاء الحازمي مراجعة سؤالك وتقاريرك وإبداء رأيه. هذه الخدمة مجانية خلال المرحلة التجريبية.',
+  },
+  coversTitle: { en: 'What we can review', ar: 'ما يمكننا مراجعته' },
+  covers: [
+    { en: 'Bariatric and metabolic surgery, including revision of a previous operation', ar: 'جراحات السمنة والجراحة الأيضية، بما فيها تصحيح عملية سابقة' },
+    { en: 'Gallbladder, hernia, reflux and other general surgery conditions', ar: 'المرارة والفتق والارتجاع وغيرها من حالات الجراحة العامة' },
+    { en: 'Medical treatment options for obesity', ar: 'خيارات العلاج الدوائي للسمنة' },
+  ],
+  howTitle: { en: 'How it works', ar: 'كيف تعمل الخدمة' },
+  how: [
+    { en: 'Message us on WhatsApp with your question.', ar: 'راسلنا عبر واتساب بسؤالك.' },
+    { en: 'Send the reports that matter: doctor’s notes, imaging and endoscopy reports, recent lab results and your list of medicines.', ar: 'أرسل التقارير المهمة: ملاحظات الطبيب، وتقارير الأشعة والمناظير، ونتائج التحاليل الحديثة، وقائمة أدويتك.' },
+    { en: 'Dr. Alhazmi reviews them and replies in writing on WhatsApp.', ar: 'يراجعها د. علاء الحازمي ويرد كتابيًا عبر واتساب.' },
+  ],
+  limitsTitle: { en: 'Please note', ar: 'يرجى الملاحظة' },
+  limits: [
+    { en: 'This service is not for emergencies. For a medical emergency, call 997 or go to the nearest emergency department.', ar: 'هذه الخدمة ليست للحالات الطارئة. في الحالات الطارئة، اتصل على 997 أو توجّه إلى أقرب قسم طوارئ.' },
+    { en: 'A written opinion based on reports does not replace an examination. Dr. Alhazmi may recommend a consultation in person.', ar: 'الرأي المكتوب المبني على التقارير لا يغني عن الفحص السريري، وقد يوصي د. علاء الحازمي بزيارة العيادة.' },
+    { en: 'Only send what you are comfortable sharing. By messaging, you agree that Dr. Alhazmi and his team may review the information you send for this purpose. See our privacy page for how it is handled.', ar: 'أرسل فقط ما ترتاح لمشاركته. بإرسالك الرسالة، فإنك توافق على أن يراجع د. علاء الحازمي وفريقه المعلومات التي ترسلها لهذا الغرض. اطّلع على صفحة الخصوصية لمعرفة كيفية التعامل معها.' },
+  ],
+  cta: { en: 'Request a second opinion', ar: 'اطلب رأيًا طبيًا ثانيًا' },
+};
+---
+<Base lang={lang} path="second-opinion" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap" style="max-width: 820px;">
+      <h1>{c.title[lang]}</h1>
+      <p class="lead">{c.intro[lang]}</p>
+      <h2>{c.coversTitle[lang]}</h2>
+      <ul>{c.covers.map((x) => <li>{x[lang]}</li>)}</ul>
+      <h2>{c.howTitle[lang]}</h2>
+      <ol class="steps">{c.how.map((x) => <li>{x[lang]}</li>)}</ol>
+      <h2>{c.limitsTitle[lang]}</h2>
+      <div class="notice">
+        {c.limits.map((x) => <p>{x[lang]}</p>)}
+        <p><a href={`/${lang}/privacy/`}>{ui.privacy[lang]}</a></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-wa" href={whatsappLink(whatsappMessages.secondOpinion[lang])}>{c.cta[lang]}</a>
+      </div>
+      <p class="small">WhatsApp: <bdi dir="ltr">{phone.intl}</bdi></p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,131 @@
+:root {
+  --bg: #faf8f5;
+  --sand: #ede6dd;
+  --ink: #1b2a3a;
+  --muted: #55606c;
+  --accent: #1f5e8c;
+  --accent-dark: #174a6f;
+  --wa: #11803f;
+  --line: #ddd5ca;
+  --radius: 14px;
+  --font: 'IBM Plex Sans', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+}
+:lang(ar) { --font: 'IBM Plex Sans Arabic', 'IBM Plex Sans', system-ui, sans-serif; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  padding-bottom: 4.5rem; /* room for the mobile contact bar */
+}
+:lang(ar) body, body:lang(ar) { line-height: 1.85; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); }
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.6em; }
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1em; }
+
+.wrap { max-width: 1100px; margin-inline: auto; padding-inline: 16px; }
+.section { padding-block: 3rem; }
+.section-sand { background: var(--sand); }
+.small { font-size: 0.875rem; color: var(--muted); }
+.lead { font-size: 1.2rem; color: var(--muted); }
+
+.draft {
+  background: #fff4cc; color: #5c4400; text-align: center;
+  font-size: 0.875rem; padding: 0.4rem 16px; border-bottom: 1px solid #e8d48a;
+}
+
+/* Header */
+.header { background: #fff; border-bottom: 1px solid var(--line); }
+.header-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 0.9rem; }
+.brand { text-decoration: none; color: var(--ink); display: flex; flex-direction: column; }
+.brand-name { font-weight: 600; font-size: 1.25rem; }
+.brand-title { font-size: 0.85rem; color: var(--muted); }
+.header-contact { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+.phone { font-weight: 600; font-size: 1.1rem; text-decoration: none; color: var(--ink); white-space: nowrap; }
+.lang { border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; text-decoration: none; font-size: 0.95rem; }
+.nav { display: flex; gap: 1.4rem; overflow-x: auto; padding-block: 0.6rem; scrollbar-width: none; }
+.nav a { color: var(--muted); text-decoration: none; white-space: nowrap; padding-block: 0.2rem; border-bottom: 2px solid transparent; }
+.nav a[aria-current='page'], .nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  padding: 0.75rem 1.3rem; border-radius: 999px; font-weight: 600;
+  text-decoration: none; border: 2px solid transparent; font-size: 1rem;
+}
+.btn-wa { background: var(--wa); color: #fff; }
+.btn-call { background: #fff; color: var(--ink); border-color: var(--ink); }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block: 1.2rem; }
+
+/* Hero */
+.hero { padding-block: 3rem; }
+.hero-grid { display: grid; gap: 2rem; align-items: center; }
+.hero-photo { border-radius: var(--radius); max-width: 420px; justify-self: center; }
+.hero-phone { font-size: 1.6rem; font-weight: 600; margin: 0.3rem 0 0; }
+.hero-phone a { color: var(--ink); text-decoration: none; }
+@media (min-width: 820px) {
+  .hero-grid { grid-template-columns: 1.2fr 1fr; }
+}
+
+/* Cards */
+.cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card p:last-child { margin-bottom: 0; }
+
+/* Lists and steps */
+.facts { display: grid; gap: 0.8rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); padding: 0; list-style: none; }
+.facts li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.2rem; }
+.steps { counter-reset: step; list-style: none; padding: 0; display: grid; gap: 1rem; }
+.steps li { counter-increment: step; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.2rem 1rem 3.4rem; position: relative; }
+.steps li::before {
+  content: counter(step); position: absolute; inset-inline-start: 1rem; top: 1rem;
+  width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--accent); color: #fff;
+  display: grid; place-items: center; font-size: 0.9rem; font-weight: 600;
+}
+:dir(rtl) .steps li, [dir='rtl'] .steps li { padding: 1rem 3.4rem 1rem 1.2rem; }
+details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.9rem 1.2rem; margin-bottom: 0.7rem; }
+summary { font-weight: 600; cursor: pointer; }
+details p { margin: 0.7rem 0 0; }
+
+.notice { border-inline-start: 4px solid var(--accent); background: #fff; padding: 1rem 1.2rem; border-radius: 0 var(--radius) var(--radius) 0; }
+[dir='rtl'] .notice { border-radius: var(--radius) 0 0 var(--radius); }
+
+.link-list { list-style: none; padding: 0; display: grid; gap: 0.7rem; max-width: 520px; margin-inline: auto; }
+.link-list a { display: flex; justify-content: space-between; gap: 1rem; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 0.9rem 1.4rem; text-decoration: none; color: var(--ink); font-weight: 600; }
+.link-list span { color: var(--muted); font-weight: 400; }
+
+.sources { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 2rem; }
+
+/* Footer */
+.footer { background: var(--ink); color: #dfe5ec; padding-block: 2.5rem; margin-top: 3rem; }
+.footer a { color: #fff; }
+.footer .small { color: #b5c0cc; }
+.footer-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.footer-name { font-weight: 600; font-size: 1.15rem; color: #fff; }
+.footer-phone { font-size: 1.15rem; font-weight: 600; }
+
+/* Sticky mobile contact bar */
+.contact-bar {
+  position: fixed; inset-inline: 0; bottom: 0; display: flex; gap: 0.6rem;
+  padding: 0.6rem 16px; background: rgba(255, 255, 255, 0.97); border-top: 1px solid var(--line);
+}
+.contact-bar .btn { flex: 1; padding: 0.65rem 0.8rem; }
+@media (min-width: 820px) {
+  .contact-bar { display: none; }
+  body { padding-bottom: 0; }
+}
+@media (max-width: 560px) {
+  .header .phone { display: none; } /* the sticky bar shows the number on phones */
+}

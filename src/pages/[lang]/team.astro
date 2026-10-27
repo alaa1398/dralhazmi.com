@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, site, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Team', ar: 'الفريق' },
+  description: {
+    en: 'The team working with Dr. Alaa Alhazmi.',
+    ar: 'الفريق العامل مع د. علاء الحازمي.',
+  },
+  intro: {
+    en: 'Obesity care works best as a team. Our team is growing, and you will meet its members here soon.',
+    ar: 'تنجح رعاية السمنة بشكل أفضل بالعمل الجماعي. فريقنا في طور النمو، وستتعرف على أعضائه هنا قريبًا.',
+  },
+  lead: { en: 'Consultant surgeon', ar: 'استشاري الجراحة' },
+};
+---
+<Base lang={lang} path="team" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap">
+      <h1>{c.title[lang]}</h1>
+      <p class="lead">{c.intro[lang]}</p>
+      <div class="cards">
+        <article class="card">
+          <img src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" style="border-radius: 10px; margin-bottom: 1rem;" />
+          <h3><a href={`/${lang}/about/`}>{site.name[lang]}</a></h3>
+          <p class="small">{c.lead[lang]}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, social, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Learn', ar: 'تثقيف' },
+  description: {
+    en: 'Videos and articles about obesity, bariatric and metabolic surgery, and robotic surgery by Dr. Alaa Alhazmi.',
+    ar: 'مقاطع ومقالات عن السمنة وجراحات السمنة والجراحة الأيضية والروبوتية من د. علاء الحازمي.',
+  },
+  intro: {
+    en: 'Short, practical videos about obesity, surgery and recovery. Follow along on your favorite platform.',
+    ar: 'مقاطع قصيرة وعملية عن السمنة والجراحة والتعافي. تابعنا على منصتك المفضلة.',
+  },
+  soon: {
+    en: 'A library of selected videos and articles will appear here.',
+    ar: 'ستظهر هنا مكتبة من المقاطع والمقالات المختارة.',
+  },
+};
+const channels = social.filter((s) => ['YouTube', 'TikTok', 'Snapchat', 'Instagram'].includes(s.name));
+---
+<Base lang={lang} path="media" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap">
+      <h1>{c.title[lang]}</h1>
+      <p class="lead">{c.intro[lang]}</p>
+      <div class="cards">
+        {channels.map((s) => (
+          <article class="card">
+            <h3><a href={s.url}>{s.name}</a></h3>
+            <p class="small"><bdi dir="ltr">{s.handle}</bdi></p>
+          </article>
+        ))}
+      </div>
+      <p class="small" style="margin-top: 1.5rem;">{c.soon[lang]}</p>
+    </div>
+  </section>
+</Base>

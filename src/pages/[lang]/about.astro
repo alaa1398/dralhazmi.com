@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, site, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'About', ar: 'نبذة' },
+  description: {
+    en: 'Training, certifications and experience of Dr. Alaa Alhazmi, bariatric, metabolic and robotic surgeon in Riyadh.',
+    ar: 'تدريب د. علاء الحازمي وشهاداته وخبراته، استشاري جراحة السمنة والجراحة الأيضية والروبوتية في الرياض.',
+  },
+  bio: [
+    {
+      en: 'Dr. Alaa Alhazmi is a Saudi consultant in general, bariatric and metabolic surgery, with an almost exclusively robotic surgical practice. He has more than 15 years of experience as a consultant at King Faisal Specialist Hospital & Research Centre in Riyadh, where he led the Section of General & Upper GI Surgery, served as Deputy Chairman of the Department of Surgery, and directed the Metabolic Health and Weight Management Program.',
+      ar: 'د. علاء الحازمي استشاري سعودي في الجراحة العامة وجراحة السمنة والجراحة الأيضية، ويعتمد في ممارسته الجراحية على الجراحة الروبوتية بشكل شبه كامل. عمل استشاريًا لأكثر من 15 عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض، حيث ترأس قسم الجراحة العامة وجراحة الجهاز الهضمي العلوي، وشغل منصب نائب رئيس قسم الجراحة، وأدار برنامج الصحة الأيضية وإدارة الوزن.',
+    },
+    {
+      en: 'He earned his medical degree with distinction from The George Washington University, completed general surgery residency at Inova Fairfax Hospital in Virginia, where he was Chief Administrative Resident, and a fellowship in minimally invasive surgery at the UC Davis Bariatric Surgery Center of Excellence in California. He also holds a Healthcare MBA from The George Washington University.',
+      ar: 'حصل على شهادة الطب بامتياز من جامعة جورج واشنطن، وأكمل الإقامة في الجراحة العامة في مستشفى إينوفا فيرفاكس بولاية فرجينيا حيث كان رئيس الأطباء المقيمين، ثم زمالة الجراحة طفيفة التوغل في مركز التميز لجراحة السمنة بجامعة كاليفورنيا ديفيس. كما يحمل ماجستير إدارة الأعمال في الرعاية الصحية من جامعة جورج واشنطن.',
+    },
+    {
+      en: 'He is a Clinical Assistant Professor at Alfaisal University College of Medicine and has a strong interest in digital surgery and the use of artificial intelligence to make care safer and more efficient.',
+      ar: 'وهو أستاذ مساعد إكلينيكي في كلية الطب بجامعة الفيصل، ويهتم بالجراحة الرقمية وتوظيف الذكاء الاصطناعي لجعل الرعاية الصحية أكثر أمانًا وكفاءة.',
+    },
+  ],
+  certTitle: { en: 'Certifications', ar: 'الشهادات المهنية' },
+  certs: [
+    { en: 'American Board of Surgery, certified in surgery', ar: 'البورد الأمريكي للجراحة' },
+    { en: 'Diplomate, American Board of Obesity Medicine', ar: 'البورد الأمريكي لطب السمنة' },
+    { en: 'Fellow, American College of Surgeons (FACS)', ar: 'زميل الكلية الأمريكية للجراحين (FACS)' },
+    { en: 'Saudi Commission for Health Specialties: Consultant, General Surgery & Bariatric Surgery', ar: 'الهيئة السعودية للتخصصات الصحية: استشاري الجراحة العامة وجراحة السمنة' },
+    { en: 'da Vinci Xi robotic console surgeon training', ar: 'تدريب جرّاح وحدة التحكم على نظام دافنشي Xi الروبوتي' },
+  ],
+  eduTitle: { en: 'Education and training', ar: 'التعليم والتدريب' },
+  edu: [
+    { en: 'Fellowship, Minimally Invasive Surgery, UC Davis Bariatric Surgery Center of Excellence (2009–2010)', ar: 'زمالة الجراحة طفيفة التوغل، مركز التميز لجراحة السمنة بجامعة كاليفورنيا ديفيس (2009–2010)' },
+    { en: 'General Surgery Residency, George Washington University Medical Center and Inova Fairfax Hospital (2003–2009)', ar: 'الإقامة في الجراحة العامة، المركز الطبي لجامعة جورج واشنطن ومستشفى إينوفا فيرفاكس (2003–2009)' },
+    { en: 'Healthcare MBA, The George Washington University (2022)', ar: 'ماجستير إدارة الأعمال في الرعاية الصحية، جامعة جورج واشنطن (2022)' },
+    { en: 'Doctor of Medicine, with distinction, The George Washington University (2003)', ar: 'دكتوراه في الطب بامتياز، جامعة جورج واشنطن (2003)' },
+  ],
+  memTitle: { en: 'Memberships', ar: 'العضويات' },
+  members: {
+    en: 'American Society for Metabolic & Bariatric Surgery (ASMBS) · International Federation for the Surgery of Obesity and Metabolic Disorders (IFSO) · Society of American Gastrointestinal and Endoscopic Surgeons (SAGES) · Society of Robotic Surgery · American College of Healthcare Executives',
+    ar: 'الجمعية الأمريكية لجراحة السمنة والأيض (ASMBS) · الاتحاد الدولي لجراحة السمنة والاضطرابات الأيضية (IFSO) · جمعية جرّاحي الجهاز الهضمي والمناظير الأمريكية (SAGES) · جمعية الجراحة الروبوتية · الكلية الأمريكية للمديرين التنفيذيين في الرعاية الصحية',
+  },
+};
+---
+<Base lang={lang} path="about" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>{site.name[lang]}</h1>
+        <p class="lead">{site.credentials}</p>
+        {c.bio.map((p) => <p>{p[lang]}</p>)}
+      </div>
+      <img class="hero-photo" src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" />
+    </div>
+  </section>
+  <section class="section section-sand">
+    <div class="wrap">
+      <h2>{c.certTitle[lang]}</h2>
+      <ul class="facts">{c.certs.map((x) => <li>{x[lang]}</li>)}</ul>
+      <h2>{c.eduTitle[lang]}</h2>
+      <ul class="facts">{c.edu.map((x) => <li>{x[lang]}</li>)}</ul>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>{c.memTitle[lang]}</h2>
+      <p>{c.members[lang]}</p>
+    </div>
+  </section>
+</Base>

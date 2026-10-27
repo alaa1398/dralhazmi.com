@@ -1,0 +1,32 @@
+---
+// Link-in-bio page: dralhazmi.com/en/links/ and /ar/links/
+import Base from '../../layouts/Base.astro';
+import { langPaths, site, social, phone, ui, faisalNote, type Lang } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  title: { en: 'Links', ar: 'الروابط' },
+  description: {
+    en: 'All official accounts and contact links for Dr. Alaa Alhazmi.',
+    ar: 'جميع الحسابات الرسمية وروابط التواصل للدكتور علاء الحازمي.',
+  },
+  website: { en: 'Website', ar: 'الموقع الإلكتروني' },
+};
+---
+<Base lang={lang} path="links" title={c.title} description={c.description}>
+  <section class="section" style="text-align: center;">
+    <div class="wrap">
+      <img src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" style="width: 120px; border-radius: 50%; margin: 0 auto 1rem;" />
+      <h1 style="font-size: 1.8rem;">{site.name[lang]}</h1>
+      <p class="small">{site.title[lang]}</p>
+      <p class="hero-phone"><a href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a></p>
+      <ul class="link-list" style="margin-top: 1.5rem;">
+        <li><a href={`/${lang}/`}>{c.website[lang]} <span>dralhazmi.com</span></a></li>
+        <li><a href={phone.tel}>{ui.call[lang]} <span><bdi dir="ltr">{phone.intl}</bdi></span></a></li>
+        {social.map((s) => <li><a href={s.url}>{s.name} <span><bdi dir="ltr">{s.handle}</bdi></span></a></li>)}
+      </ul>
+      <p class="small" style="margin-top: 1.5rem;">{faisalNote[lang]}</p>
+    </div>
+  </section>
+</Base>
