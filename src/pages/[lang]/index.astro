@@ -7,8 +7,8 @@ const lang = Astro.params.lang as Lang;
 const c = {
   title: { en: 'Home', ar: 'الرئيسية' },
   description: {
-    en: 'Dr. Alaa Alhazmi, consultant in bariatric, metabolic, robotic and general surgery and obesity medicine in Riyadh. Contact 050 970 4040.',
-    ar: 'د. علاء الحازمي، استشاري جراحة السمنة والجراحة الأيضية والروبوتية والجراحة العامة وطب السمنة في الرياض. للتواصل 050 970 4040.',
+    en: 'Dr. Alaa Alhazmi, consultant in bariatric, metabolic, robotic and general surgery and obesity medicine in Riyadh. Contact +966 50 970 4040.',
+    ar: 'د. علاء الحازمي، استشاري جراحة السمنة والجراحة الأيضية والروبوتية والجراحة العامة وطب السمنة في الرياض. للتواصل ‎+966 50 970 4040.',
   },
   intro: {
     en: 'Consultant surgeon with more than 15 years of experience in bariatric, metabolic and robotic surgery, and a diplomate of the American Board of Obesity Medicine.',
@@ -39,7 +39,7 @@ const c = {
         <p>{c.intro[lang]}</p>
         <p class="small">{site.credentials} · {site.location[lang]}</p>
         <p class="small">{c.reach[lang]}</p>
-        <p class="hero-phone"><a href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a></p>
+        <p class="hero-phone"><a href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a></p>
         <div class="btn-row">
           <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
           <a class="btn btn-call" href={phone.tel}>{ui.call[lang]}</a>

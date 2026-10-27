@@ -26,7 +26,6 @@ export const site = {
 };
 
 export const phone = {
-  local: '050 970 4040',
   intl: '+966 50 970 4040',
   tel: 'tel:+966509704040',
   whatsapp: 'https://wa.me/966509704040',
@@ -47,7 +46,7 @@ export const faisalNote: T = {
 };
 
 export const social = [
-  { name: 'WhatsApp', handle: '050 970 4040', url: phone.whatsapp },
+  { name: 'WhatsApp', handle: '+966 50 970 4040', url: phone.whatsapp },
   { name: 'Instagram', handle: '@alaa.a.alhazmi', url: 'https://www.instagram.com/alaa.a.alhazmi/' },
   { name: 'Snapchat', handle: '@dralaa.alhazmi', url: 'https://www.snapchat.com/add/dralaa.alhazmi' },
   { name: 'TikTok', handle: '@dr.alaa.hazmi', url: 'https://www.tiktok.com/@dr.alaa.hazmi' },

@@ -45,7 +45,7 @@ const current = path.split('/')[0];
           <span class="brand-title">{site.title[lang]}</span>
         </a>
         <div class="header-contact">
-          <a class="phone" href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a>
+          <a class="phone" href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a>
           <a class="lang" href={href(other, path)} hreflang={other} lang={other}>{ui.switchLang[lang]}</a>
         </div>
       </div>
@@ -68,7 +68,7 @@ const current = path.split('/')[0];
           <p>{site.location[lang]}</p>
         </div>
         <div>
-          <p class="footer-phone"><a href={phone.tel}><bdi dir="ltr">{phone.local}</bdi></a> · <bdi dir="ltr">{phone.intl}</bdi></p>
+          <p class="footer-phone"><a href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a></p>
           <p class="small">{faisalNote[lang]}</p>
           <p class="small">{ui.emergency[lang]}</p>
         </div>
@@ -82,7 +82,7 @@ const current = path.split('/')[0];
 
     <div class="contact-bar" aria-label="Contact">
       <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.whatsapp[lang]}</a>
-      <a class="btn btn-call" href={phone.tel}>{ui.call[lang]} <bdi dir="ltr">{phone.local}</bdi></a>
+      <a class="btn btn-call" href={phone.tel}>{ui.call[lang]} <bdi dir="ltr">{phone.intl}</bdi></a>
     </div>
   </body>
 </html>
