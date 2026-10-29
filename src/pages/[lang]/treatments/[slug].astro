@@ -8,14 +8,14 @@ const lang = Astro.params.lang as Lang;
 const { t } = Astro.props;
 
 const h = {
-  what: { en: 'What it is', ar: 'ما هو' },
-  who: { en: 'Who it may suit', ar: 'لمن يناسب' },
-  expect: { en: 'What to expect', ar: 'ماذا تتوقع' },
-  next: { en: 'Discuss your options', ar: 'ناقش خياراتك' },
-  sources: { en: 'Source', ar: 'المصدر' },
+  what: { en: 'What it is', ar: 'نبذة عن العلاج' },
+  who: { en: 'Who it may suit', ar: 'من المرشّح لهذا العلاج؟' },
+  expect: { en: 'What to expect', ar: 'ما الذي تتوقعه؟' },
+  next: { en: 'Discuss your options', ar: 'تحدّث معنا عن خياراتك العلاجية' },
+  sources: { en: 'Source', ar: 'المصدر (بالإنجليزية)' },
   general: {
     en: 'This page is general information, not medical advice for your situation.',
-    ar: 'هذه الصفحة معلومات عامة، وليست استشارة طبية لحالتك.',
+    ar: 'المعلومات في هذه الصفحة عامة، ولا تُغني عن الاستشارة الطبية لحالتك.',
   },
 };
 ---
@@ -37,7 +37,7 @@ const h = {
       </div>
       <p class="small" style="margin-top: 1.5rem;">{h.general[lang]}</p>
       {t.slug === 'bariatric-surgery' && (
-        <p class="sources">{h.sources[lang]}: <a href={asmbsSource.url} lang="en">{asmbsSource.label}</a></p>
+        <p class="sources">{h.sources[lang]}: <a href={asmbsSource.url} lang="en" dir="ltr">{asmbsSource.label}</a></p>
       )}
     </div>
   </section>

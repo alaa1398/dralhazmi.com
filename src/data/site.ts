@@ -93,22 +93,22 @@ export type Treatment = {
 export const treatments: Treatment[] = [
   {
     slug: 'bariatric-surgery',
-    name: { en: 'Bariatric Surgery', ar: 'جراحات السمنة' },
+    name: { en: 'Bariatric Surgery', ar: 'جراحة السمنة' },
     summary: {
       en: 'Weight-loss operations such as sleeve gastrectomy and gastric bypass, for people living with obesity.',
-      ar: 'عمليات إنقاص الوزن مثل تكميم المعدة وتحويل المسار، للمصابين بالسمنة.',
+      ar: 'عمليات لإنقاص الوزن، مثل تكميم المعدة وتحويل المسار، لمن يعانون من السمنة.',
     },
     what: {
       en: 'Bariatric surgery changes the stomach and, in some operations, the small intestine, to reduce how much you eat and change the hormones that control hunger and metabolism. The most common operations are sleeve gastrectomy and gastric bypass. Revision surgery is an option for some patients who had a previous weight-loss operation.',
-      ar: 'تُغيّر جراحات السمنة حجم المعدة، وفي بعض العمليات الأمعاء الدقيقة أيضًا، لتقليل كمية الطعام وتعديل الهرمونات التي تتحكم في الجوع والتمثيل الغذائي. أكثر العمليات شيوعًا تكميم المعدة وتحويل المسار. وتُعدّ الجراحة التصحيحية خيارًا لبعض المرضى الذين أجروا عملية سابقة لإنقاص الوزن.',
+      ar: 'تُجرى جراحة السمنة على المعدة، وفي بعض العمليات على الأمعاء الدقيقة أيضًا، فتقلّ كمية الطعام التي يتناولها المريض، وتتغيّر الهرمونات المسؤولة عن الشعور بالجوع وعن عمليات الأيض. وأشهر هذه العمليات تكميم المعدة وتحويل المسار. أما من أجرى عملية سابقة لإنقاص الوزن، فقد تكون العملية التصحيحية خيارًا مناسبًا له.',
     },
     who: {
       en: 'The 2022 ASMBS/IFSO guidelines recommend surgery for adults with a BMI of 35 or more, and considering it from a BMI of 30 with metabolic disease (lower thresholds apply to people of Asian descent). Whether surgery is right for you is decided only after a full assessment.',
-      ar: 'توصي إرشادات الجمعيتين الأمريكية والدولية لجراحة السمنة (ASMBS/IFSO) لعام 2022 بالجراحة للبالغين الذين يبلغ مؤشر كتلة الجسم لديهم 35 فأكثر، وبالنظر فيها ابتداءً من 30 مع وجود أمراض أيضية (وتنطبق حدود أقل على ذوي الأصول الآسيوية). ولا يُحدَّد مدى ملاءمة الجراحة لك إلا بعد تقييم شامل.',
+      ar: 'توصي الإرشادات الصادرة عام 2022 عن الجمعية الأمريكية لجراحة السمنة والأيض والاتحاد الدولي لجراحة السمنة بالجراحة للبالغين الذين يبلغ مؤشر كتلة الجسم لديهم 35 فأكثر، وتنصح بالنظر فيها ابتداءً من 30 لمن لديهم مرض أيضي، مع حدود أقل لذوي الأصول الآسيوية. ولا يُحدَّد ما إذا كانت الجراحة مناسبة لك إلا بعد تقييم شامل.',
     },
     expect: {
       en: 'Assessment by the surgical and nutrition team, preparation before the operation, a short hospital stay, and long-term follow-up on diet, vitamins and activity.',
-      ar: 'تقييم من الفريق الجراحي وفريق التغذية، ثم تهيئة قبل العملية، وإقامة قصيرة في المستشفى، ومتابعة طويلة الأمد للنظام الغذائي والفيتامينات والنشاط البدني.',
+      ar: 'يبدأ العلاج بتقييم من الفريق الجراحي وفريق التغذية، ثم مرحلة تهيئة قبل العملية، فإقامة قصيرة في المستشفى، تليها متابعة طويلة الأمد للنظام الغذائي والفيتامينات والنشاط البدني.',
     },
   },
   {
@@ -116,19 +116,19 @@ export const treatments: Treatment[] = [
     name: { en: 'Metabolic Surgery', ar: 'الجراحة الأيضية' },
     summary: {
       en: 'Surgery aimed at improving type 2 diabetes and other metabolic diseases linked to obesity.',
-      ar: 'جراحة تهدف إلى تحسين السكري من النوع الثاني والأمراض الأيضية الأخرى المرتبطة بالسمنة.',
+      ar: 'جراحة تهدف إلى علاج السكري من النوع الثاني وغيره من الأمراض الأيضية المرتبطة بالسمنة.',
     },
     what: {
       en: 'Metabolic surgery uses the same operations as bariatric surgery, but the main goal is treating conditions such as type 2 diabetes, high blood pressure, fatty liver and sleep apnea, not only weight loss.',
-      ar: 'تعتمد الجراحة الأيضية على العمليات نفسها المستخدمة في جراحات السمنة، لكن هدفها الأساسي علاج أمراض مثل السكري من النوع الثاني وارتفاع ضغط الدم والكبد الدهني وانقطاع النفس أثناء النوم، وليس إنقاص الوزن فقط.',
+      ar: 'تُجرى في الجراحة الأيضية العمليات نفسها المتّبعة في جراحة السمنة، غير أن هدفها الأول علاج أمراض مثل السكري من النوع الثاني وارتفاع ضغط الدم والكبد الدهني وانقطاع النفس أثناء النوم، لا إنقاص الوزن وحده.',
     },
     who: {
       en: 'Adults with obesity and a metabolic disease that is hard to control with medicine and lifestyle changes. The decision is made with your physicians after a full assessment.',
-      ar: 'البالغون المصابون بالسمنة مع مرض أيضي يصعب التحكم فيه بالأدوية وتغيير نمط الحياة. ويُتخذ القرار بالتنسيق مع أطبائك بعد تقييم شامل.',
+      ar: 'البالغون المصابون بالسمنة ممن لديهم مرض أيضي يصعب ضبطه بالأدوية وتغيير نمط الحياة. ويُتّخذ القرار بالتنسيق مع أطبائك بعد تقييم شامل.',
     },
     expect: {
       en: 'Close coordination with your endocrinologist or physician, careful adjustment of medicines after surgery, and long-term follow-up.',
-      ar: 'تنسيق وثيق مع طبيب الغدد الصماء أو طبيبك المعالج، وضبط دقيق للأدوية بعد الجراحة، ومتابعة طويلة الأمد.',
+      ar: 'تنسيق وثيق مع طبيب الغدد الصمّاء أو طبيبك المعالج، وتعديل مدروس للأدوية بعد العملية، ومتابعة طويلة الأمد.',
     },
   },
   {
@@ -136,19 +136,19 @@ export const treatments: Treatment[] = [
     name: { en: 'Robotic Surgery', ar: 'الجراحة الروبوتية' },
     summary: {
       en: 'Minimally invasive surgery using a robotic system.',
-      ar: 'جراحة طفيفة التوغل بمساعدة الروبوت.',
+      ar: 'جراحة عبر فتحات صغيرة بمساعدة الروبوت الجراحي.',
     },
     what: {
       en: 'In robotic surgery, the surgeon controls precise instruments and a magnified 3D camera from a console, working through small incisions. Dr. Alhazmi is trained in robotic surgery and maintains an almost exclusively robotic practice.',
-      ar: 'في الجراحة الروبوتية يتحكم الجرّاح من وحدة تحكم في أدوات دقيقة وكاميرا مكبّرة ثلاثية الأبعاد، ويعمل من خلال فتحات صغيرة. تدرّب د. علاء الحازمي على الجراحة الروبوتية، ويعتمد في ممارسته الجراحية على الجراحة الروبوتية بشكل شبه كامل.',
+      ar: 'في الجراحة الروبوتية، يجلس الجرّاح إلى وحدة تحكّم يحرّك منها أدوات دقيقة وكاميرا تعرض صورة مكبّرة ثلاثية الأبعاد، ويُجري العملية من خلال فتحات صغيرة. وقد تدرّب د. علاء الحازمي على الجراحة الروبوتية، ويُجري عملياته كلها تقريبًا بالروبوت.',
     },
     who: {
       en: 'Many bariatric, hernia, gallbladder and other abdominal operations can be done robotically. The best approach for you is discussed at your consultation.',
-      ar: 'يمكن إجراء كثير من عمليات السمنة والفتق والمرارة وغيرها من عمليات البطن بالروبوت. ويُناقَش النهج الأنسب لحالتك خلال الاستشارة.',
+      ar: 'يمكن إجراء كثير من عمليات السمنة والفتق والمرارة وغيرها من عمليات البطن بالروبوت. ويُحدَّد الأسلوب الأنسب لحالتك خلال الاستشارة.',
     },
     expect: {
       en: 'Small incisions and the same preparation and follow-up as the equivalent standard operation.',
-      ar: 'فتحات صغيرة، والتهيئة والمتابعة نفسها المتّبعة في العملية التقليدية المماثلة.',
+      ar: 'فتحات صغيرة، مع التهيئة والمتابعة نفسها المتّبعة في العملية المماثلة بالأسلوب المعتاد.',
     },
   },
   {
@@ -156,19 +156,19 @@ export const treatments: Treatment[] = [
     name: { en: 'General Surgery', ar: 'الجراحة العامة' },
     summary: {
       en: 'Gallbladder, hernia, upper GI and other common abdominal operations.',
-      ar: 'عمليات المرارة والفتق والجهاز الهضمي العلوي وغيرها من عمليات البطن الشائعة.',
+      ar: 'عمليات المرارة والفتق والجهاز الهضمي العلوي، وغيرها من عمليات البطن الشائعة.',
     },
     what: {
       en: 'General surgery covers common abdominal conditions, including gallstones, hernias (including abdominal wall reconstruction), reflux and hiatal hernia, and other upper gastrointestinal conditions. Most are done with minimally invasive or robotic techniques.',
-      ar: 'تشمل الجراحة العامة حالات البطن الشائعة، ومنها حصوات المرارة والفتق (بما في ذلك إعادة بناء جدار البطن) والارتجاع وفتق الحجاب الحاجز وغيرها من أمراض الجهاز الهضمي العلوي. ويُجرى معظمها بتقنيات طفيفة التوغل أو بالروبوت.',
+      ar: 'تُعنى الجراحة العامة بأمراض البطن الشائعة، ومنها حصوات المرارة، والفتق بأنواعه بما في ذلك إعادة بناء جدار البطن، وارتجاع المريء وفتق الحجاب الحاجز، وغيرها من أمراض الجهاز الهضمي العلوي. ويُجرى معظمها بالمنظار أو بالروبوت.',
     },
     who: {
       en: 'Adults referred by their physician or seeking a surgical opinion on an abdominal condition.',
-      ar: 'البالغون المحالون من أطبائهم أو الراغبون في رأي جراحي حول حالة في البطن.',
+      ar: 'البالغون المحالون من أطبائهم، ومن يرغبون في رأي جراحي في حالة تخص البطن.',
     },
     expect: {
       en: 'A consultation and any needed tests, a clear plan, and follow-up after the operation.',
-      ar: 'استشارة وما يلزم من فحوصات، وخطة واضحة، ومتابعة بعد العملية.',
+      ar: 'استشارة وما يلزم من فحوصات، ثم خطة علاجية واضحة، ومتابعة بعد العملية.',
     },
   },
   {
@@ -176,19 +176,19 @@ export const treatments: Treatment[] = [
     name: { en: 'Obesity Medicine', ar: 'طب السمنة' },
     summary: {
       en: 'Non-surgical treatment of obesity, including nutrition, activity and medicines.',
-      ar: 'علاج السمنة دون جراحة، ويشمل التغذية والنشاط البدني والأدوية.',
+      ar: 'علاج السمنة دون جراحة، بالتغذية والنشاط البدني والأدوية.',
     },
     what: {
       en: 'Obesity is a chronic disease. Treatment can include nutrition and activity plans, behavioral support and, when suitable, anti-obesity medicines, alone or alongside surgery. Dr. Alhazmi is certified by the American Board of Obesity Medicine.',
-      ar: 'السمنة مرض مزمن. وقد يشمل العلاج خططًا للتغذية والنشاط البدني ودعمًا سلوكيًا، وعند الملاءمة أدوية علاج السمنة، منفردة أو مع الجراحة. د. علاء الحازمي حاصل على شهادة البورد الأمريكي لطب السمنة.',
+      ar: 'السمنة مرض مزمن، وقد يشمل علاجها خطة للتغذية والنشاط البدني، ودعمًا سلوكيًا، وأدوية علاج السمنة عند الحاجة، إما وحدها أو إلى جانب الجراحة. ود. علاء الحازمي حاصل على البورد الأمريكي لطب السمنة.',
     },
     who: {
       en: 'Anyone living with obesity who wants a medical plan, whether or not surgery is an option for them.',
-      ar: 'كل من يعاني من السمنة ويرغب في خطة علاجية طبية، سواء كانت الجراحة خيارًا مناسبًا له أم لا.',
+      ar: 'كل من يعاني من السمنة ويرغب في خطة علاج طبية، سواء كانت الجراحة خيارًا مناسبًا له أم لا.',
     },
     expect: {
       en: 'A full assessment, a personal plan, and regular follow-up to adjust it.',
-      ar: 'تقييم شامل، وخطة شخصية، ومتابعة منتظمة لتعديلها.',
+      ar: 'تقييم شامل، ثم خطة علاج خاصة بك، ومتابعة منتظمة لتعديلها حسب استجابتك.',
     },
   },
 ];
