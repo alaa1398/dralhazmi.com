@@ -135,12 +135,12 @@ export const treatments: Treatment[] = [
     slug: 'robotic-surgery',
     name: { en: 'Robotic Surgery', ar: 'الجراحة الروبوتية' },
     summary: {
-      en: 'Minimally invasive surgery using the da Vinci robotic system.',
-      ar: 'جراحة طفيفة التوغل باستخدام نظام دافنشي الروبوتي.',
+      en: 'Minimally invasive surgery using a robotic system.',
+      ar: 'جراحة طفيفة التوغل بمساعدة الروبوت.',
     },
     what: {
-      en: 'In robotic surgery, the surgeon controls precise instruments and a magnified 3D camera from a console, working through small incisions. Dr. Alhazmi trained on the da Vinci system and maintains an almost exclusively robotic practice.',
-      ar: 'في الجراحة الروبوتية يتحكم الجرّاح من وحدة تحكم في أدوات دقيقة وكاميرا مكبّرة ثلاثية الأبعاد، ويعمل من خلال فتحات صغيرة. تدرّب د. علاء الحازمي على نظام دافنشي، ويعتمد في ممارسته الجراحية على الجراحة الروبوتية بشكل شبه كامل.',
+      en: 'In robotic surgery, the surgeon controls precise instruments and a magnified 3D camera from a console, working through small incisions. Dr. Alhazmi is trained in robotic surgery and maintains an almost exclusively robotic practice.',
+      ar: 'في الجراحة الروبوتية يتحكم الجرّاح من وحدة تحكم في أدوات دقيقة وكاميرا مكبّرة ثلاثية الأبعاد، ويعمل من خلال فتحات صغيرة. تدرّب د. علاء الحازمي على الجراحة الروبوتية، ويعتمد في ممارسته الجراحية على الجراحة الروبوتية بشكل شبه كامل.',
     },
     who: {
       en: 'Many bariatric, hernia, gallbladder and other abdominal operations can be done robotically. The best approach for you is discussed at your consultation.',
