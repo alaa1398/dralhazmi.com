@@ -1,8 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { langPaths, site, phone, ui, faisalNote, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+import { langPaths, site, phone, ui, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
+
+// Robotic surgery leads the treatment list on the homepage.
+const ordered = [...treatments].sort((a, b) => Number(b.slug === 'robotic-surgery') - Number(a.slug === 'robotic-surgery'));
 
 const c = {
   title: { en: 'Home', ar: 'الرئيسية' },
@@ -10,74 +13,307 @@ const c = {
     en: 'Dr. Alaa Alhazmi, consultant in bariatric, metabolic, robotic and general surgery and obesity medicine. Contact +966 50 970 4040.',
     ar: 'د. علاء الحازمي، استشاري جراحة السمنة والجراحة الأيضية والروبوتية والجراحة العامة وطب السمنة. للتواصل ‎+966 50 970 4040.',
   },
+  eyebrow: { en: 'Consultant surgeon · Riyadh', ar: 'استشاري جراحة · الرياض' },
+  h1a: { en: 'Precision surgery,', ar: 'جراحة' },
+  h1b: { en: 'guided by robotics.', ar: 'بدقّة الروبوت.' },
   intro: {
-    en: 'Consultant surgeon with more than 15 years of experience in bariatric, metabolic and robotic surgery, and a diplomate of the American Board of Obesity Medicine.',
-    ar: 'استشاري جراحة بخبرة تزيد على 15 عامًا في جراحات السمنة والجراحة الأيضية والروبوتية، وحاصل على البورد الأمريكي لطب السمنة.',
+    en: 'More than 15 years in bariatric, metabolic and general surgery, with an almost exclusively robotic practice.',
+    ar: 'خبرة تتجاوز خمسة عشر عامًا في جراحة السمنة والجراحة الأيضية والجراحة العامة، ويُجري معظم عملياته بالجراحة الروبوتية.',
   },
-  reach: { en: 'Book or ask a question', ar: 'للحجز أو الاستفسار' },
-  treatments: { en: 'Treatments', ar: 'العلاجات' },
-  why: { en: 'Training and experience', ar: 'التدريب والخبرة' },
-  facts: [
-    { en: 'MD, The George Washington University, Washington, DC', ar: 'دكتوراه في الطب من جامعة جورج واشنطن، واشنطن العاصمة' },
-    { en: 'Fellowship in minimally invasive and bariatric surgery, UC Davis, California', ar: 'زمالة الجراحة طفيفة التوغل وجراحة السمنة، جامعة كاليفورنيا ديفيس' },
-    { en: 'Certified by the American Board of Surgery; Fellow of the American College of Surgeons', ar: 'البورد الأمريكي للجراحة، وزميل الكلية الأمريكية للجراحين' },
-    { en: 'Over 15 years at King Faisal Specialist Hospital & Research Centre, Riyadh', ar: 'أكثر من 15 عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض' },
+  orCall: { en: 'or call', ar: 'أو اتصل على' },
+  stats: [
+    { v: '15+', word: false, l: { en: 'years of surgical experience', ar: 'عامًا من الخبرة الجراحية' } },
+    { v: '2', word: false, l: { en: 'American Boards: Surgery and Obesity Medicine', ar: 'بورد أمريكي: الجراحة وطب السمنة' } },
+    { v: { en: 'KFSH&RC', ar: 'التخصصي' }, word: true, l: { en: 'King Faisal Specialist Hospital, Riyadh', ar: 'مستشفى الملك فيصل التخصصي، الرياض' } },
   ],
-  secondTitle: { en: 'Second opinion', ar: 'رأي طبي ثانٍ' },
-  secondText: {
-    en: 'Already have a diagnosis or a surgery recommendation? Send your question and reports on WhatsApp for a second opinion.',
-    ar: 'هل لديك تشخيص أو توصية بإجراء عملية؟ أرسل سؤالك وتقاريرك عبر واتساب للحصول على رأي طبي ثانٍ.',
+  robotH2a: { en: 'The surgeon’s hands,', ar: 'مهارة الجرّاح،' },
+  robotH2b: { en: 'with a robot’s steadiness.', ar: 'وثبات الروبوت.' },
+  robotText: {
+    en: 'In robotic surgery, the surgeon controls fine, wristed instruments and a magnified 3D camera from a console, working through small incisions.',
+    ar: 'في الجراحة الروبوتية، يتحكّم الجرّاح من وحدة تحكّم بأدوات دقيقة تنثني وتدور، وبكاميرا تعرض صورة مكبّرة ثلاثية الأبعاد، ويعمل من خلال فتحات صغيرة.',
   },
+  robotPoints: [
+    { t: { en: 'Magnified 3D view', ar: 'رؤية مكبّرة ثلاثية الأبعاد' }, d: { en: 'A high-definition, three-dimensional image of the operating field.', ar: 'صورة عالية الوضوح لموضع العملية بأبعادها الثلاثة.' } },
+    { t: { en: 'Wristed instruments', ar: 'أدوات مرنة الحركة' }, d: { en: 'Instruments that bend and rotate for fine, controlled movement.', ar: 'أدوات تنثني وتدور لتتيح حركة دقيقة ومحكمة.' } },
+    { t: { en: 'Small incisions', ar: 'فتحات صغيرة' }, d: { en: 'Minimally invasive access instead of one large opening.', ar: 'جراحة عبر فتحات صغيرة بدل شقّ جراحي كبير.' } },
+    { t: { en: 'Established operations', ar: 'عمليات راسخة' }, d: { en: 'Sleeve, bypass, hernia and gallbladder surgery, done robotically.', ar: 'تكميم المعدة وتحويل المسار والفتق والمرارة، تُجرى بالروبوت.' } },
+  ],
+  pathsEyebrow: { en: 'Two paths to treatment', ar: 'مساران للعلاج' },
+  pathsH2a: { en: 'Not every patient', ar: 'ليس كل مريض' },
+  pathsH2b: { en: 'needs surgery.', ar: 'بحاجة إلى جراحة.' },
+  pathsText: {
+    en: 'Certified in both surgery and obesity medicine, Dr. Alhazmi can build a plan around an operation, medical treatment, or both. The right path is decided after a full assessment.',
+    ar: 'د. علاء الحازمي حاصل على البورد الأمريكي في الجراحة وفي طب السمنة، لذا قد تشمل خطتك عملية جراحية أو علاجًا طبيًا أو كليهما. ويُحدَّد المسار الأنسب لك بعد تقييم شامل.',
+  },
+  paths: [
+    { t: { en: 'Without surgery', ar: 'دون جراحة' }, items: [
+      { en: 'Medical assessment and tests', ar: 'تقييم طبي وفحوصات' },
+      { en: 'Nutrition and activity plan', ar: 'خطة للتغذية والنشاط البدني' },
+      { en: 'Anti-obesity medicines when suitable', ar: 'أدوية علاج السمنة عند الحاجة' },
+      { en: 'Regular follow-up', ar: 'متابعة منتظمة' },
+    ] },
+    { t: { en: 'With surgery', ar: 'بالجراحة' }, items: [
+      { en: 'Robotic sleeve or gastric bypass', ar: 'تكميم المعدة أو تحويل المسار بالروبوت' },
+      { en: 'Metabolic surgery for type 2 diabetes', ar: 'الجراحة الأيضية لعلاج السكري من النوع الثاني' },
+      { en: 'Revision of a previous operation', ar: 'تصحيح عملية سابقة' },
+      { en: 'Long-term follow-up', ar: 'متابعة طويلة الأمد' },
+    ] },
+  ],
+  bmiTitle: { en: 'Am I a candidate?', ar: 'هل أنا مرشّح للعلاج؟' },
+  bmiIntro: { en: 'Enter your height and weight to see where you stand under international guidelines.', ar: 'أدخل طولك ووزنك لتعرف موقعك وفق الإرشادات الدولية.' },
+  height: { en: 'Height (cm)', ar: 'الطول (سم)' },
+  weight: { en: 'Weight (kg)', ar: 'الوزن (كجم)' },
+  yourBmi: { en: 'Your BMI', ar: 'مؤشر كتلة الجسم لديك' },
+  bmiEmpty: { en: 'Your result will appear here.', ar: 'ستظهر النتيجة هنا.' },
+  bmiCta: { en: 'Discuss your result on WhatsApp', ar: 'ناقش نتيجتك عبر واتساب' },
+  bmiNote: {
+    en: 'For education only, not a diagnosis; a full assessment decides your treatment. Based on the 2022 ASMBS/IFSO guidelines; lower thresholds apply to people of Asian descent.',
+    ar: 'للتثقيف فقط، وليست تشخيصًا؛ فالعلاج المناسب يُحدَّد بعد تقييم شامل. تستند النتيجة إلى إرشادات ASMBS/IFSO لعام 2022، وتنطبق حدود أقل على ذوي الأصول الآسيوية.',
+  },
+  advice: {
+    en: [
+      'Guidelines recommend weight-loss surgery at this BMI. Medical treatment is also an option; an assessment shows which suits you.',
+      'Surgery may be considered, especially with type 2 diabetes or another metabolic disease. Medical treatment is often the first step.',
+      'Medical treatment (nutrition, activity and, when suitable, medicines) is usually the first option.',
+      'Your BMI is below the overweight range. A medical assessment can still help if you have concerns.',
+    ],
+    ar: [
+      'توصي الإرشادات بجراحة السمنة عند هذا المؤشر، والعلاج الطبي خيار متاح أيضًا، ويحدّد التقييم الأنسب لك.',
+      'يمكن النظر في الجراحة، خاصة مع السكري من النوع الثاني أو مرض أيضي آخر، وكثيرًا ما يبدأ العلاج بالخيار الطبي.',
+      'العلاج الطبي (التغذية والنشاط البدني، والأدوية عند الحاجة) هو الخيار الأول عادةً.',
+      'مؤشرك أقل من نطاق زيادة الوزن، ويمكن للتقييم الطبي أن يفيدك إن كانت لديك مخاوف.',
+    ],
+  },
+  treatments: { en: 'Treatments', ar: 'العلاجات' },
+  treatmentsText: { en: 'Surgical and medical care for obesity and common abdominal conditions.', ar: 'رعاية جراحية وطبية للسمنة وأمراض البطن الشائعة.' },
+  risks: {
+    en: 'Every operation carries risks, including bleeding, infection, leaks and nutritional deficiencies, which are discussed in full before any decision. Long-term follow-up is essential: missing follow-up visits raises the risk of complications. Recovery times vary from person to person.',
+    ar: 'لكل عملية جراحية مخاطر محتملة، منها النزيف والالتهاب والتسرّب ونقص بعض العناصر الغذائية، وتُناقَش جميعها بالتفصيل قبل اتخاذ أي قرار. والمتابعة طويلة الأمد ضرورية، فالتخلّف عن مواعيد المتابعة يزيد خطر المضاعفات. وتختلف مدة التعافي من شخص لآخر.',
+  },
+  journeyH2: { en: 'From first message to long-term follow-up.', ar: 'من رسالتك الأولى إلى المتابعة طويلة الأمد.' },
+  journey: [
+    { t: { en: 'Send a message', ar: 'أرسل رسالة' }, d: { en: 'Reach us on WhatsApp or by phone with your question or reports.', ar: 'تواصل معنا عبر واتساب أو الهاتف بسؤالك أو تقاريرك الطبية.' } },
+    { t: { en: 'Full assessment', ar: 'تقييم شامل' }, d: { en: 'A consultation, the tests you need, and input from the nutrition team.', ar: 'استشارة، والفحوصات اللازمة، وتقييم من فريق التغذية.' } },
+    { t: { en: 'Your treatment', ar: 'العلاج' }, d: { en: 'A medical plan, or preparation followed by a robotic operation and a short hospital stay.', ar: 'خطة علاج طبية، أو تهيئة ثم جراحة روبوتية وإقامة قصيرة في المستشفى.' } },
+    { t: { en: 'Long-term follow-up', ar: 'متابعة مستمرة' }, d: { en: 'Ongoing support on diet, vitamins, activity and medicines.', ar: 'دعم متواصل في التغذية والفيتامينات والنشاط البدني والأدوية.' } },
+  ],
+  journeyLink: { en: 'Your journey in detail →', ar: 'رحلتك العلاجية بالتفصيل ←' },
+  aboutEyebrow: { en: 'About', ar: 'عن الدكتور' },
+  aboutText: {
+    en: 'Dr. Alhazmi earned an MD at The George Washington University and completed a fellowship in minimally invasive and bariatric surgery at UC Davis. Dr. Alhazmi is certified by the American Board of Surgery and the American Board of Obesity Medicine, and has practiced for more than 15 years at King Faisal Specialist Hospital & Research Centre in Riyadh.',
+    ar: 'حصل د. علاء الحازمي على شهادة الطب من جامعة جورج واشنطن، وأتمّ زمالة جراحة المناظير وجراحة السمنة في جامعة كاليفورنيا ديفيس. وهو حاصل على البورد الأمريكي للجراحة والبورد الأمريكي لطب السمنة، ويعمل منذ أكثر من خمسة عشر عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض.',
+  },
+  aboutLink: { en: 'Read the full story →', ar: 'اقرأ المزيد ←' },
+  facts: [
+    { k: { en: 'Education', ar: 'التعليم' }, v: { en: 'MD, The George Washington University', ar: 'دكتوراه في الطب، جامعة جورج واشنطن' } },
+    { k: { en: 'Fellowship', ar: 'الزمالة' }, v: { en: 'Minimally invasive and bariatric surgery, UC Davis', ar: 'جراحة المناظير وجراحة السمنة، جامعة كاليفورنيا ديفيس' } },
+    { k: { en: 'Certification', ar: 'الشهادات' }, v: { en: 'American Board of Surgery · American Board of Obesity Medicine · Fellow, American College of Surgeons', ar: 'البورد الأمريكي للجراحة · البورد الأمريكي لطب السمنة · زميل الكلية الأمريكية للجرّاحين' } },
+    { k: { en: 'Practice', ar: 'مكان العمل' }, v: { en: 'King Faisal Specialist Hospital & Research Centre, Riyadh', ar: 'مستشفى الملك فيصل التخصصي ومركز الأبحاث، الرياض' } },
+  ],
+  faqH2a: { en: 'Common', ar: 'أسئلة' },
+  faqH2b: { en: 'questions', ar: 'شائعة' },
+  faq: [
+    { q: { en: 'Is robotic surgery different from laparoscopic surgery?', ar: 'ما الفرق بين الجراحة الروبوتية وجراحة المنظار؟' }, a: { en: 'Both use small incisions. In robotic surgery the surgeon operates the instruments from a console, with a magnified 3D view and wristed instruments. Which approach suits you is discussed at your consultation.', ar: 'كلتاهما تُجرى عبر فتحات صغيرة. وفي الجراحة الروبوتية يحرّك الجرّاح الأدوات من وحدة تحكّم، مع رؤية مكبّرة ثلاثية الأبعاد وأدوات مرنة الحركة. ويُحدَّد الأنسب لحالتك خلال الاستشارة.' } },
+    { q: { en: 'Am I a candidate for weight-loss surgery?', ar: 'هل أنا مرشّح لعملية إنقاص الوزن؟' }, a: { en: 'The 2022 ASMBS/IFSO guidelines recommend surgery for adults with a BMI of 35 or more, and considering it from 30 with metabolic disease. The decision is made only after a full assessment.', ar: 'توصي الإرشادات الدولية لعام 2022 (ASMBS/IFSO) بالجراحة للبالغين إذا بلغ مؤشر كتلة الجسم 35 أو أكثر، وبالنظر فيها ابتداءً من 30 عند وجود مرض أيضي. ولا يُتّخذ القرار إلا بعد تقييم شامل.' } },
+    { q: { en: 'Can I get a second opinion on a surgery recommendation?', ar: 'هل يمكنني طلب رأي طبي ثانٍ في توصية بإجراء عملية؟' }, a: { en: 'Yes. Send your question and reports on WhatsApp for Dr. Alhazmi to review.', ar: 'نعم. أرسل سؤالك وتقاريرك عبر واتساب ليطّلع عليها د. علاء الحازمي.' } },
+    { q: { en: 'Who answers when I call?', ar: 'من يردّ على اتصالي؟' }, a: { en: 'Calls are answered by Faisal, Dr. Alhazmi’s AI assistant, who can take your message.', ar: 'يردّ فيصل، المساعد الذكي للدكتور علاء، ويمكنه تسجيل رسالتك.' } },
+  ],
+  ctaH2a: { en: 'Already advised to', ar: 'هل نُصحت' },
+  ctaH2b: { en: 'have surgery?', ar: 'بإجراء عملية؟' },
+  ctaText: { en: 'Send your reports on WhatsApp for a second opinion from Dr. Alhazmi.', ar: 'أرسل تقاريرك عبر واتساب للحصول على رأي طبي ثانٍ من د. علاء الحازمي.' },
+  ctaBtn: { en: 'Request a second opinion', ar: 'اطلب رأيًا طبيًا ثانيًا' },
 };
+const arrow = lang === 'ar' ? '←' : '→';
 ---
 <Base lang={lang} path="" title={c.title} description={c.description}>
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>{site.name[lang]}</h1>
-        <p class="lead">{site.title[lang]}</p>
-        <p>{c.intro[lang]}</p>
-        <p class="small">{site.credentials}</p>
-        <p class="small">{c.reach[lang]}</p>
-        <p class="hero-phone"><a href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a></p>
-        <div class="btn-row">
-          <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
-          <a class="btn btn-call" href={phone.tel}>{ui.call[lang]}</a>
+        <p class="eyebrow intro">{c.eyebrow[lang]}</p>
+        <h1 class="intro-2">{c.h1a[lang]}<br /><em class="accent">{c.h1b[lang]}</em></h1>
+        <p class="lead intro-3">{c.intro[lang]}</p>
+        <div class="btn-row intro-3">
+          <a class="btn btn-primary" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
+          <a class="ulink" href={phone.tel}>{c.orCall[lang]} <bdi dir="ltr">{phone.intl}</bdi></a>
         </div>
-        <p class="small">{faisalNote[lang]}</p>
       </div>
-      <img class="hero-photo" src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" />
+      <div class="portrait">
+        <div class="portrait-frame">
+          <img src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" />
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <ul class="stats">
+        {c.stats.map((s) => (
+          <li>
+            <p class:list={['stat-value', { word: s.word }]}>{typeof s.v === 'string' ? <bdi dir="ltr">{s.v}</bdi> : s.v[lang]}</p>
+            <p class="stat-label">{s.l[lang]}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
-  <section class="section section-sand">
+  <section class="section section-dark" id="robotic">
     <div class="wrap">
-      <h2>{c.treatments[lang]}</h2>
-      <div class="cards">
-        {treatments.map((t) => (
-          <article class="card">
-            <h3><a href={`/${lang}/treatments/${t.slug}/`}>{t.name[lang]}</a></h3>
-            <p>{t.summary[lang]}</p>
-          </article>
+      <div class="section-head reveal">
+        <h2>{c.robotH2a[lang]}<br /><em class="accent">{c.robotH2b[lang]}</em></h2>
+        <p>{c.robotText[lang]}</p>
+      </div>
+      <ol class="points">
+        {c.robotPoints.map((p, i) => (
+          <li class="reveal">
+            <p class="point-num">{String(i + 1).padStart(2, '0')}</p>
+            <h3>{p.t[lang]}</h3>
+            <p>{p.d[lang]}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="paths">
+    <div class="wrap split">
+      <div class="main reveal">
+        <p class="eyebrow">{c.pathsEyebrow[lang]}</p>
+        <h2>{c.pathsH2a[lang]}<br />{c.pathsH2b[lang]}</h2>
+        <p class="lead" style="margin-bottom: 2.5rem;">{c.pathsText[lang]}</p>
+        <div class="points">
+          {c.paths.map((p) => (
+            <div>
+              <h3 class="serif" style="font-size: 1.6rem; font-weight: 500;">{p.t[lang]}</h3>
+              <ul>{p.items.map((x) => <li>{x[lang]}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="side bmi reveal" id="bmi"
+        data-advice={JSON.stringify(c.advice[lang])}>
+        <h3>{c.bmiTitle[lang]}</h3>
+        <p style="color: var(--body);">{c.bmiIntro[lang]}</p>
+        <div class="bmi-fields">
+          <label>{c.height[lang]}<input id="bmi-h" type="text" inputmode="decimal" placeholder="170" autocomplete="off" /></label>
+          <label>{c.weight[lang]}<input id="bmi-w" type="text" inputmode="decimal" placeholder="95" autocomplete="off" /></label>
+        </div>
+        <div class="bmi-result" aria-live="polite">
+          <div id="bmi-out" hidden>
+            <p class="small" style="margin: 0;">{c.yourBmi[lang]}</p>
+            <p class="bmi-value"><bdi dir="ltr" id="bmi-val"></bdi></p>
+            <p id="bmi-advice" style="margin: 0;"></p>
+          </div>
+          <p id="bmi-empty" class="small" style="margin: 0;">{c.bmiEmpty[lang]}</p>
+        </div>
+        <a class="btn btn-primary" href={whatsappLink(whatsappMessages.booking[lang])}>{c.bmiCta[lang]}</a>
+        <p class="small" style="margin: 0;">{c.bmiNote[lang]}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sand" id="treatments">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>{c.treatments[lang]}</h2>
+        <p>{c.treatmentsText[lang]}</p>
+      </div>
+      <div class="t-list">
+        {ordered.map((t, i) => (
+          <a class="t-row reveal" href={`/${lang}/treatments/${t.slug}/`}>
+            <span class="t-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="t-name">{t.name[lang]}</span>
+            <span class="t-desc">{t.summary[lang]}</span>
+            <span class="t-arrow" aria-hidden="true">{arrow}</span>
+          </a>
         ))}
       </div>
+      <p class="small" style="margin-top: 2rem; max-width: 56rem;">{c.risks[lang]}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <h2>{c.why[lang]}</h2>
-      <ul class="facts">
-        {c.facts.map((f) => <li>{f[lang]}</li>)}
-      </ul>
+      <h2 class="reveal" style="max-width: 48rem; margin-bottom: 3.5rem;">{c.journeyH2[lang]}</h2>
+      <ol class="points">
+        {c.journey.map((s, i) => (
+          <li class="reveal" style="border-top: none; padding-top: 0;">
+            <p class="big-num">{i + 1}</p>
+            <h3>{s.t[lang]}</h3>
+            <p>{s.d[lang]}</p>
+          </li>
+        ))}
+      </ol>
+      <p style="margin-top: 2.5rem;"><a class="ulink" href={`/${lang}/journey/`} style="color: var(--ink); font-weight: 500;">{c.journeyLink[lang]}</a></p>
     </div>
   </section>
 
-  <section class="section section-sand">
+  <section class="section section-sand" id="about">
+    <div class="wrap split">
+      <div class="main reveal" style="flex-basis: 26rem;">
+        <p class="eyebrow">{c.aboutEyebrow[lang]}</p>
+        <h2 style="margin-bottom: 0.5rem;">{site.name[lang]}</h2>
+        <p class="small" dir="ltr" style={`letter-spacing: 0.08em; margin-bottom: 1.5rem;${lang === 'ar' ? ' text-align: right;' : ''}`}>{site.credentials}</p>
+        <p style="color: var(--body);">{c.aboutText[lang]}</p>
+        <a class="ulink" href={`/${lang}/about/`} style="color: var(--ink); font-weight: 500;">{c.aboutLink[lang]}</a>
+      </div>
+      <dl class="side dl reveal" style="flex-basis: 32rem;">
+        {c.facts.map((f) => (<><dt>{f.k[lang]}</dt><dd>{f.v[lang]}</dd></>))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap split">
+      <h2 class="narrow-col reveal">{c.faqH2a[lang]}<br />{c.faqH2b[lang]}</h2>
+      <div class="wide-col faq">
+        {c.faq.map((f) => <details><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-bottom: clamp(4rem, 9vw, 7.5rem);">
     <div class="wrap">
-      <h2>{c.secondTitle[lang]}</h2>
-      <p>{c.secondText[lang]}</p>
-      <a class="btn btn-primary" href={`/${lang}/second-opinion/`}>{ui.learnMore[lang]}</a>
+      <div class="cta-band reveal">
+        <div style="flex: 1 1 30rem; min-width: 0;">
+          <h2>{c.ctaH2a[lang]}<br /><em style="color: var(--accent-light);">{c.ctaH2b[lang]}</em></h2>
+          <p>{c.ctaText[lang]}</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-light" href={whatsappLink(whatsappMessages.secondOpinion[lang])}>{c.ctaBtn[lang]}</a>
+          <a class="ulink" href={phone.tel}>{c.orCall[lang]} <bdi dir="ltr">{phone.intl}</bdi></a>
+        </div>
+      </div>
     </div>
   </section>
 </Base>
+
+<script>
+  const box = document.getElementById('bmi');
+  if (box) {
+    const advice: string[] = JSON.parse(box.dataset.advice || '[]');
+    const h = document.getElementById('bmi-h') as HTMLInputElement;
+    const w = document.getElementById('bmi-w') as HTMLInputElement;
+    const out = document.getElementById('bmi-out')!;
+    const empty = document.getElementById('bmi-empty')!;
+    const val = document.getElementById('bmi-val')!;
+    const text = document.getElementById('bmi-advice')!;
+    // Accept Arabic-Indic digits and Arabic or comma decimal separators.
+    const num = (v: string) => {
+      const s = v.replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d))).replace('٫', '.').replace(',', '.');
+      const n = parseFloat(s);
+      return isFinite(n) ? n : 0;
+    };
+    const update = () => {
+      const cm = num(h.value);
+      const kg = num(w.value);
+      const valid = cm >= 100 && cm <= 230 && kg >= 30 && kg <= 350;
+      out.hidden = !valid;
+      empty.hidden = valid;
+      if (!valid) return;
+      const bmi = kg / Math.pow(cm / 100, 2);
+      val.textContent = bmi.toFixed(1);
+      text.textContent = advice[bmi >= 35 ? 0 : bmi >= 30 ? 1 : bmi >= 25 ? 2 : 3];
+    };
+    h.addEventListener('input', update);
+    w.addEventListener('input', update);
+  }
+</script>
