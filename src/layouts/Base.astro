@@ -1,7 +1,14 @@
 ---
-import '@fontsource/ibm-plex-sans/400.css';
-import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/newsreader/400.css';
+import '@fontsource/newsreader/400-italic.css';
+import '@fontsource/newsreader/500.css';
+import '@fontsource/amiri/400.css';
+import '@fontsource/amiri/700.css';
 import '@fontsource/ibm-plex-sans-arabic/400.css';
+import '@fontsource/ibm-plex-sans-arabic/500.css';
 import '@fontsource/ibm-plex-sans-arabic/600.css';
 import '../styles/global.css';
 import { DRAFT, site, nav, ui, phone, faisalNote, whatsappLink, whatsappMessages, type Lang, type T } from '../data/site';
@@ -17,6 +24,8 @@ const other: Lang = lang === 'en' ? 'ar' : 'en';
 const href = (l: Lang, p: string) => `/${l}/${p ? p + '/' : ''}`;
 const pageTitle = path ? `${title[lang]} | ${site.name[lang]}` : `${site.name[lang]} | ${site.title[lang]}`;
 const current = path.split('/')[0];
+const brandTitle = { en: 'Robotic & Bariatric Surgery', ar: 'الجراحة الروبوتية وجراحة السمنة' };
+const book = { en: 'Book a consultation', ar: 'احجز استشارة' };
 ---
 <!doctype html>
 <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -41,17 +50,20 @@ const current = path.split('/')[0];
     <header class="header">
       <div class="wrap header-row">
         <a class="brand" href={href(lang, '')}>
-          <span class="brand-name">{site.name[lang]}</span>
-          <span class="brand-title">{site.title[lang]}</span>
+          <span class="monogram" aria-hidden="true">AH</span>
+          <span class="brand-text">
+            <span class="brand-name">{site.name[lang]}</span>
+            <span class="brand-title">{brandTitle[lang]}</span>
+          </span>
         </a>
         <div class="header-contact">
-          <a class="phone" href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a>
-          <a class="lang" href={href(other, path)} hreflang={other} lang={other}>{ui.switchLang[lang]}</a>
+          <a class="lang ulink" href={href(other, path)} hreflang={other} lang={other}>{ui.switchLang[lang]}</a>
+          <a class="btn btn-primary btn-sm" href={whatsappLink(whatsappMessages.booking[lang])}>{book[lang]}</a>
         </div>
       </div>
       <nav class="wrap nav" aria-label="Main">
         {nav.map((n) => (
-          <a href={href(lang, n.path)} aria-current={n.path === current ? 'page' : undefined}>{n.label[lang]}</a>
+          <a class="ulink" href={href(lang, n.path)} aria-current={n.path === current ? 'page' : undefined}>{n.label[lang]}</a>
         ))}
       </nav>
     </header>
@@ -62,18 +74,21 @@ const current = path.split('/')[0];
 
     <footer class="footer">
       <div class="wrap footer-grid">
-        <div>
-          <p class="footer-name">{site.name[lang]}</p>
-          <p>{site.credentials}</p>
+        <div class="footer-brand">
+          <span class="monogram" aria-hidden="true">AH</span>
+          <div>
+            <p class="footer-name">{site.name[lang]}</p>
+            <p dir="ltr" style={lang === 'ar' ? 'text-align: right;' : undefined}>{site.credentials}</p>
+          </div>
         </div>
         <div>
-          <p class="footer-phone"><a href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a></p>
+          <p class="footer-phone"><a class="ulink" href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a></p>
           <p class="small">{faisalNote[lang]}</p>
           <p class="small">{ui.emergency[lang]}</p>
         </div>
         <div>
-          <p><a href={href(lang, 'links')}>{ui.links[lang]}</a></p>
-          <p><a href={href(lang, 'privacy')}>{ui.privacy[lang]}</a></p>
+          <p><a class="ulink" href={href(lang, 'links')}>{ui.links[lang]}</a></p>
+          <p><a class="ulink" href={href(lang, 'privacy')}>{ui.privacy[lang]}</a></p>
           <p class="small">© {new Date().getFullYear()} {site.name[lang]}. {ui.rights[lang]}</p>
         </div>
       </div>
