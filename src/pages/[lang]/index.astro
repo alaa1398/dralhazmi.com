@@ -26,6 +26,10 @@ const c = {
     { v: '2', word: false, l: { en: 'American Boards: Surgery and Obesity Medicine', ar: 'بورد أمريكي: الجراحة وطب السمنة' } },
     { v: { en: 'KFSH&RC', ar: 'التخصصي' }, word: true, l: { en: 'King Faisal Specialist Hospital, Riyadh', ar: 'مستشفى الملك فيصل التخصصي، الرياض' } },
   ],
+  quote: {
+    en: '“Every patient deserves time to understand all of their options, surgical and non-surgical, before any decision is made.”',
+    ar: '«من حق كل مريض أن يفهم خياراته كلها، الجراحية وغير الجراحية، قبل اتخاذ أي قرار.»',
+  },
   robotH2a: { en: 'The surgeon’s hands,', ar: 'مهارة الجرّاح،' },
   robotH2b: { en: 'with a robot’s steadiness.', ar: 'وثبات الروبوت.' },
   robotText: {
@@ -153,6 +157,13 @@ const arrow = lang === 'ar' ? '←' : '→';
         ))}
       </ul>
     </div>
+  </section>
+
+  <section class="section reveal">
+    <figure class="quote wrap">
+      <blockquote>{c.quote[lang]}</blockquote>
+      <figcaption class="eyebrow" style="color: var(--muted); margin: 0;">{site.name[lang]}</figcaption>
+    </figure>
   </section>
 
   <section class="section section-dark" id="robotic">
