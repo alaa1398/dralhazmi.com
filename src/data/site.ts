@@ -9,7 +9,7 @@ export const langPaths = () => langs.map((lang) => ({ params: { lang } }));
 
 // Draft mode: shows a review banner and asks search engines not to index.
 // Set to false only after Dr. Alhazmi approves the content.
-export const DRAFT = true;
+export const DRAFT = false;
 
 export const site = {
   url: 'https://dralhazmi.com',
