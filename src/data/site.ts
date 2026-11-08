@@ -63,7 +63,8 @@ export const nav: { path: string; label: T }[] = [
 ];
 
 export const ui = {
-  bookWhatsApp: { en: 'Book on WhatsApp', ar: 'احجز عبر واتساب' },
+  bookWhatsApp: { en: 'Contact on WhatsApp', ar: 'تواصل عبر واتساب' },
+  reviewed: { en: 'Medically reviewed by Dr. Alaa Alhazmi · Updated November 2026', ar: 'راجعه طبيًا د. علاء الحازمي · آخر تحديث: نوفمبر 2026' },
   whatsapp: { en: 'WhatsApp', ar: 'واتساب' },
   call: { en: 'Call', ar: 'اتصال' },
   switchLang: { en: 'العربية', ar: 'English' },
@@ -136,8 +137,8 @@ export const treatments: Treatment[] = [
     slug: 'robotic-surgery',
     name: { en: 'Robotic Surgery', ar: 'الجراحة الروبوتية' },
     summary: {
-      en: 'Minimally invasive surgery using a robotic system.',
-      ar: 'جراحة عبر فتحات صغيرة بمساعدة الروبوت الجراحي.',
+      en: 'Minimally invasive surgery using a robotic system, with a magnified 3D view and wristed instruments.',
+      ar: 'جراحة عبر فتحات صغيرة بمساعدة الروبوت الجراحي، مع رؤية مكبّرة ثلاثية الأبعاد وأدوات مرنة الحركة.',
     },
     what: {
       en: 'In robotic surgery, the surgeon controls precise instruments and a magnified 3D camera from a console, working through small incisions. Dr. Alhazmi is trained in robotic surgery and maintains an almost exclusively robotic practice.',
