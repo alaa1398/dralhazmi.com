@@ -36,6 +36,7 @@ const h = {
         <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang] + t.name[lang])}>{ui.bookWhatsApp[lang]}</a>
       </div>
       <p class="small" style="margin-top: 1.5rem;">{h.general[lang]}</p>
+      <p class="small"><time datetime="2026-11">{ui.reviewed[lang]}</time></p>
       {t.slug === 'bariatric-surgery' && (
         <p class="sources">{h.sources[lang]}: <a href={asmbsSource.url} lang="en" dir="ltr">{asmbsSource.label}</a></p>
       )}

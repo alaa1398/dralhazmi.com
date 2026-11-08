@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/dr-alaa-alhazmi.jpg';
 import { langPaths, site, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
@@ -54,7 +56,7 @@ const c = {
         <p class="lead">{site.credentials}</p>
         {c.bio.map((p) => <p>{p[lang]}</p>)}
       </div>
-      <img class="hero-photo" src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" />
+      <Image class="hero-photo" src={portrait} alt={site.name[lang]} widths={[420, 840]} sizes="(max-width: 460px) 100vw, 420px" loading="eager" fetchpriority="high" />
     </div>
   </section>
   <section class="section section-sand">

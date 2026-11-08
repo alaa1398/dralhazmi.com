@@ -8,7 +8,6 @@ import '@fontsource/newsreader/500.css';
 import '@fontsource/amiri/400.css';
 import '@fontsource/amiri/700.css';
 import '@fontsource/ibm-plex-sans-arabic/400.css';
-import '@fontsource/ibm-plex-sans-arabic/500.css';
 import '@fontsource/ibm-plex-sans-arabic/600.css';
 import '../styles/global.css';
 import { DRAFT, site, nav, ui, phone, faisalNote, whatsappLink, whatsappMessages, type Lang, type T } from '../data/site';
@@ -25,7 +24,7 @@ const href = (l: Lang, p: string) => `/${l}/${p ? p + '/' : ''}`;
 const pageTitle = path ? `${title[lang]} | ${site.name[lang]}` : `${site.name[lang]} | ${site.title[lang]}`;
 const current = path.split('/')[0];
 const brandTitle = { en: 'Robotic & Bariatric Surgery', ar: 'الجراحة الروبوتية وجراحة السمنة' };
-const book = { en: 'Book a consultation', ar: 'احجز استشارة' };
+const book = { en: 'Contact', ar: 'تواصل معنا' };
 const skip = { en: 'Skip to main content', ar: 'انتقل إلى المحتوى الرئيسي' };
 ---
 <!doctype html>
@@ -44,6 +43,8 @@ const skip = { en: 'Skip to main content', ar: 'انتقل إلى المحتوى
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description[lang]} />
     <meta property="og:image" content={site.url + '/images/dr-alaa-alhazmi.jpg'} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#fbfaf7" />
     <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
   </head>
   <body>

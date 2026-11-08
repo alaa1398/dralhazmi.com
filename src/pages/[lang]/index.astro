@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/dr-alaa-alhazmi.jpg';
 import { langPaths, site, phone, social, ui, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
@@ -171,7 +173,7 @@ const jsonLd = {
       </div>
       <div class="portrait">
         <div class="portrait-frame">
-          <img src="/images/dr-alaa-alhazmi.jpg" alt={site.name[lang]} width="990" height="977" />
+          <Image src={portrait} alt={site.name[lang]} widths={[320, 440, 640, 880]} sizes="(max-width: 899px) 320px, 440px" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>
@@ -311,6 +313,7 @@ const jsonLd = {
             {'links' in f && f.links && f.links.map((l) => <p class="small"><a href={l.url} target="_blank" rel="noopener">{l.label[lang]}{'cite' in l && l.cite && <>{' — '}<bdi dir="ltr">{l.cite}</bdi></>}</a></p>)}
           </details>
         ))}
+        <p class="small" style="margin-top: 1.5rem;"><time datetime="2026-11">{ui.reviewed[lang]}</time></p>
       </div>
     </div>
   </section>
