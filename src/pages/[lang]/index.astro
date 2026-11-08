@@ -155,6 +155,8 @@ const jsonLd = {
   image: `${site.url}/images/dr-alaa-alhazmi.jpg`,
   telephone: phone.tel.replace('tel:', ''),
   knowsAbout: treatments.map((t) => t.name[lang]),
+  knowsLanguage: ['en', 'ar'],
+  hospitalAffiliation: { '@type': 'Hospital', name: 'King Faisal Specialist Hospital & Research Centre', url: 'https://www.kfshrc.edu.sa' },
   sameAs: social.filter((s) => s.name !== 'WhatsApp').map((s) => s.url),
 };
 ---
