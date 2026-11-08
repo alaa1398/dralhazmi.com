@@ -72,6 +72,14 @@ em { font-style: italic; }
   font-size: 0.875rem; padding: 0.4rem 16px; border-bottom: 1px solid #e8d48a;
 }
 
+/* Skip link: hidden until focused with the keyboard */
+.skip-link {
+  position: absolute; inset-inline-start: 1rem; top: -4rem; z-index: 30;
+  background: var(--ink); color: var(--bg); padding: 0.75rem 1.25rem; border-radius: 999px; text-decoration: none;
+}
+.skip-link:focus { top: 1rem; color: var(--bg); }
+main:focus { outline: none; }
+
 /* Links with a growing underline */
 .ulink {
   color: inherit; text-decoration: none;

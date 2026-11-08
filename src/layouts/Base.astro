@@ -26,6 +26,7 @@ const pageTitle = path ? `${title[lang]} | ${site.name[lang]}` : `${site.name[la
 const current = path.split('/')[0];
 const brandTitle = { en: 'Robotic & Bariatric Surgery', ar: 'الجراحة الروبوتية وجراحة السمنة' };
 const book = { en: 'Book a consultation', ar: 'احجز استشارة' };
+const skip = { en: 'Skip to main content', ar: 'انتقل إلى المحتوى الرئيسي' };
 ---
 <!doctype html>
 <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -46,6 +47,7 @@ const book = { en: 'Book a consultation', ar: 'احجز استشارة' };
     <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
   </head>
   <body>
+    <a class="skip-link" href="#main">{skip[lang]}</a>
     {DRAFT && <div class="draft">{ui.draft[lang]}</div>}
     <header class="header">
       <div class="wrap header-row">
@@ -68,7 +70,7 @@ const book = { en: 'Book a consultation', ar: 'احجز استشارة' };
       </nav>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <slot />
     </main>
 
