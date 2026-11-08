@@ -32,7 +32,7 @@ export function whatsappLink(message?: string) {
 }
 
 export const whatsappMessages = {
-  booking: { en: 'Appointment request: ', ar: 'طلب موعد: ' },
+  booking: { en: 'Contact request: ', ar: 'طلب تواصل: ' },
   secondOpinion: { en: 'Second opinion request: ', ar: 'طلب رأي طبي ثانٍ: ' },
 };
 
