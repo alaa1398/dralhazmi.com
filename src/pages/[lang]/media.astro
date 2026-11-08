@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { langPaths, social, type Lang } from '../../data/site';
+import { langPaths, social, ui, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -13,6 +13,10 @@ const c = {
   intro: {
     en: 'Short, practical videos about obesity, surgery and recovery. Follow along on your favorite platform.',
     ar: 'مقاطع قصيرة وعملية عن السمنة والجراحة والتعافي. تابعنا على منصتك المفضلة.',
+  },
+  resourcesText: {
+    en: 'Looking for in-depth reading? See patient and professional education from leading medical societies.',
+    ar: 'تبحث عن قراءة أعمق؟ اطّلع على مصادر تثقيفية للمرضى وللممارسين الصحيين من أبرز الجمعيات الطبية.',
   },
   soon: {
     en: 'A library of selected videos and articles will appear here.',
@@ -35,6 +39,10 @@ const channels = social.filter((s) => ['YouTube', 'TikTok', 'Snapchat', 'Instagr
         ))}
       </div>
       <p class="small" style="margin-top: 1.5rem;">{c.soon[lang]}</p>
+      <div class="notice" style="margin-top: 2.5rem;">
+        <p>{c.resourcesText[lang]}</p>
+        <p><a class="ulink" href={`/${lang}/resources/`} style="color: var(--ink); font-weight: 500;">{ui.resources[lang]} {lang === 'ar' ? '←' : '→'}</a></p>
+      </div>
     </div>
   </section>
 </Base>

@@ -76,6 +76,7 @@ export const ui = {
     ar: 'في الحالات الطارئة، اتصل على 997 أو توجّه إلى أقرب قسم طوارئ.',
   },
   links: { en: 'All links', ar: 'جميع الروابط' },
+  resources: { en: 'Trusted resources', ar: 'مصادر موثوقة' },
   privacy: { en: 'Privacy', ar: 'الخصوصية' },
   learnMore: { en: 'Learn more', ar: 'اعرف المزيد' },
   rights: { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' },
