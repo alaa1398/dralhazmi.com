@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { langPaths, site, phone, ui, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+import { langPaths, site, phone, social, ui, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -120,6 +120,7 @@ const c = {
     { q: { en: 'Is robotic surgery different from laparoscopic surgery?', ar: 'ما الفرق بين الجراحة الروبوتية وجراحة المنظار؟' }, a: { en: 'Both use small incisions. In robotic surgery the surgeon operates the instruments from a console, with a magnified 3D view and wristed instruments. Which approach suits you is discussed at your consultation.', ar: 'كلتاهما تُجرى عبر فتحات صغيرة. وفي الجراحة الروبوتية يحرّك الجرّاح الأدوات من وحدة تحكّم، مع رؤية مكبّرة ثلاثية الأبعاد وأدوات مرنة الحركة. ويُحدَّد الأنسب لحالتك خلال الاستشارة.' } },
     { q: { en: 'Am I a candidate for weight-loss surgery?', ar: 'هل أنا مرشّح لعملية إنقاص الوزن؟' }, a: { en: 'The 2022 ASMBS/IFSO guidelines recommend surgery for adults with a BMI of 35 or more, and considering it from 30 with metabolic disease. The decision is made only after a full assessment.', ar: 'توصي الإرشادات الدولية لعام 2022 (ASMBS/IFSO) بالجراحة للبالغين إذا بلغ مؤشر كتلة الجسم 35 أو أكثر، وبالنظر فيها ابتداءً من 30 عند وجود مرض أيضي. ولا يُتّخذ القرار إلا بعد تقييم شامل.' } },
     { q: { en: 'Can I get a second opinion on a surgery recommendation?', ar: 'هل يمكنني طلب رأي طبي ثانٍ في توصية بإجراء عملية؟' }, a: { en: 'Yes. Send your question and reports on WhatsApp for Dr. Alhazmi to review.', ar: 'نعم. أرسل سؤالك وتقاريرك عبر واتساب ليطّلع عليها د. علاء الحازمي.' } },
+    { q: { en: 'Does health insurance cover weight-loss surgery?', ar: 'هل يغطي التأمين الصحي عمليات السمنة؟' }, a: { en: 'Under the basic health insurance policy set by Saudi Arabia’s Council of Health Insurance (essential benefit package effective October 2022), approved bariatric operations are covered up to SAR 15,000 per policy period, with a copayment of 0–20% capped at SAR 1,000. Coverage depends on your policy and on clinical criteria, so confirm with your insurer before surgery.', ar: 'وفق حزمة المنافع الأساسية لوثيقة الضمان الصحي الصادرة عن مجلس الضمان الصحي (السارية منذ أكتوبر 2022)، تُغطّى عمليات السمنة المعتمدة بحد أقصى 15,000 ريال خلال مدة الوثيقة، مع نسبة تحمّل من 0 إلى 20% بحد أقصى 1,000 ريال. وتختلف التغطية بحسب وثيقتك والمعايير الطبية، لذا تأكد من شركة التأمين قبل العملية.' }, link: { url: 'https://www.chi.gov.sa/en/beneficiary/healthinsurancepolicy/Updated%20Essential%20Benefit%20Package%20%20(%20effective%201%20October%202022).pdf', label: { en: 'Source: Council of Health Insurance, essential benefit package (PDF)', ar: 'المصدر: مجلس الضمان الصحي، حزمة المنافع الأساسية (PDF، بالإنجليزية)' } } },
     { q: { en: 'Who answers when I call?', ar: 'من يردّ على اتصالي؟' }, a: { en: 'Calls are answered by Faisal, Dr. Alhazmi’s AI assistant, who can take your message.', ar: 'يردّ فيصل، المساعد الذكي للدكتور علاء، ويمكنه تسجيل رسالتك.' } },
   ],
   ctaH2a: { en: 'Already advised to', ar: 'هل نُصحت' },
@@ -128,8 +129,22 @@ const c = {
   ctaBtn: { en: 'Request a second opinion', ar: 'اطلب رأيًا طبيًا ثانيًا' },
 };
 const arrow = lang === 'ar' ? '←' : '→';
+
+// Structured data for search engines; mirrors facts shown on the site.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  name: site.name[lang],
+  description: c.description[lang],
+  url: `${site.url}/${lang}/`,
+  image: `${site.url}/images/dr-alaa-alhazmi.jpg`,
+  telephone: phone.tel.replace('tel:', ''),
+  knowsAbout: treatments.map((t) => t.name[lang]),
+  sameAs: social.filter((s) => s.name !== 'WhatsApp').map((s) => s.url),
+};
 ---
 <Base lang={lang} path="" title={c.title} description={c.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -276,7 +291,13 @@ const arrow = lang === 'ar' ? '←' : '→';
     <div class="wrap split">
       <h2 class="narrow-col reveal">{c.faqH2a[lang]}<br />{c.faqH2b[lang]}</h2>
       <div class="wide-col faq">
-        {c.faq.map((f) => <details><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
+        {c.faq.map((f) => (
+          <details>
+            <summary>{f.q[lang]}</summary>
+            <p>{f.a[lang]}</p>
+            {'link' in f && f.link && <p class="small"><a href={f.link.url} target="_blank" rel="noopener">{f.link.label[lang]}</a></p>}
+          </details>
+        ))}
       </div>
     </div>
   </section>
