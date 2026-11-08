@@ -59,7 +59,6 @@ export const nav: { path: string; label: T }[] = [
   { path: 'journey', label: { en: 'Your Journey', ar: 'رحلتك العلاجية' } },
   { path: 'second-opinion', label: { en: 'Second Opinion', ar: 'رأي طبي ثانٍ' } },
   { path: 'media', label: { en: 'Learn', ar: 'تثقيف' } },
-  { path: 'team', label: { en: 'Team', ar: 'الفريق' } },
 ];
 
 export const ui = {
