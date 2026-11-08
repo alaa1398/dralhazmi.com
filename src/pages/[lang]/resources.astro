@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langPaths, type Lang, type T } from '../../data/site';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+
+type Resource = { name: T; desc: T; url: string; arabic?: boolean };
+
+const c = {
+  title: { en: 'Trusted resources', ar: 'مصادر موثوقة' },
+  description: {
+    en: 'Patient and professional education from leading medical societies in obesity, bariatric, metabolic and robotic surgery.',
+    ar: 'مصادر تثقيفية للمرضى وللممارسين الصحيين من أبرز الجمعيات الطبية في السمنة وجراحاتها والجراحة الأيضية والروبوتية.',
+  },
+  intro: {
+    en: 'Reliable reading from the medical societies that set standards in obesity care and surgery. These sites are independent of Dr. Alhazmi and do not replace a consultation.',
+    ar: 'مصادر موثوقة من الجمعيات الطبية التي تضع معايير علاج السمنة وجراحاتها. هذه المواقع مستقلة عن د. علاء الحازمي، ولا تغني عن الاستشارة الطبية.',
+  },
+  englishNote: { en: '', ar: 'معظم هذه المصادر باللغة الإنجليزية، والمصادر العربية مذكورة أولًا.' },
+  english: { en: '', ar: 'بالإنجليزية' },
+  patientsTitle: { en: 'For patients', ar: 'للمرضى' },
+  proTitle: { en: 'For healthcare professionals', ar: 'للممارسين الصحيين' },
+};
+
+const patients: Resource[] = [
+  { arabic: true, url: 'https://www.moh.gov.sa/awarenessplateform/chronicdisease/pages/obesity.aspx',
+    name: { en: 'Saudi Ministry of Health: Obesity awareness', ar: 'وزارة الصحة: التوعية بالسمنة' },
+    desc: { en: 'BMI and waist-size categories and health risks, in Arabic.', ar: 'تصنيف مؤشر كتلة الجسم ومحيط الخصر والمخاطر الصحية المرتبطة بالسمنة.' } },
+  { arabic: true, url: 'https://sasmbs.org',
+    name: { en: 'Saudi Arabian Society for Metabolic and Bariatric Surgery (SASMBS)', ar: 'الجمعية السعودية لطب وجراحة السمنة' },
+    desc: { en: 'The Saudi society for obesity medicine and surgery, in Arabic.', ar: 'الجمعية المتخصصة في طب وجراحة السمنة في المملكة، وتضم نصائح عامة وحاسبة لمؤشر كتلة الجسم.' } },
+  { url: 'https://asmbs.org/patients',
+    name: { en: 'ASMBS: For patients', ar: 'الجمعية الأمريكية لجراحة السمنة والأيض: للمرضى' },
+    desc: { en: 'Conditions, procedures such as sleeve gastrectomy and gastric bypass, and the benefits of surgery.', ar: 'الأمراض المرتبطة بالسمنة والعمليات مثل تكميم المعدة وتحويل المسار، وفوائد الجراحة.' } },
+  { url: 'https://asmbs.org/patients/is-metabolic-and-bariatric-surgery-right-for-you',
+    name: { en: 'ASMBS: Is surgery right for you?', ar: 'الجمعية الأمريكية لجراحة السمنة والأيض: هل الجراحة مناسبة لك؟' },
+    desc: { en: 'Who qualifies for metabolic and bariatric surgery under current guidelines.', ar: 'من يُرشَّح لجراحة السمنة والجراحة الأيضية وفق الإرشادات الحالية.' } },
+  { url: 'https://www.sages.org/healthy-sooner',
+    name: { en: 'SAGES: Patient information', ar: 'جمعية جرّاحي الجهاز الهضمي والمناظير الأمريكية: معلومات للمرضى' },
+    desc: { en: 'Brochures on minimally invasive surgery: who it suits, how to prepare and what to expect.', ar: 'نشرات عن الجراحة طفيفة التوغل: لمن تناسب، وكيف تستعد لها، وماذا تتوقع.' } },
+  { url: 'https://www.facs.org/for-patients',
+    name: { en: 'American College of Surgeons: For patients and family', ar: 'الكلية الأمريكية للجرّاحين: للمرضى وذويهم' },
+    desc: { en: 'Preparing for surgery, the day of your operation, and recovering at home.', ar: 'الاستعداد للعملية، ويوم العملية، والتعافي في المنزل.' } },
+  { url: 'https://www.obesityaction.org/get-educated/public-resources',
+    name: { en: 'Obesity Action Coalition: Educational resources', ar: 'تحالف العمل لمكافحة السمنة: مصادر تثقيفية' },
+    desc: { en: 'Science-based brochures and guides on obesity and its treatment.', ar: 'نشرات وأدلة علمية عن السمنة وطرق علاجها.' } },
+];
+
+const pros: Resource[] = [
+  { url: 'https://asmbs.org/resources/',
+    name: { en: 'ASMBS: Guidelines and statements', ar: 'الجمعية الأمريكية لجراحة السمنة والأيض: الإرشادات والبيانات' },
+    desc: { en: 'Position statements, guidelines and systematic reviews in metabolic and bariatric surgery.', ar: 'البيانات الرسمية والإرشادات والمراجعات المنهجية في جراحة السمنة والجراحة الأيضية.' } },
+  { url: 'https://asmbs.org/wp-content/uploads/2022/10/ASMBS-IFSO-Guidelines-2022-PIIS1550728922006414.pdf',
+    name: { en: '2022 ASMBS/IFSO indications for metabolic and bariatric surgery', ar: 'إرشادات ASMBS/IFSO لعام 2022 لدواعي جراحة السمنة والجراحة الأيضية' },
+    desc: { en: 'The joint guideline that replaced the 1991 NIH criteria (PDF).', ar: 'الإرشادات المشتركة التي حلّت محل معايير المعاهد الوطنية للصحة لعام 1991 (ملف PDF).' } },
+  { url: 'https://www.ifso.com',
+    name: { en: 'IFSO: International Federation for the Surgery of Obesity and Metabolic Disorders', ar: 'الاتحاد الدولي لجراحة السمنة والاضطرابات الأيضية (IFSO)' },
+    desc: { en: 'The global federation of national bariatric societies, including its global registry.', ar: 'الاتحاد العالمي للجمعيات الوطنية لجراحة السمنة، ويضم السجل العالمي للعمليات.' } },
+  { url: 'https://www.sages.org/publications/guidelines/',
+    name: { en: 'SAGES: Clinical practice guidelines', ar: 'جمعية جرّاحي الجهاز الهضمي والمناظير الأمريكية: الإرشادات السريرية' },
+    desc: { en: 'Guidelines in bariatric, hernia, foregut and minimally invasive surgery.', ar: 'إرشادات في جراحة السمنة والفتق والجهاز الهضمي العلوي والجراحة طفيفة التوغل.' } },
+  { url: 'https://www.facs.org/for-medical-professionals/education',
+    name: { en: 'American College of Surgeons: Education', ar: 'الكلية الأمريكية للجرّاحين: التعليم' },
+    desc: { en: 'Courses and resources for surgeons at every career stage.', ar: 'دورات ومصادر للجرّاحين في جميع مراحلهم المهنية.' } },
+  { url: 'https://www.abom.org',
+    name: { en: 'American Board of Obesity Medicine (ABOM)', ar: 'البورد الأمريكي لطب السمنة (ABOM)' },
+    desc: { en: 'Certification in obesity medicine for physicians.', ar: 'شهادة البورد في طب السمنة للأطباء.' } },
+  { url: 'https://obesitymedicine.org/resources',
+    name: { en: 'Obesity Medicine Association: Clinician resources', ar: 'جمعية طب السمنة: مصادر للممارسين' },
+    desc: { en: 'The Obesity Algorithm, the Obesity Pillars journal and clinical resources.', ar: 'خوارزمية علاج السمنة، ومجلة Obesity Pillars، ومصادر سريرية.' } },
+  { url: 'https://srobotics.org',
+    name: { en: 'Society of Robotic Surgery (SRS)', ar: 'جمعية الجراحة الروبوتية (SRS)' },
+    desc: { en: 'Education and collaboration in robotic and minimally invasive surgery.', ar: 'التعليم والتعاون في الجراحة الروبوتية والجراحة طفيفة التوغل.' } },
+];
+
+const arrow = lang === 'ar' ? '↖' : '↗';
+const groups = [
+  { title: c.patientsTitle, items: patients },
+  { title: c.proTitle, items: pros },
+];
+---
+<Base lang={lang} path="resources" title={c.title} description={c.description}>
+  <section class="section">
+    <div class="wrap">
+      <h1>{c.title[lang]}</h1>
+      <p class="lead">{c.intro[lang]}</p>
+      {lang === 'ar' && <p class="small">{c.englishNote.ar}</p>}
+    </div>
+  </section>
+  {groups.map((g, gi) => (
+    <section class:list={['section', { 'section-sand': gi === 0 }]} style="padding-top: clamp(3rem, 6vw, 5rem);">
+      <div class="wrap">
+        <h2 style="margin-bottom: 2.5rem;">{g.title[lang]}</h2>
+        <div class="t-list">
+          {g.items.map((r, i) => (
+            <a class="t-row" href={r.url} target="_blank" rel="noopener">
+              <span class="t-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="t-name" style="font-size: 1.45rem;">{r.name[lang]}</span>
+              <span class="t-desc">
+                {r.desc[lang]}
+                {lang === 'ar' && !r.arabic && <span class="small" style="display: block; margin-top: 0.25rem;">{c.english.ar}</span>}
+              </span>
+              <span class="t-arrow" aria-hidden="true">{arrow}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+</Base>

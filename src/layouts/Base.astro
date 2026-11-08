@@ -87,6 +87,7 @@ const book = { en: 'Book a consultation', ar: 'احجز استشارة' };
           <p class="small">{ui.emergency[lang]}</p>
         </div>
         <div>
+          <p><a class="ulink" href={href(lang, 'resources')}>{ui.resources[lang]}</a></p>
           <p><a class="ulink" href={href(lang, 'links')}>{ui.links[lang]}</a></p>
           <p><a class="ulink" href={href(lang, 'privacy')}>{ui.privacy[lang]}</a></p>
           <p class="small">© {new Date().getFullYear()} {site.name[lang]}. {ui.rights[lang]}</p>
