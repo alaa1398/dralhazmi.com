@@ -140,8 +140,8 @@ export const treatments: Treatment[] = [
       ar: 'جراحة عبر فتحات صغيرة بمساعدة الروبوت الجراحي، مع رؤية مكبّرة ثلاثية الأبعاد وأدوات مرنة الحركة.',
     },
     what: {
-      en: 'In robotic surgery, the surgeon controls precise instruments and a magnified 3D camera from a console, working through small incisions. Dr. Alhazmi is trained in robotic surgery and maintains an almost exclusively robotic practice.',
-      ar: 'في الجراحة الروبوتية، يجلس الجرّاح إلى وحدة تحكّم يحرّك منها أدوات دقيقة وكاميرا تعرض صورة مكبّرة ثلاثية الأبعاد، ويُجري العملية من خلال فتحات صغيرة. وقد تدرّب د. علاء الحازمي على الجراحة الروبوتية، ويُجري عملياته كلها تقريبًا بالروبوت.',
+      en: 'In robotic surgery, the surgeon controls precise instruments and a magnified 3D camera from a console, working through small incisions. Dr. Alhazmi is trained in robotic surgery, and in recent years performed nearly all of his operations robotically.',
+      ar: 'في الجراحة الروبوتية، يجلس الجرّاح إلى وحدة تحكّم يحرّك منها أدوات دقيقة وكاميرا تعرض صورة مكبّرة ثلاثية الأبعاد، ويُجري العملية من خلال فتحات صغيرة. وقد تدرّب د. علاء الحازمي على الجراحة الروبوتية، وأجرى في السنوات الأخيرة عملياته كلها تقريبًا بالروبوت.',
     },
     who: {
       en: 'Many bariatric, hernia, gallbladder and other abdominal operations can be done robotically. The best approach for you is discussed at your consultation.',
