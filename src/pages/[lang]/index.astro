@@ -26,7 +26,7 @@ const c = {
   stats: [
     { v: '15+', word: false, l: { en: 'years of surgical experience', ar: 'عامًا من الخبرة الجراحية' } },
     { v: '2', word: false, l: { en: 'American Boards: Surgery and Obesity Medicine', ar: 'بورد أمريكي: الجراحة وطب السمنة' } },
-    { v: { en: 'KFSH&RC', ar: 'التخصصي' }, word: true, l: { en: 'King Faisal Specialist Hospital, Riyadh', ar: 'مستشفى الملك فيصل التخصصي، الرياض' } },
+    { v: 'FACS', word: false, l: { en: 'Fellow, American College of Surgeons', ar: 'زميل الكلية الأمريكية للجرّاحين' } },
   ],
   quote: {
     en: '“Every patient deserves time to understand all of their options, surgical and non-surgical, before any decision is made.”',
@@ -106,15 +106,14 @@ const c = {
   journeyLink: { en: 'Your journey in detail →', ar: 'رحلتك العلاجية بالتفصيل ←' },
   aboutEyebrow: { en: 'About', ar: 'عن الدكتور' },
   aboutText: {
-    en: 'Dr. Alhazmi earned an MD at The George Washington University and completed a fellowship in minimally invasive and bariatric surgery at UC Davis. Dr. Alhazmi is certified by the American Board of Surgery and the American Board of Obesity Medicine, and has practiced for more than 15 years at King Faisal Specialist Hospital & Research Centre in Riyadh.',
-    ar: 'حصل د. علاء الحازمي على شهادة الطب من جامعة جورج واشنطن، وأتمّ زمالة جراحة المناظير وجراحة السمنة في جامعة كاليفورنيا ديفيس. وهو حاصل على البورد الأمريكي للجراحة والبورد الأمريكي لطب السمنة، ويعمل منذ أكثر من خمسة عشر عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض.',
+    en: 'Dr. Alhazmi earned an MD at The George Washington University and completed a fellowship in minimally invasive and bariatric surgery at UC Davis. Dr. Alhazmi is certified by the American Board of Surgery and the American Board of Obesity Medicine, and practiced for more than 15 years as a consultant at King Faisal Specialist Hospital & Research Centre in Riyadh.',
+    ar: 'حصل د. علاء الحازمي على شهادة الطب من جامعة جورج واشنطن، وأتمّ زمالة جراحة المناظير وجراحة السمنة في جامعة كاليفورنيا ديفيس. وهو حاصل على البورد الأمريكي للجراحة والبورد الأمريكي لطب السمنة، وعمل استشاريًا لأكثر من خمسة عشر عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض.',
   },
   aboutLink: { en: 'Read the full story →', ar: 'اقرأ المزيد ←' },
   facts: [
     { k: { en: 'Education', ar: 'التعليم' }, v: { en: 'MD, The George Washington University', ar: 'دكتوراه في الطب، جامعة جورج واشنطن' } },
     { k: { en: 'Fellowship', ar: 'الزمالة' }, v: { en: 'Minimally invasive and bariatric surgery, UC Davis', ar: 'جراحة المناظير وجراحة السمنة، جامعة كاليفورنيا ديفيس' } },
     { k: { en: 'Certification', ar: 'الشهادات' }, v: { en: 'American Board of Surgery · American Board of Obesity Medicine · Fellow, American College of Surgeons', ar: 'البورد الأمريكي للجراحة · البورد الأمريكي لطب السمنة · زميل الكلية الأمريكية للجرّاحين' } },
-    { k: { en: 'Practice', ar: 'مكان العمل' }, v: { en: 'King Faisal Specialist Hospital & Research Centre, Riyadh', ar: 'مستشفى الملك فيصل التخصصي ومركز الأبحاث، الرياض' } },
   ],
   faqH2a: { en: 'Common', ar: 'أسئلة' },
   faqH2b: { en: 'questions', ar: 'شائعة' },
@@ -156,7 +155,6 @@ const jsonLd = {
   telephone: phone.tel.replace('tel:', ''),
   knowsAbout: treatments.map((t) => t.name[lang]),
   knowsLanguage: ['en', 'ar'],
-  hospitalAffiliation: { '@type': 'Hospital', name: 'King Faisal Specialist Hospital & Research Centre', url: 'https://www.kfshrc.edu.sa' },
   sameAs: social.filter((s) => s.name !== 'WhatsApp').map((s) => s.url),
 };
 ---
