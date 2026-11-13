@@ -18,18 +18,18 @@ const c = {
   covers: [
     { en: 'Bariatric and metabolic surgery, including revision of a previous operation', ar: 'جراحات السمنة والجراحة الأيضية، بما فيها تصحيح عملية سابقة' },
     { en: 'Gallbladder, hernia, reflux and other general surgery conditions', ar: 'المرارة والفتق والارتجاع وغيرها من حالات الجراحة العامة' },
-    { en: 'Medical treatment options for obesity', ar: 'خيارات العلاج الدوائي للسمنة' },
+    { en: 'Medical treatment options for obesity', ar: 'خيارات العلاج الطبي (غير الجراحي) للسمنة' },
   ],
   howTitle: { en: 'How it works', ar: 'كيف تعمل الخدمة' },
   how: [
     { en: 'Message us on WhatsApp with a short description of your question.', ar: 'راسلنا عبر واتساب بوصف مختصر لسؤالك.' },
-    { en: 'Please don’t send medical reports or images in your first message. If they are needed, the team will ask for your consent first and explain how to share them.', ar: 'يُرجى عدم إرسال تقارير أو صور طبية في رسالتك الأولى. وإن احتاج الأمر إليها، سيطلب الفريق موافقتك أولًا ويوضح لك طريقة مشاركتها.' },
-    { en: 'Dr. Alhazmi replies on WhatsApp, or recommends a consultation if an examination is needed.', ar: 'يرد د. علاء الحازمي عبر واتساب، أو يوصي بموعد استشارة إن تطلّب الأمر فحصًا.' },
+    { en: 'Please don’t send medical reports or images in your first message. If they are needed, the team will ask for your consent first and explain how to share them.', ar: 'يُرجى عدم إرسال تقارير أو صور طبية في رسالتك الأولى. وإن احتاج الأمر إليها، فسيطلب الفريق موافقتك أولًا ويوضح لك طريقة مشاركتها.' },
+    { en: 'Dr. Alhazmi replies on WhatsApp, or recommends a consultation if an examination is needed.', ar: 'يردّ د. علاء الحازمي عبر واتساب، أو يوصي باستشارة إن تطلّب الأمر فحصًا.' },
   ],
-  limitsTitle: { en: 'Please note', ar: 'يرجى الملاحظة' },
+  limitsTitle: { en: 'Please note', ar: 'يُرجى الملاحظة' },
   limits: [
     { en: 'This service is not for emergencies. For a medical emergency, call 997 or go to the nearest emergency department.', ar: 'هذه الخدمة ليست للحالات الطارئة. في الحالات الطارئة، اتصل على 997 أو توجّه إلى أقرب قسم طوارئ.' },
-    { en: 'A written opinion does not replace an examination. Dr. Alhazmi may recommend a consultation in person.', ar: 'الرأي المكتوب لا يغني عن الفحص السريري، وقد يوصي د. علاء الحازمي بزيارة العيادة.' },
+    { en: 'A written opinion does not replace an examination. Dr. Alhazmi may recommend a consultation in person.', ar: 'الرأي المكتوب لا يغني عن الفحص السريري، وقد يوصي د. علاء الحازمي باستشارة حضورية.' },
     { en: 'See our privacy page for how your information is handled.', ar: 'اطّلع على صفحة الخصوصية لمعرفة كيفية التعامل مع معلوماتك.' },
   ],
   cta: { en: 'Request a second opinion', ar: 'اطلب رأيًا طبيًا ثانيًا' },
@@ -52,7 +52,7 @@ const c = {
       <div class="btn-row">
         <a class="btn btn-wa" href={whatsappLink(whatsappMessages.secondOpinion[lang])}>{c.cta[lang]}</a>
       </div>
-      <p class="small">WhatsApp: <bdi dir="ltr">{phone.intl}</bdi></p>
+      <p class="small">{ui.whatsapp[lang]}: <bdi dir="ltr">{phone.intl}</bdi></p>
     </div>
   </section>
 </Base>

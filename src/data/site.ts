@@ -38,7 +38,7 @@ export const whatsappMessages = {
 
 export const faisalNote: T = {
   en: 'Calls are answered by Faisal, Dr. Alhazmi’s AI assistant, who can take your message.',
-  ar: 'يرد على الاتصالات فيصل، المساعد الذكي للدكتور علاء الحازمي، ويمكنه تسجيل رسالتك.',
+  ar: 'يردّ على الاتصالات فيصل، مساعد الذكاء الاصطناعي للدكتور علاء الحازمي، ويمكنه تسجيل رسالتك.',
 };
 
 export const social = [
@@ -105,7 +105,7 @@ export const treatments: Treatment[] = [
     },
     who: {
       en: 'The 2022 ASMBS/IFSO guidelines recommend surgery for adults with a BMI of 35 or more, and considering it from a BMI of 30 with metabolic disease (lower thresholds apply to people of Asian descent). Whether surgery is right for you is decided only after a full assessment.',
-      ar: 'توصي الإرشادات الصادرة عام 2022 عن الجمعية الأمريكية لجراحة السمنة والأيض والاتحاد الدولي لجراحة السمنة بالجراحة للبالغين الذين يبلغ مؤشر كتلة الجسم لديهم 35 فأكثر، وتنصح بالنظر فيها ابتداءً من 30 لمن لديهم مرض أيضي، مع حدود أقل لذوي الأصول الآسيوية. ولا يُحدَّد ما إذا كانت الجراحة مناسبة لك إلا بعد تقييم شامل.',
+      ar: 'توصي الإرشادات الصادرة عام 2022 عن الجمعية الأمريكية لجراحة السمنة والأيض والاتحاد الدولي لجراحة السمنة والاضطرابات الأيضية بالجراحة للبالغين الذين يبلغ مؤشر كتلة الجسم لديهم 35 فأكثر، وتنصح بالنظر فيها ابتداءً من 30 لمن لديهم مرض أيضي، مع حدود أقل لذوي الأصول الآسيوية. ولا يُحدَّد ما إذا كانت الجراحة مناسبة لك إلا بعد تقييم شامل.',
     },
     expect: {
       en: 'Assessment by the surgical and nutrition team, preparation before the operation, a short hospital stay, and long-term follow-up on diet, vitamins and activity.',
@@ -117,7 +117,7 @@ export const treatments: Treatment[] = [
     name: { en: 'Metabolic Surgery', ar: 'الجراحة الأيضية' },
     summary: {
       en: 'Surgery aimed at improving type 2 diabetes and other metabolic diseases linked to obesity.',
-      ar: 'جراحة تهدف إلى علاج السكري من النوع الثاني وغيره من الأمراض الأيضية المرتبطة بالسمنة.',
+      ar: 'جراحة تهدف إلى تحسين السكري من النوع الثاني وغيره من الأمراض الأيضية المرتبطة بالسمنة.',
     },
     what: {
       en: 'Metabolic surgery uses the same operations as bariatric surgery, but the main goal is treating conditions such as type 2 diabetes, high blood pressure, fatty liver and sleep apnea, not only weight loss.',
@@ -145,7 +145,7 @@ export const treatments: Treatment[] = [
     },
     who: {
       en: 'Many bariatric, hernia, gallbladder and other abdominal operations can be done robotically. The best approach for you is discussed at your consultation.',
-      ar: 'يمكن إجراء كثير من عمليات السمنة والفتق والمرارة وغيرها من عمليات البطن بالروبوت. ويُحدَّد الأسلوب الأنسب لحالتك خلال الاستشارة.',
+      ar: 'يمكن إجراء كثير من عمليات السمنة والفتق والمرارة وغيرها من عمليات البطن بالروبوت. ويُناقَش الأسلوب الأنسب لحالتك خلال الاستشارة.',
     },
     expect: {
       en: 'Small incisions and the same preparation and follow-up as the equivalent standard operation.',
@@ -160,8 +160,8 @@ export const treatments: Treatment[] = [
       ar: 'عمليات المرارة والفتق والجهاز الهضمي العلوي، وغيرها من عمليات البطن الشائعة.',
     },
     what: {
-      en: 'General surgery covers common abdominal conditions, including gallstones, hernias (including abdominal wall reconstruction), reflux and hiatal hernia, and other upper gastrointestinal conditions. Most are done with minimally invasive or robotic techniques.',
-      ar: 'تُعنى الجراحة العامة بأمراض البطن الشائعة، ومنها حصوات المرارة، والفتق بأنواعه بما في ذلك إعادة بناء جدار البطن، وارتجاع المريء وفتق الحجاب الحاجز، وغيرها من أمراض الجهاز الهضمي العلوي. ويُجرى معظمها بالمنظار أو بالروبوت.',
+      en: 'General surgery covers common abdominal conditions, including gallstones, hernias (including abdominal wall reconstruction), reflux and hiatal hernia, and other upper gastrointestinal conditions. Most are done with minimally invasive techniques.',
+      ar: 'تُعنى الجراحة العامة بأمراض البطن الشائعة، ومنها حصوات المرارة، والفتق بأنواعه بما في ذلك إعادة بناء جدار البطن، وارتجاع المريء وفتق الحجاب الحاجز، وغيرها من أمراض الجهاز الهضمي العلوي. ويُجرى معظمها بالمنظار.',
     },
     who: {
       en: 'Adults referred by their physician or seeking a surgical opinion on an abdominal condition.',
