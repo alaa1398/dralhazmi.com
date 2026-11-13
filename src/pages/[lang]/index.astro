@@ -2,7 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import { Image } from 'astro:assets';
 import portrait from '../../assets/dr-alaa-alhazmi.jpg';
-import { langPaths, site, phone, social, ui, treatments, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+import Wa from '../../components/Wa.astro';
+import Arcs from '../../components/Arcs.astro';
+import TreatmentList from '../../components/TreatmentList.astro';
+import { langPaths, site, phone, social, ui, treatments, robotPoints, risksNote, faisalNote, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -38,12 +41,7 @@ const c = {
     en: 'In robotic surgery, the surgeon controls fine, wristed instruments and a magnified 3D camera from a console, working through small incisions.',
     ar: 'في الجراحة الروبوتية، يتحكّم الجرّاح من وحدة تحكّم بأدوات دقيقة تنثني وتدور، وبكاميرا تعرض صورة مكبّرة ثلاثية الأبعاد، ويعمل من خلال فتحات صغيرة.',
   },
-  robotPoints: [
-    { t: { en: 'Magnified 3D view', ar: 'رؤية مكبّرة ثلاثية الأبعاد' }, d: { en: 'A high-definition, three-dimensional image of the operating field.', ar: 'صورة عالية الوضوح لموضع العملية بأبعادها الثلاثة.' } },
-    { t: { en: 'Wristed instruments', ar: 'أدوات مرنة الحركة' }, d: { en: 'Instruments that bend and rotate for fine, controlled movement.', ar: 'أدوات تنثني وتدور لتتيح حركة دقيقة ومحكمة.' } },
-    { t: { en: 'Small incisions', ar: 'فتحات صغيرة' }, d: { en: 'Minimally invasive access instead of one large opening.', ar: 'جراحة عبر فتحات صغيرة بدل شقّ جراحي كبير.' } },
-    { t: { en: 'Established operations', ar: 'عمليات راسخة' }, d: { en: 'Sleeve, bypass, hernia and gallbladder surgery, done robotically.', ar: 'تكميم المعدة وتحويل المسار والفتق والمرارة، تُجرى بالروبوت.' } },
-  ],
+  robotPoints,
   pathsEyebrow: { en: 'Two paths to treatment', ar: 'مساران للعلاج' },
   pathsH2a: { en: 'Not every patient', ar: 'ليس كل مريض' },
   pathsH2b: { en: 'needs surgery.', ar: 'بحاجة إلى جراحة.' },
@@ -92,10 +90,7 @@ const c = {
   },
   treatments: { en: 'Treatments', ar: 'العلاجات' },
   treatmentsText: { en: 'Surgical and medical care for obesity and common abdominal conditions.', ar: 'رعاية جراحية وطبية للسمنة وأمراض البطن الشائعة.' },
-  risks: {
-    en: 'Every operation carries risks, including bleeding, infection, leaks and nutritional deficiencies, which are discussed in full before any decision. Long-term follow-up is essential: missing follow-up visits raises the risk of complications. Recovery times vary from person to person.',
-    ar: 'لكل عملية جراحية مخاطر محتملة، منها النزيف والعدوى والتسرّب ونقص بعض العناصر الغذائية، وتُناقَش جميعها بالتفصيل قبل اتخاذ أي قرار. والمتابعة طويلة الأمد ضرورية، فالتخلّف عن زيارات المتابعة يزيد خطر المضاعفات. وتختلف مدة التعافي من شخص لآخر.',
-  },
+  risks: risksNote,
   journeyH2: { en: 'From first message to long-term follow-up.', ar: 'من رسالتك الأولى إلى المتابعة طويلة الأمد.' },
   journey: [
     { t: { en: 'Send a message', ar: 'أرسل رسالة' }, d: { en: 'Reach us on WhatsApp or by phone with your question.', ar: 'تواصل معنا عبر واتساب أو الهاتف بسؤالك.' } },
@@ -157,177 +152,221 @@ const jsonLd = {
   knowsLanguage: ['en', 'ar'],
   sameAs: social.filter((s) => s.name !== 'WhatsApp').map((s) => s.url),
 };
+// Layout-only additions for the redesign (labels and grouping; approved copy above is unchanged).
+const x = {
+  roboticLabel: treatments.find((t) => t.slug === 'robotic-surgery')!.name,
+  journeyLabel: { en: 'Your Journey', ar: 'رحلتك العلاجية' },
+  faqLabel: { en: 'Questions', ar: 'الأسئلة' },
+  secondLabel: { en: 'Second Opinion', ar: 'رأي طبي ثانٍ' },
+  faqGroups: [
+    { h: { en: 'Deciding on treatment', ar: 'قبل اتخاذ القرار' }, from: 0, to: 5 },
+    { h: { en: 'Life after surgery', ar: 'الحياة بعد العملية' }, from: 5, to: 12 },
+    { h: { en: 'Practical questions', ar: 'أسئلة عملية' }, from: 12, to: 15 },
+  ],
+  bmiError: {
+    en: 'Enter height in centimetres (100 to 230) and weight in kilograms (30 to 350).',
+    ar: 'أدخل الطول بالسنتيمتر (من 100 إلى 230) والوزن بالكيلوغرام (من 30 إلى 350).',
+  },
+};
+const no = (i: number) => String(i).padStart(2, '0');
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: c.faq.map((f) => ({ '@type': 'Question', name: f.q[lang], acceptedAnswer: { '@type': 'Answer', text: f.a[lang] } })),
+};
 ---
 <Base lang={lang} path="" title={c.title} description={c.description}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow intro">{c.eyebrow[lang]}</p>
-        <h1 class="intro-2">{c.h1a[lang]}<br /><em class="accent">{c.h1b[lang]}</em></h1>
-        <p class="lead intro-3">{c.intro[lang]}</p>
-        <div class="btn-row intro-3">
-          <a class="btn btn-primary" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
-          <a class="ulink" href={phone.tel}>{c.orCall[lang]} <bdi dir="ltr">{phone.intl}</bdi></a>
-        </div>
-      </div>
-      <div class="portrait">
-        <div class="portrait-frame">
-          <Image src={portrait} alt={site.name[lang]} widths={[320, 440, 640, 880]} sizes="(max-width: 899px) 320px, 440px" loading="eager" fetchpriority="high" />
-        </div>
-      </div>
-    </div>
     <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="label eyebrow rise">{c.eyebrow[lang]}</p>
+          <h1 class="rise rise-2"><span>{c.h1a[lang]}</span><em class="accent">{c.h1b[lang]}</em></h1>
+          <p class="lead rise rise-3">{c.intro[lang]}</p>
+          <div class="actions rise rise-3">
+            <a class="btn" href={whatsappLink(whatsappMessages.booking[lang])}><Wa /><span>{ui.bookWhatsApp[lang]}</span></a>
+            <a class="tlink" href={phone.tel}>{c.orCall[lang]} <bdi dir="ltr" class="num">{phone.intl}</bdi></a>
+          </div>
+          <p class="assist rise rise-3">{faisalNote[lang]}</p>
+        </div>
+        <figure class="hero-plate plate rise rise-2">
+          <div class="plate-img crop"><i></i>
+            <Image src={portrait} alt={site.name[lang]} width={720} height={900} fit="cover" position="top" widths={[360, 480, 720]} sizes="(max-width: 56rem) 344px, 368px" loading="eager" fetchpriority="high" quality={72} />
+          </div>
+          <figcaption>
+            <span class="cap-name">{site.name[lang]}</span>
+            <span class="cap-role">{site.title[lang]}</span>
+            <span class="cred" dir="ltr" lang="en">{site.credentials}</span>
+          </figcaption>
+        </figure>
+      </div>
       <ul class="stats">
         {c.stats.map((s) => (
           <li>
-            <p class:list={['stat-value', { word: s.word }]}>{typeof s.v === 'string' ? <bdi dir="ltr">{s.v}</bdi> : s.v[lang]}</p>
-            <p class="stat-label">{s.l[lang]}</p>
+            <p class="stat-v"><bdi dir="ltr" lang="en">{s.v}</bdi></p>
+            <p class="stat-l">{s.l[lang]}</p>
           </li>
         ))}
       </ul>
     </div>
   </section>
 
-  <section class="section reveal">
-    <figure class="quote wrap">
-      <blockquote>{c.quote[lang]}</blockquote>
-      <figcaption class="eyebrow" style="color: var(--muted); margin: 0;">{site.name[lang]}</figcaption>
-    </figure>
+  <section class="quote">
+    <div class="wrap grid">
+      <figure>
+        <blockquote><p>{c.quote[lang]}</p></blockquote>
+        <figcaption class="label">{site.name[lang]}</figcaption>
+      </figure>
+    </div>
   </section>
 
-  <section class="section section-dark" id="robotic">
+  <section class="sec sec-tight" id="paths" aria-labelledby="paths-h">
     <div class="wrap">
-      <div class="section-head reveal">
-        <h2>{c.robotH2a[lang]}<br /><em class="accent">{c.robotH2b[lang]}</em></h2>
-        <p>{c.robotText[lang]}</p>
+      <div class="sec-head label"><span class="no num" aria-hidden="true">{no(1)}</span><span class="lbl">{c.pathsEyebrow[lang]}</span></div>
+      <div class="grid">
+        <div class="paths-main">
+          <h2 id="paths-h"><span>{c.pathsH2a[lang]}</span><span>{c.pathsH2b[lang]}</span></h2>
+          <p class="lead">{c.pathsText[lang]}</p>
+          <div class="paths">
+            {c.paths.map((p) => (
+              <div class="path">
+                <h3>{p.t[lang]}</h3>
+                <ul>{p.items.map((i) => <li>{i[lang]}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bmi" id="bmi" data-advice={JSON.stringify(c.advice[lang])}>
+          <h3>{c.bmiTitle[lang]}</h3>
+          <p>{c.bmiIntro[lang]}</p>
+          <div class="bmi-fields">
+            <label>{c.height[lang]}<input id="bmi-h" type="text" inputmode="decimal" autocomplete="off" dir="ltr" aria-describedby="bmi-error" /></label>
+            <label>{c.weight[lang]}<input id="bmi-w" type="text" inputmode="decimal" autocomplete="off" dir="ltr" aria-describedby="bmi-error" /></label>
+          </div>
+          <div class="bmi-result" aria-live="polite">
+            <div id="bmi-out" hidden>
+              <p class="label">{c.yourBmi[lang]}</p>
+              <p class="bmi-value"><bdi dir="ltr" id="bmi-val"></bdi></p>
+              <p id="bmi-advice"></p>
+            </div>
+            <p id="bmi-empty" class="small">{c.bmiEmpty[lang]}</p>
+            <p id="bmi-error" class="bmi-error" hidden>{x.bmiError[lang]}</p>
+          </div>
+          <div class="ruler" aria-hidden="true">
+            <span class="mark" id="bmi-mark" hidden></span>
+            <span class="th" style="--p:33.33%"><b>25</b></span><span class="th" style="--p:50%"><b>30</b></span><span class="th" style="--p:66.67%"><b>35</b></span>
+          </div>
+          <a class="btn" href={whatsappLink(whatsappMessages.booking[lang])}>{c.bmiCta[lang]}</a>
+          <p class="small">{c.bmiNote[lang]}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark" id="robotic" aria-labelledby="robotic-h">
+    <Arcs />
+    <div class="wrap">
+      <div class="sec-head label"><span class="no num" aria-hidden="true">{no(2)}</span><span class="lbl">{x.roboticLabel[lang]}</span></div>
+      <div class="grid">
+        <div class="robot-top">
+          <h2 id="robotic-h"><span>{c.robotH2a[lang]}</span><span class="accent">{c.robotH2b[lang]}</span></h2>
+          <p class="lead">{c.robotText[lang]}</p>
+        </div>
       </div>
       <ol class="points">
         {c.robotPoints.map((p, i) => (
-          <li class="reveal">
-            <p class="point-num">{String(i + 1).padStart(2, '0')}</p>
-            <h3>{p.t[lang]}</h3>
-            <p>{p.d[lang]}</p>
-          </li>
+          <li><p class="pn num" aria-hidden="true">{no(i + 1)}</p><h3>{p.t[lang]}</h3><p>{p.d[lang]}</p></li>
         ))}
       </ol>
+      <p class="robot-more"><a class="tlink more" href={`/${lang}/treatments/robotic-surgery/`}>{ui.learnMore[lang]} <span aria-hidden="true">{arrow}</span><span class="vh"> {x.roboticLabel[lang]}</span></a></p>
     </div>
   </section>
 
-  <section class="section" id="paths">
-    <div class="wrap split">
-      <div class="main reveal">
-        <p class="eyebrow">{c.pathsEyebrow[lang]}</p>
-        <h2>{c.pathsH2a[lang]}<br />{c.pathsH2b[lang]}</h2>
-        <p class="lead" style="margin-bottom: 2.5rem;">{c.pathsText[lang]}</p>
-        <div class="points">
-          {c.paths.map((p) => (
-            <div>
-              <h3 class="serif" style="font-size: 1.6rem; font-weight: 500;">{p.t[lang]}</h3>
-              <ul>{p.items.map((x) => <li>{x[lang]}</li>)}</ul>
+  <section class="sec sec-sand" id="treatments" aria-labelledby="treatments-h">
+    <div class="wrap">
+      <div class="sec-head label"><span class="no num" aria-hidden="true">{no(3)}</span><h2 class="lbl" id="treatments-h">{c.treatments[lang]}</h2></div>
+      <div class="grid"><p class="t-intro statement">{c.treatmentsText[lang]}</p></div>
+      <TreatmentList lang={lang} items={ordered} />
+      <div class="risk-row"><div class="callout"><p>{c.risks[lang]}</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="journey" aria-labelledby="journey-h">
+    <div class="wrap">
+      <div class="sec-head label"><span class="no num" aria-hidden="true">{no(4)}</span><span class="lbl">{x.journeyLabel[lang]}</span></div>
+      <div class="grid"><h2 class="journey-head" id="journey-h">{c.journeyH2[lang]}</h2></div>
+      <ol class="steps">
+        {c.journey.map((s) => <li><h3>{s.t[lang]}</h3><p>{s.d[lang]}</p></li>)}
+      </ol>
+      <p class="journey-more"><a class="tlink more" href={`/${lang}/journey/`}>{c.journeyLink[lang]}</a></p>
+    </div>
+  </section>
+
+  <section class="sec sec-sand" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="sec-head label"><span class="no num" aria-hidden="true">{no(5)}</span><span class="lbl">{c.aboutEyebrow[lang]}</span></div>
+      <div class="grid">
+        <div class="about-main">
+          <h2 id="about-h">{site.name[lang]}</h2>
+          <p class="cred" dir="ltr" lang="en">{site.credentials}</p>
+          <p>{c.aboutText[lang]}</p>
+          <p><a class="tlink more" href={`/${lang}/about/`}>{c.aboutLink[lang]}</a></p>
+        </div>
+        <dl class="facts">
+          {c.facts.map((f) => <div><dt class="label">{f.k[lang]}</dt><dd>{f.v[lang]}</dd></div>)}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sec-head label"><span class="no num" aria-hidden="true">{no(6)}</span><span class="lbl">{x.faqLabel[lang]}</span></div>
+      <div class="grid">
+        <div class="faq-side">
+          <h2 id="faq-h"><span>{c.faqH2a[lang]}</span><span>{c.faqH2b[lang]}</span></h2>
+        </div>
+        <div class="faq">
+          {x.faqGroups.map((g) => (
+            <div class="faq-group">
+              <h3>{g.h[lang]}</h3>
+              <div class="faq-list">
+                {c.faq.slice(g.from, g.to).map((f) => (
+                  <details>
+                    <summary><span class="q">{f.q[lang]}</span><span class="pm" aria-hidden="true"></span></summary>
+                    <div class="a">
+                      <p>{f.a[lang]}</p>
+                      {'links' in f && f.links && f.links.map((l) => (
+                        <p class="src"><a href={l.url} target="_blank" rel="noopener">{l.label[lang]}{'cite' in l && l.cite && <>{' — '}<bdi dir="ltr" lang="en">{l.cite}</bdi></>}<span class="vh"> ({ui.newTab[lang]})</span></a></p>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
             </div>
           ))}
+          <p class="small faq-reviewed"><time datetime="2026-11">{ui.reviewed[lang]}</time></p>
         </div>
-      </div>
-      <div class="side bmi reveal" id="bmi"
-        data-advice={JSON.stringify(c.advice[lang])}>
-        <h3>{c.bmiTitle[lang]}</h3>
-        <p style="color: var(--body);">{c.bmiIntro[lang]}</p>
-        <div class="bmi-fields">
-          <label>{c.height[lang]}<input id="bmi-h" type="text" inputmode="decimal" placeholder="170" autocomplete="off" /></label>
-          <label>{c.weight[lang]}<input id="bmi-w" type="text" inputmode="decimal" placeholder="95" autocomplete="off" /></label>
-        </div>
-        <div class="bmi-result" aria-live="polite">
-          <div id="bmi-out" hidden>
-            <p class="small" style="margin: 0;">{c.yourBmi[lang]}</p>
-            <p class="bmi-value"><bdi dir="ltr" id="bmi-val"></bdi></p>
-            <p id="bmi-advice" style="margin: 0;"></p>
-          </div>
-          <p id="bmi-empty" class="small" style="margin: 0;">{c.bmiEmpty[lang]}</p>
-        </div>
-        <a class="btn btn-primary" href={whatsappLink(whatsappMessages.booking[lang])}>{c.bmiCta[lang]}</a>
-        <p class="small" style="margin: 0;">{c.bmiNote[lang]}</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-sand" id="treatments">
+  <section class="cta" aria-labelledby="cta-h">
     <div class="wrap">
-      <div class="section-head reveal">
-        <h2>{c.treatments[lang]}</h2>
-        <p>{c.treatmentsText[lang]}</p>
-      </div>
-      <div class="t-list">
-        {ordered.map((t, i) => (
-          <a class="t-row reveal" href={`/${lang}/treatments/${t.slug}/`}>
-            <span class="t-num">{String(i + 1).padStart(2, '0')}</span>
-            <span class="t-name">{t.name[lang]}</span>
-            <span class="t-desc">{t.summary[lang]}</span>
-            <span class="t-arrow" aria-hidden="true">{arrow}</span>
-          </a>
-        ))}
-      </div>
-      <p class="small" style="margin-top: 2rem; max-width: 56rem;">{c.risks[lang]}</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <h2 class="reveal" style="max-width: 48rem; margin-bottom: 3.5rem;">{c.journeyH2[lang]}</h2>
-      <ol class="points">
-        {c.journey.map((s, i) => (
-          <li class="reveal" style="border-top: none; padding-top: 0;">
-            <p class="big-num">{i + 1}</p>
-            <h3>{s.t[lang]}</h3>
-            <p>{s.d[lang]}</p>
-          </li>
-        ))}
-      </ol>
-      <p style="margin-top: 2.5rem;"><a class="ulink" href={`/${lang}/journey/`} style="color: var(--ink); font-weight: 500;">{c.journeyLink[lang]}</a></p>
-    </div>
-  </section>
-
-  <section class="section section-sand" id="about">
-    <div class="wrap split">
-      <div class="main reveal" style="flex-basis: 26rem;">
-        <p class="eyebrow">{c.aboutEyebrow[lang]}</p>
-        <h2 style="margin-bottom: 0.5rem;">{site.name[lang]}</h2>
-        <p class="small" dir="ltr" style={`letter-spacing: 0.08em; margin-bottom: 1.5rem;${lang === 'ar' ? ' text-align: right;' : ''}`}>{site.credentials}</p>
-        <p style="color: var(--body);">{c.aboutText[lang]}</p>
-        <a class="ulink" href={`/${lang}/about/`} style="color: var(--ink); font-weight: 500;">{c.aboutLink[lang]}</a>
-      </div>
-      <dl class="side dl reveal" style="flex-basis: 32rem;">
-        {c.facts.map((f) => (<><dt>{f.k[lang]}</dt><dd>{f.v[lang]}</dd></>))}
-      </dl>
-    </div>
-  </section>
-
-  <section class="section" id="faq">
-    <div class="wrap split">
-      <h2 class="narrow-col reveal">{c.faqH2a[lang]}<br />{c.faqH2b[lang]}</h2>
-      <div class="wide-col faq">
-        {c.faq.map((f) => (
-          <details>
-            <summary>{f.q[lang]}</summary>
-            <p>{f.a[lang]}</p>
-            {'links' in f && f.links && f.links.map((l) => <p class="small"><a href={l.url} target="_blank" rel="noopener">{l.label[lang]}{'cite' in l && l.cite && <>{' — '}<bdi dir="ltr">{l.cite}</bdi></>}</a></p>)}
-          </details>
-        ))}
-        <p class="small" style="margin-top: 1.5rem;"><time datetime="2026-11">{ui.reviewed[lang]}</time></p>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-bottom: clamp(4rem, 9vw, 7.5rem);">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div style="flex: 1 1 30rem; min-width: 0;">
-          <h2>{c.ctaH2a[lang]}<br /><em style="color: var(--accent-light);">{c.ctaH2b[lang]}</em></h2>
-          <p>{c.ctaText[lang]}</p>
+      <div class="cta-box crop"><i></i>
+        <div class="cta-main">
+          <p class="label eyebrow">{x.secondLabel[lang]}</p>
+          <h2 id="cta-h"><span>{c.ctaH2a[lang]}</span><span class="accent">{c.ctaH2b[lang]}</span></h2>
         </div>
+        <p class="lead cta-lead">{c.ctaText[lang]}</p>
         <div class="cta-actions">
-          <a class="btn btn-light" href={whatsappLink(whatsappMessages.secondOpinion[lang])}>{c.ctaBtn[lang]}</a>
-          <a class="ulink" href={phone.tel}>{c.orCall[lang]} <bdi dir="ltr">{phone.intl}</bdi></a>
+          <a class="btn" href={whatsappLink(whatsappMessages.secondOpinion[lang])}><Wa /><span>{c.ctaBtn[lang]}</span></a>
+          <a class="tlink" href={phone.tel}>{c.orCall[lang]} <bdi dir="ltr" class="num">{phone.intl}</bdi></a>
+          <p class="assist">{faisalNote[lang]}</p>
         </div>
       </div>
     </div>
@@ -342,24 +381,40 @@ const jsonLd = {
     const w = document.getElementById('bmi-w') as HTMLInputElement;
     const out = document.getElementById('bmi-out')!;
     const empty = document.getElementById('bmi-empty')!;
+    const error = document.getElementById('bmi-error')!;
     const val = document.getElementById('bmi-val')!;
     const text = document.getElementById('bmi-advice')!;
-    // Accept Arabic-Indic digits and Arabic or comma decimal separators.
+    const mark = document.getElementById('bmi-mark')!;
+    // Accept Arabic-Indic and Persian digits and Arabic or comma decimal separators.
+    // Nothing typed here is stored or sent anywhere.
     const num = (v: string) => {
-      const s = v.replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d))).replace('٫', '.').replace(',', '.');
-      const n = parseFloat(s);
-      return isFinite(n) ? n : 0;
+      const s = v.trim()
+        .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
+        .replace(/[۰-۹]/g, (d) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)))
+        .replace('٫', '.').replace(',', '.');
+      return /^\d+(\.\d+)?$/.test(s) ? parseFloat(s) : NaN;
     };
     const update = () => {
       const cm = num(h.value);
       const kg = num(w.value);
-      const valid = cm >= 100 && cm <= 230 && kg >= 30 && kg <= 350;
+      const hOk = cm >= 100 && cm <= 230;
+      const wOk = kg >= 30 && kg <= 350;
+      const hBad = h.value.trim() !== '' && !hOk;
+      const wBad = w.value.trim() !== '' && !wOk;
+      h.setAttribute('aria-invalid', String(hBad));
+      w.setAttribute('aria-invalid', String(wBad));
+      const valid = hOk && wOk;
+      const bad = hBad || wBad;
       out.hidden = !valid;
-      empty.hidden = valid;
+      error.hidden = !bad;
+      empty.hidden = valid || bad;
+      mark.hidden = !valid;
       if (!valid) return;
       const bmi = kg / Math.pow(cm / 100, 2);
       val.textContent = bmi.toFixed(1);
       text.textContent = advice[bmi >= 35 ? 0 : bmi >= 30 ? 1 : bmi >= 25 ? 2 : 3];
+      // The ruler runs from 15 to 45.
+      mark.style.setProperty('--p', Math.min(100, Math.max(0, ((bmi - 15) / 30) * 100)).toFixed(1) + '%');
     };
     h.addEventListener('input', update);
     w.addEventListener('input', update);

@@ -1,4 +1,5 @@
 ---
+import PageHero from '../../components/PageHero.astro';
 import Base from '../../layouts/Base.astro';
 import { langPaths, ui, phone, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
@@ -76,13 +77,18 @@ const c = {
 };
 ---
 <Base lang={lang} path="privacy" title={c.title} description={c.description}>
-  <section class="section">
-    <div class="wrap" style="max-width: 780px;">
-      <h1>{c.title[lang]}</h1>
-      <p class="small">{c.updated[lang]}</p>
-      <p class="lead">{c.intro[lang]}</p>
-      {c.sections.map((s) => <><h2>{s.h[lang]}</h2><p>{s.p[lang]}</p></>)}
-      <p class="small"><a href={phone.whatsapp}>{ui.whatsapp[lang]} <bdi dir="ltr">{phone.intl}</bdi></a></p>
+  <PageHero lang={lang} path="privacy" title={c.title} lead={c.intro}>
+    <p class="small">{c.updated[lang]}</p>
+  </PageHero>
+  <div class="chapters">
+    <div class="wrap">
+      {c.sections.map((s, i) => (
+        <section class="chapter" aria-labelledby={`pv-${i}`}>
+          <div class="ch-side"><p class="label ch-no num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</p><h2 id={`pv-${i}`}>{s.h[lang]}</h2></div>
+          <div class="ch-body prose"><p>{s.p[lang]}</p></div>
+        </section>
+      ))}
+      <p style="margin-block-start: 2rem;"><a class="tlink more" href={phone.whatsapp}>{ui.whatsapp[lang]} <bdi dir="ltr" class="num">{phone.intl}</bdi></a></p>
     </div>
-  </section>
+  </div>
 </Base>

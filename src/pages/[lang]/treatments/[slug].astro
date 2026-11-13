@@ -1,11 +1,15 @@
 ---
+import PageHero from '../../../components/PageHero.astro';
+import TreatmentList from '../../../components/TreatmentList.astro';
+import ContactBox from '../../../components/ContactBox.astro';
 import Base from '../../../layouts/Base.astro';
-import { langs, treatments, asmbsSource, ui, whatsappLink, whatsappMessages, phone, type Lang } from '../../../data/site';
+import { langs, treatments, asmbsSource, ui, whatsappLink, whatsappMessages, phone, type Lang, risksNote, robotPoints, nav } from '../../../data/site';
 export function getStaticPaths() {
   return langs.flatMap((lang) => treatments.map((t) => ({ params: { lang, slug: t.slug }, props: { t } })));
 }
 const lang = Astro.params.lang as Lang;
 const { t } = Astro.props;
+const robotic = t.slug === 'robotic-surgery';
 
 const h = {
   what: { en: 'What it is', ar: 'نبذة عن العلاج' },
@@ -20,26 +24,37 @@ const h = {
 };
 ---
 <Base lang={lang} path={`treatments/${t.slug}`} title={t.name} description={t.summary}>
-  <section class="section">
-    <div class="wrap" style="max-width: 780px;">
-      <h1>{t.name[lang]}</h1>
-      <p class="lead">{t.summary[lang]}</p>
-      <h2>{h.what[lang]}</h2>
-      <p>{t.what[lang]}</p>
-      <h2>{h.who[lang]}</h2>
-      <p>{t.who[lang]}</p>
-      <h2>{h.expect[lang]}</h2>
-      <p>{t.expect[lang]}</p>
-      <div class="notice">
-        <h3>{h.next[lang]}</h3>
-        <p><a href={phone.tel}><bdi dir="ltr">{phone.intl}</bdi></a></p>
-        <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang] + t.name[lang])}>{ui.bookWhatsApp[lang]}</a>
+  <article>
+    <PageHero lang={lang} path={`treatments/${t.slug}`} title={t.name} lead={t.summary} parent={nav[2]} arcs={robotic}>
+      {robotic && (
+        <ul class="facts4" slot="below">
+          {robotPoints.map((p) => <li><h2>{p.t[lang]}</h2><p>{p.d[lang]}</p></li>)}
+        </ul>
+      )}
+    </PageHero>
+    <div class="chapters">
+      <div class="wrap">
+        {(['what', 'who', 'expect'] as const).map((k, i) => (
+          <section class="chapter" aria-labelledby={`ch-${k}`}>
+            <div class="ch-side"><p class="label ch-no num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</p><h2 id={`ch-${k}`}>{h[k][lang]}</h2></div>
+            <div class="ch-body"><p>{t[k][lang]}</p></div>
+          </section>
+        ))}
       </div>
-      <p class="small" style="margin-top: 1.5rem;">{h.general[lang]}</p>
+    </div>
+    <ContactBox lang={lang} title={h.next} topic={t.name[lang]}>
+      <p class="small">{h.general[lang]}</p>
       <p class="small"><time datetime="2026-11">{ui.reviewed[lang]}</time></p>
       {t.slug === 'bariatric-surgery' && (
-        <p class="sources">{h.sources[lang]}: <a href={asmbsSource.url} lang="en" dir="ltr">{asmbsSource.label}</a></p>
+        <p class="small prose">{h.sources[lang]}: <a href={asmbsSource.url} lang="en" dir="ltr">{asmbsSource.label}</a></p>
       )}
+    </ContactBox>
+  </article>
+  <section class="sec sec-sand" aria-labelledby="more-h">
+    <div class="wrap">
+      <div class="sec-head label"><h2 class="lbl" id="more-h">{nav[2].label[lang]}</h2></div>
+      <TreatmentList lang={lang} items={treatments.filter((o) => o.slug !== t.slug)} />
+      <div class="risk-row"><div class="callout"><p>{risksNote[lang]}</p></div></div>
     </div>
   </section>
 </Base>

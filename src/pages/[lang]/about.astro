@@ -1,8 +1,10 @@
 ---
+import PageHero from '../../components/PageHero.astro';
+import ContactBox from '../../components/ContactBox.astro';
 import Base from '../../layouts/Base.astro';
 import { Image } from 'astro:assets';
 import portrait from '../../assets/dr-alaa-alhazmi.jpg';
-import { langPaths, site, type Lang } from '../../data/site';
+import { langPaths, site, type Lang, ui } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -49,28 +51,34 @@ const c = {
 };
 ---
 <Base lang={lang} path="about" title={c.title} description={c.description}>
-  <section class="section">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>{site.name[lang]}</h1>
-        <p class="lead">{site.credentials}</p>
-        {c.bio.map((p) => <p>{p[lang]}</p>)}
+  <PageHero lang={lang} path="about" title={site.name} crumb={c.title}>
+    <p class="cred" dir="ltr" lang="en">{site.credentials}</p>
+    <p class="lead">{site.title[lang]}</p>
+    <figure class="plate" slot="side">
+      <div class="plate-img crop"><i></i>
+        <Image src={portrait} alt={site.name[lang]} width={480} height={600} fit="cover" position="top" widths={[240, 360, 480]} sizes="(max-width: 56rem) 232px, 290px" loading="eager" fetchpriority="high" quality={72} />
       </div>
-      <Image class="hero-photo" src={portrait} alt={site.name[lang]} widths={[420, 840]} sizes="(max-width: 460px) 100vw, 420px" loading="eager" fetchpriority="high" />
-    </div>
-  </section>
-  <section class="section section-sand">
+    </figure>
+  </PageHero>
+  <div class="chapters">
     <div class="wrap">
-      <h2>{c.certTitle[lang]}</h2>
-      <ul class="facts">{c.certs.map((x) => <li>{x[lang]}</li>)}</ul>
-      <h2>{c.eduTitle[lang]}</h2>
-      <ul class="facts">{c.edu.map((x) => <li>{x[lang]}</li>)}</ul>
+      <section class="chapter" aria-labelledby="ch-bio">
+        <div class="ch-side"><p class="label ch-no num" aria-hidden="true">01</p><h2 id="ch-bio">{c.title[lang]}</h2></div>
+        <div class="ch-body">{c.bio.map((p) => <p>{p[lang]}</p>)}</div>
+      </section>
+      <section class="chapter" aria-labelledby="ch-cert">
+        <div class="ch-side"><p class="label ch-no num" aria-hidden="true">02</p><h2 id="ch-cert">{c.certTitle[lang]}</h2></div>
+        <div class="ch-body"><ul class="rule-list">{c.certs.map((x) => <li>{x[lang]}</li>)}</ul></div>
+      </section>
+      <section class="chapter" aria-labelledby="ch-edu">
+        <div class="ch-side"><p class="label ch-no num" aria-hidden="true">03</p><h2 id="ch-edu">{c.eduTitle[lang]}</h2></div>
+        <div class="ch-body"><ul class="rule-list">{c.edu.map((x) => <li>{x[lang]}</li>)}</ul></div>
+      </section>
+      <section class="chapter" aria-labelledby="ch-mem">
+        <div class="ch-side"><p class="label ch-no num" aria-hidden="true">04</p><h2 id="ch-mem">{c.memTitle[lang]}</h2></div>
+        <div class="ch-body"><ul class="rule-list">{c.members[lang].split(' · ').map((x) => <li>{x}</li>)}</ul></div>
+      </section>
     </div>
-  </section>
-  <section class="section">
-    <div class="wrap">
-      <h2>{c.memTitle[lang]}</h2>
-      <p>{c.members[lang]}</p>
-    </div>
-  </section>
+  </div>
+  <ContactBox lang={lang} title={ui.discuss} />
 </Base>

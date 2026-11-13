@@ -1,6 +1,7 @@
 ---
+import PageHero from '../../components/PageHero.astro';
 import Base from '../../layouts/Base.astro';
-import { langPaths, type Lang, type T } from '../../data/site';
+import { langPaths, type Lang, type T, ui } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -80,25 +81,22 @@ const groups = [
 ];
 ---
 <Base lang={lang} path="resources" title={c.title} description={c.description}>
-  <section class="section">
-    <div class="wrap">
-      <h1>{c.title[lang]}</h1>
-      <p class="lead">{c.intro[lang]}</p>
-      {lang === 'ar' && <p class="small">{c.englishNote.ar}</p>}
-    </div>
-  </section>
+  <PageHero lang={lang} path="resources" title={c.title} lead={c.intro}>
+    {lang === 'ar' && <p class="small">{c.englishNote.ar}</p>}
+  </PageHero>
   {groups.map((g, gi) => (
-    <section class:list={['section', { 'section-sand': gi === 0 }]} style="padding-top: clamp(3rem, 6vw, 5rem);">
+    <section class:list={['sec', { 'sec-sand': gi === 1 }]} aria-labelledby={`res-${gi}`} style={gi === 0 ? 'padding-block-start: clamp(3rem, 6vw, 5.5rem);' : undefined}>
       <div class="wrap">
-        <h2 style="margin-bottom: 2.5rem;">{g.title[lang]}</h2>
-        <div class="t-list">
+        <div class="sec-head label"><span class="no num" aria-hidden="true">{String(gi + 1).padStart(2, '0')}</span><h2 class="lbl" id={`res-${gi}`}>{g.title[lang]}</h2></div>
+        <div class="t-list t-list-sm">
           {g.items.map((r, i) => (
             <a class="t-row" href={r.url} target="_blank" rel="noopener">
-              <span class="t-num">{String(i + 1).padStart(2, '0')}</span>
-              <span class="t-name" style="font-size: 1.45rem;">{r.name[lang]}</span>
+              <span class="t-num num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <span class="t-name">{r.name[lang]}</span>
               <span class="t-desc">
                 {r.desc[lang]}
-                {lang === 'ar' && !r.arabic && <span class="small" style="display: block; margin-top: 0.25rem;">{c.english.ar}</span>}
+                {lang === 'ar' && !r.arabic && <span class="small">{c.english.ar}</span>}
+                <span class="vh"> ({ui.newTab[lang]})</span>
               </span>
               <span class="t-arrow" aria-hidden="true">{arrow}</span>
             </a>

@@ -1,0 +1,40 @@
+---
+import { site, ui, nav, type Lang, type T } from '../data/site';
+import Arcs from './Arcs.astro';
+interface Props {
+  lang: Lang;
+  path: string; // page path without language prefix
+  title: T;
+  lead?: T;
+  parent?: { path: string; label: T };
+  crumb?: T; // breadcrumb label when it differs from the h1
+  arcs?: boolean;
+}
+const { lang, path, title, lead, parent, crumb, arcs = false } = Astro.props;
+const href = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
+const trail = [{ path: '', label: nav[0].label }, ...(parent ? [parent] : []), { path, label: crumb ?? title }];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.label[lang], item: site.url + href(t.path) })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<header class="page-hero">
+  {arcs && <Arcs />}
+  <div class="wrap">
+    <nav class="crumbs label" aria-label={ui.breadcrumb[lang]}>
+      {trail.slice(0, -1).map((t) => (<><a href={href(t.path)}>{t.label[lang]}</a><span aria-hidden="true">/</span></>))}
+      <span aria-current="page">{(crumb ?? title)[lang]}</span>
+    </nav>
+    <div class="page-hero-grid">
+      <div class="ph-text">
+        <h1 class="rise">{title[lang]}</h1>
+        {lead && <p class="lead rise rise-2">{lead[lang]}</p>}
+        <slot />
+      </div>
+      <slot name="side" />
+    </div>
+    <slot name="below" />
+  </div>
+</header>
