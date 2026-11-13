@@ -98,13 +98,13 @@ const c = {
     { t: { en: 'Your treatment', ar: 'العلاج' }, d: { en: 'A medical plan, or preparation followed by an operation and a short hospital stay.', ar: 'خطة علاج طبية، أو تهيئة ثم جراحة وإقامة قصيرة في المستشفى.' } },
     { t: { en: 'Long-term follow-up', ar: 'متابعة طويلة الأمد' }, d: { en: 'Ongoing support on diet, vitamins, activity and medicines.', ar: 'دعم متواصل في التغذية والفيتامينات والنشاط البدني والأدوية.' } },
   ],
-  journeyLink: { en: 'Your journey in detail →', ar: 'رحلتك العلاجية بالتفصيل ←' },
+  journeyLink: { en: 'Your journey in detail', ar: 'رحلتك العلاجية بالتفصيل' },
   aboutEyebrow: { en: 'About', ar: 'عن الدكتور' },
   aboutText: {
     en: 'Dr. Alhazmi earned an MD at The George Washington University and completed a fellowship in minimally invasive and bariatric surgery at UC Davis. Dr. Alhazmi is certified by the American Board of Surgery and the American Board of Obesity Medicine, and practiced for more than 15 years as a consultant at King Faisal Specialist Hospital & Research Centre in Riyadh.',
     ar: 'حصل د. علاء الحازمي على شهادة الطب من جامعة جورج واشنطن، وأتمّ زمالة جراحة المناظير وجراحة السمنة في جامعة كاليفورنيا ديفيس. وهو حاصل على البورد الأمريكي للجراحة والبورد الأمريكي لطب السمنة، وعمل استشاريًا لأكثر من خمسة عشر عامًا في مستشفى الملك فيصل التخصصي ومركز الأبحاث بالرياض.',
   },
-  aboutLink: { en: 'Read the full story →', ar: 'اقرأ المزيد ←' },
+  aboutLink: { en: 'Read the full story', ar: 'اقرأ المزيد' },
   facts: [
     { k: { en: 'Education', ar: 'التعليم' }, v: { en: 'MD, The George Washington University', ar: 'دكتوراه في الطب، جامعة جورج واشنطن' } },
     { k: { en: 'Fellowship', ar: 'الزمالة' }, v: { en: 'Minimally invasive and bariatric surgery, UC Davis', ar: 'جراحة المناظير وجراحة السمنة، جامعة كاليفورنيا ديفيس' } },
@@ -302,7 +302,7 @@ const faqLd = {
       <ol class="steps">
         {c.journey.map((s) => <li><h3>{s.t[lang]}</h3><p>{s.d[lang]}</p></li>)}
       </ol>
-      <p class="journey-more"><a class="tlink more" href={`/${lang}/journey/`}>{c.journeyLink[lang]}</a></p>
+      <p class="journey-more"><a class="tlink more" href={`/${lang}/journey/`}>{c.journeyLink[lang]} <span aria-hidden="true">{arrow}</span></a></p>
     </div>
   </section>
 
@@ -314,7 +314,7 @@ const faqLd = {
           <h2 id="about-h">{site.name[lang]}</h2>
           <p class="cred" dir="ltr" lang="en">{site.credentials}</p>
           <p>{c.aboutText[lang]}</p>
-          <p><a class="tlink more" href={`/${lang}/about/`}>{c.aboutLink[lang]}</a></p>
+          <p><a class="tlink more" href={`/${lang}/about/`}>{c.aboutLink[lang]} <span aria-hidden="true">{arrow}</span></a></p>
         </div>
         <dl class="facts">
           {c.facts.map((f) => <div><dt class="label">{f.k[lang]}</dt><dd>{f.v[lang]}</dd></div>)}
@@ -388,19 +388,20 @@ const faqLd = {
     // Accept Arabic-Indic and Persian digits and Arabic or comma decimal separators.
     // Nothing typed here is stored or sent anywhere.
     const num = (v: string) => {
-      const s = v.trim()
+      const s = v.replace(/[\s\u200e\u200f\u061c\u202a-\u202e\u2066-\u2069]/g, '')
         .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
         .replace(/[۰-۹]/g, (d) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)))
-        .replace('٫', '.').replace(',', '.');
+        .replace(/[٫،,]/, '.');
       return /^\d+(\.\d+)?$/.test(s) ? parseFloat(s) : NaN;
     };
+    const touched = new WeakSet<HTMLInputElement>();
     const update = () => {
       const cm = num(h.value);
       const kg = num(w.value);
       const hOk = cm >= 100 && cm <= 230;
       const wOk = kg >= 30 && kg <= 350;
-      const hBad = h.value.trim() !== '' && !hOk;
-      const wBad = w.value.trim() !== '' && !wOk;
+      const hBad = touched.has(h) && h.value.trim() !== '' && !hOk;
+      const wBad = touched.has(w) && w.value.trim() !== '' && !wOk;
       h.setAttribute('aria-invalid', String(hBad));
       w.setAttribute('aria-invalid', String(wBad));
       const valid = hOk && wOk;
@@ -416,7 +417,9 @@ const faqLd = {
       // The ruler runs from 15 to 45.
       mark.style.setProperty('--p', Math.min(100, Math.max(0, ((bmi - 15) / 30) * 100)).toFixed(1) + '%');
     };
-    h.addEventListener('input', update);
-    w.addEventListener('input', update);
+    [h, w].forEach((el) => {
+      el.addEventListener('input', update);
+      el.addEventListener('blur', () => { touched.add(el); update(); });
+    });
   }
 </script>

@@ -81,7 +81,6 @@ export const ui = {
   learnMore: { en: 'Learn more', ar: 'اعرف المزيد' },
   rights: { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' },
   contact: { en: 'Contact', ar: 'تواصل معنا' },
-  orCall: { en: 'or call', ar: 'أو اتصل على' },
   skip: { en: 'Skip to main content', ar: 'انتقل إلى المحتوى الرئيسي' },
   menu: { en: 'Menu', ar: 'القائمة' },
   mainNav: { en: 'Main', ar: 'التنقل الرئيسي' },

@@ -2,7 +2,7 @@
 import PageHero from '../../components/PageHero.astro';
 import ContactBox from '../../components/ContactBox.astro';
 import Base from '../../layouts/Base.astro';
-import { langPaths, ui, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+import { langPaths, ui, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 

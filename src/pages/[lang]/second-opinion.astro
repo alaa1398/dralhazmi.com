@@ -63,5 +63,7 @@ const c = {
       </section>
     </div>
   </div>
-  <ContactBox lang={lang} title={c.title} secondOpinion button={c.cta} />
+  <ContactBox lang={lang} title={ui.discuss} secondOpinion button={c.cta}>
+    <p class="small">{ui.whatsapp[lang]}: <bdi dir="ltr" class="num">{phone.intl}</bdi></p>
+  </ContactBox>
 </Base>
