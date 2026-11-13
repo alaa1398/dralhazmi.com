@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { langPaths, phone, type Lang } from '../../data/site';
+import { langPaths, ui, phone, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -26,15 +26,15 @@ const c = {
     {
       h: { en: 'This website', ar: 'هذا الموقع' },
       p: {
-        en: 'This website has no forms, accounts, advertising or tracking cookies, and we do not use it to collect personal information. As with any website, our hosting and domain providers (GitHub and Cloudflare) may receive technical data such as your IP address to deliver the pages and keep them secure. Fonts load from this website, not from third parties.',
-        ar: 'لا يحتوي هذا الموقع على نماذج أو حسابات أو إعلانات أو ملفات تعريف ارتباط للتتبع، ولا نستخدمه لجمع المعلومات الشخصية. وكما في أي موقع، قد يتلقى مزوّدا الاستضافة والنطاق (GitHub وCloudflare) بيانات تقنية مثل عنوان IP الخاص بك لعرض الصفحات وحمايتها. وتُحمَّل الخطوط من الموقع نفسه وليس من جهات خارجية.',
+        en: 'This website has no forms, accounts, advertising or tracking cookies, and we do not use it to collect personal information. The BMI calculator works entirely in your browser; the numbers you enter are not sent or stored. As with any website, our hosting and domain providers (GitHub and Cloudflare) may receive technical data such as your IP address to deliver the pages and keep them secure. Fonts load from this website, not from third parties.',
+        ar: 'لا يحتوي هذا الموقع على نماذج أو حسابات أو إعلانات أو ملفات تعريف ارتباط للتتبع، ولا نستخدمه لجمع المعلومات الشخصية. وتعمل حاسبة مؤشر كتلة الجسم داخل متصفحك فقط، ولا تُرسَل الأرقام التي تدخلها ولا تُحفَظ. وكما في أي موقع، قد يتلقى مزوّدا الاستضافة والنطاق (GitHub وCloudflare) بيانات تقنية مثل عنوان IP الخاص بك لعرض الصفحات وحمايتها. وتُحمَّل الخطوط من الموقع نفسه وليس من جهات خارجية.',
       },
     },
     {
       h: { en: 'When you message or call us', ar: 'عند مراسلتنا أو الاتصال بنا' },
       p: {
         en: 'We receive the information you choose to share, usually your name, phone number and question. Your phone number is needed so we can reply; everything else is optional, but without it we may not be able to help with your request. We use this information only to respond to you and arrange the care you ask for, and we rely on your consent to do so. Calls are answered by Faisal, an AI assistant, who records your message for the team.',
-        ar: 'نتلقى المعلومات التي تختار مشاركتها، وعادةً ما تكون اسمك ورقم هاتفك وسؤالك. ونحتاج إلى رقم هاتفك لنتمكن من الرد عليك، أما بقية المعلومات فاختيارية، لكن قد لا نتمكن من مساعدتك في طلبك من دونها. ونستخدم هذه المعلومات فقط للرد عليك وترتيب الرعاية التي تطلبها، بناءً على موافقتك. ويرد على الاتصالات فيصل، وهو مساعد ذكي يسجّل رسالتك للفريق.',
+        ar: 'نتلقى المعلومات التي تختار مشاركتها، وعادةً ما تكون اسمك ورقم هاتفك وسؤالك. ونحتاج إلى رقم هاتفك لنتمكن من الرد عليك، أما بقية المعلومات فاختيارية، لكن قد لا نتمكن من مساعدتك في طلبك من دونها. ونستخدم هذه المعلومات فقط للرد عليك وترتيب الرعاية التي تطلبها، بناءً على موافقتك. ويردّ على الاتصالات فيصل، وهو مساعد يعمل بالذكاء الاصطناعي يسجّل رسالتك للفريق.',
       },
     },
     {
@@ -82,7 +82,7 @@ const c = {
       <p class="small">{c.updated[lang]}</p>
       <p class="lead">{c.intro[lang]}</p>
       {c.sections.map((s) => <><h2>{s.h[lang]}</h2><p>{s.p[lang]}</p></>)}
-      <p class="small"><a href={phone.whatsapp}>WhatsApp <bdi dir="ltr">{phone.intl}</bdi></a></p>
+      <p class="small"><a href={phone.whatsapp}>{ui.whatsapp[lang]} <bdi dir="ltr">{phone.intl}</bdi></a></p>
     </div>
   </section>
 </Base>
