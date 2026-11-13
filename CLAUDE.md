@@ -35,7 +35,7 @@ Bilingual (English, Arabic RTL) static website for Dr. Alaa Alhazmi, built with 
 7. Approved medical content, FAQs and sources, privacy notice and credentials are not rewritten for style. Layout, type, colour and components may change.
 8. WCAG 2.2 AA, keyboard support, reduced motion, real RTL.
 9. Static, fast, private: no frameworks, no third-party requests, no tracking (the privacy page promises this). The BMI calculator must never store or send input.
-10. Current memberships (owner, 13 November 2026): ASMBS, ACS, IFSO and SAGES only. Do not list SASMBS, the Society of Robotic Surgery, the American College of Healthcare Executives or any other society as a membership.
+10. Current memberships (owner, 13 November 2026): ASMBS, ACS, IFSO, SAGES and the Society of Robotic Surgery (SRS) only. Do not list SASMBS, the American College of Healthcare Executives or any other society as a membership.
 11. Ramadan FAQ shows published recommendations and his own (6 to 12 months). Return-to-work keeps the ASMBS figure (1 to 2 weeks).
 12. The privacy page follows Saudi PDPL Articles 12 and 13.
 13. Update "Updated November 2026" (`ui.reviewed`) whenever medical content changes.
