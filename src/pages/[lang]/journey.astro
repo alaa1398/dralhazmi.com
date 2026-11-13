@@ -1,6 +1,8 @@
 ---
+import PageHero from '../../components/PageHero.astro';
+import ContactBox from '../../components/ContactBox.astro';
 import Base from '../../layouts/Base.astro';
-import { langPaths, ui, whatsappLink, whatsappMessages, type Lang } from '../../data/site';
+import { langPaths, ui, type Lang } from '../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -44,18 +46,28 @@ const c = {
 };
 ---
 <Base lang={lang} path="journey" title={c.title} description={c.description}>
-  <section class="section">
-    <div class="wrap" style="max-width: 820px;">
-      <h1>{c.title[lang]}</h1>
-      <p class="lead">{c.intro[lang]}</p>
-      <ol class="steps">
-        {c.steps.map((s) => <li><strong>{s.t[lang]}</strong><br />{s.d[lang]}</li>)}
+  <PageHero lang={lang} path="journey" title={c.title} lead={c.intro} />
+  <section class="sec" aria-label={c.title[lang]}>
+    <div class="wrap">
+      <ol class="steps steps-6">
+        {c.steps.map((s) => <li><h2 class="step-t">{s.t[lang]}</h2><p>{s.d[lang]}</p></li>)}
       </ol>
-      <div class="btn-row">
-        <a class="btn btn-wa" href={whatsappLink(whatsappMessages.booking[lang])}>{ui.bookWhatsApp[lang]}</a>
-      </div>
-      <h2>{c.faqTitle[lang]}</h2>
-      {c.faq.map((f) => <details><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
     </div>
   </section>
+  <section class="sec sec-sand" aria-labelledby="jfaq-h">
+    <div class="wrap grid">
+      <div class="faq-side"><h2 id="jfaq-h">{c.faqTitle[lang]}</h2></div>
+      <div class="faq">
+        <div class="faq-list">
+          {c.faq.map((f) => (
+            <details>
+              <summary><span class="q">{f.q[lang]}</span><span class="pm" aria-hidden="true"></span></summary>
+              <div class="a"><p>{f.a[lang]}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  <ContactBox lang={lang} title={ui.discuss} />
 </Base>

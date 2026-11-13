@@ -1,0 +1,27 @@
+---
+import { ui, phone, faisalNote, whatsappLink, whatsappMessages, type Lang, type T } from '../data/site';
+import Wa from './Wa.astro';
+interface Props {
+  lang: Lang;
+  title: T;
+  topic?: string; // appended to the WhatsApp prefill
+  secondOpinion?: boolean;
+  button?: T;
+  id?: string;
+}
+const { lang, title, topic = '', secondOpinion = false, button = ui.bookWhatsApp, id = 'contact-h' } = Astro.props;
+const msg = (secondOpinion ? whatsappMessages.secondOpinion : whatsappMessages.booking)[lang] + topic;
+---
+<section class="cta" aria-labelledby={id}>
+  <div class="wrap">
+    <div class="contact-box crop"><i></i>
+      <div class="cb-main">
+        <h2 id={id}>{title[lang]}</h2>
+        <p class="phone"><a href={phone.tel}><bdi dir="ltr" class="num">{phone.intl}</bdi></a></p>
+        <p class="assist">{faisalNote[lang]}</p>
+      </div>
+      <div class="cb-act"><a class="btn" href={whatsappLink(msg)}><Wa /><span>{button[lang]}</span></a></div>
+    </div>
+    <div class="page-notes"><slot /></div>
+  </div>
+</section>

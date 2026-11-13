@@ -80,6 +80,15 @@ export const ui = {
   privacy: { en: 'Privacy', ar: 'الخصوصية' },
   learnMore: { en: 'Learn more', ar: 'اعرف المزيد' },
   rights: { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' },
+  contact: { en: 'Contact', ar: 'تواصل معنا' },
+  skip: { en: 'Skip to main content', ar: 'انتقل إلى المحتوى الرئيسي' },
+  menu: { en: 'Menu', ar: 'القائمة' },
+  mainNav: { en: 'Main', ar: 'التنقل الرئيسي' },
+  footerNav: { en: 'Footer', ar: 'روابط التذييل' },
+  breadcrumb: { en: 'Breadcrumb', ar: 'مسار الصفحة' },
+  newTab: { en: 'opens in a new tab', ar: 'يفتح في نافذة جديدة' },
+  discuss: { en: 'Discuss your options', ar: 'تحدّث معنا عن خياراتك العلاجية' },
+  tagline: { en: 'Robotic & Bariatric Surgery', ar: 'الجراحة الروبوتية وجراحة السمنة' },
 };
 
 export type Treatment = {
@@ -197,4 +206,18 @@ export const treatments: Treatment[] = [
 export const asmbsSource = {
   label: 'Eisenberg D, et al. 2022 ASMBS and IFSO: Indications for Metabolic and Bariatric Surgery. Surg Obes Relat Dis. 2022;18(12):1345-1356.',
   url: 'https://doi.org/10.1016/j.soard.2022.08.013',
+};
+
+// Shown on the homepage and on the robotic surgery page.
+export const robotPoints: { t: T; d: T }[] = [
+  { t: { en: 'Magnified 3D view', ar: 'رؤية مكبّرة ثلاثية الأبعاد' }, d: { en: 'A high-definition, three-dimensional image of the operating field.', ar: 'صورة عالية الوضوح لموضع العملية بأبعادها الثلاثة.' } },
+  { t: { en: 'Wristed instruments', ar: 'أدوات مرنة الحركة' }, d: { en: 'Instruments that bend and rotate for fine, controlled movement.', ar: 'أدوات تنثني وتدور لتتيح حركة دقيقة ومحكمة.' } },
+  { t: { en: 'Small incisions', ar: 'فتحات صغيرة' }, d: { en: 'Minimally invasive access instead of one large opening.', ar: 'جراحة عبر فتحات صغيرة بدل شقّ جراحي كبير.' } },
+  { t: { en: 'Established operations', ar: 'عمليات راسخة' }, d: { en: 'Sleeve, bypass, hernia and gallbladder surgery, done robotically.', ar: 'تكميم المعدة وتحويل المسار والفتق والمرارة، تُجرى بالروبوت.' } },
+];
+
+// Risk note shown wherever the treatments are listed.
+export const risksNote: T = {
+  en: 'Every operation carries risks, including bleeding, infection, leaks and nutritional deficiencies, which are discussed in full before any decision. Long-term follow-up is essential: missing follow-up visits raises the risk of complications. Recovery times vary from person to person.',
+  ar: 'لكل عملية جراحية مخاطر محتملة، منها النزيف والعدوى والتسرّب ونقص بعض العناصر الغذائية، وتُناقَش جميعها بالتفصيل قبل اتخاذ أي قرار. والمتابعة طويلة الأمد ضرورية، فالتخلّف عن زيارات المتابعة يزيد خطر المضاعفات. وتختلف مدة التعافي من شخص لآخر.',
 };

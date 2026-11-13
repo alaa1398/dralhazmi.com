@@ -1,0 +1,16 @@
+---
+import type { Lang, Treatment } from '../data/site';
+interface Props { lang: Lang; items: Treatment[] }
+const { lang, items } = Astro.props;
+const arrow = lang === 'ar' ? '←' : '→';
+---
+<div class="t-list">
+  {items.map((t, i) => (
+    <a class="t-row" href={`/${lang}/treatments/${t.slug}/`}>
+      <span class="t-num num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+      <span class="t-name">{t.name[lang]}</span>
+      <span class="t-desc">{t.summary[lang]}</span>
+      <span class="t-arrow" aria-hidden="true">{arrow}</span>
+    </a>
+  ))}
+</div>

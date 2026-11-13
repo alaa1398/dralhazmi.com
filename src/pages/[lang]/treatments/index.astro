@@ -1,6 +1,9 @@
 ---
+import PageHero from '../../../components/PageHero.astro';
+import TreatmentList from '../../../components/TreatmentList.astro';
+import ContactBox from '../../../components/ContactBox.astro';
 import Base from '../../../layouts/Base.astro';
-import { langPaths, treatments, type Lang } from '../../../data/site';
+import { langPaths, treatments, type Lang, risksNote, ui } from '../../../data/site';
 export function getStaticPaths() { return langPaths(); }
 const lang = Astro.params.lang as Lang;
 
@@ -17,20 +20,12 @@ const c = {
 };
 ---
 <Base lang={lang} path="treatments" title={c.title} description={c.description}>
-  <section class="section">
+  <PageHero lang={lang} path="treatments" title={c.title} lead={c.intro} />
+  <section class="sec" aria-label={c.title[lang]} style="padding-block-start: clamp(3rem, 6vw, 5.5rem);">
     <div class="wrap">
-      <h1>{c.title[lang]}</h1>
-      <p class="lead">{c.intro[lang]}</p>
-      <div class="t-list" style="margin-top: 3rem;">
-        {treatments.map((t, i) => (
-          <a class="t-row" href={`/${lang}/treatments/${t.slug}/`}>
-            <span class="t-num">{String(i + 1).padStart(2, '0')}</span>
-            <span class="t-name">{t.name[lang]}</span>
-            <span class="t-desc">{t.summary[lang]}</span>
-            <span class="t-arrow" aria-hidden="true">{lang === 'ar' ? '←' : '→'}</span>
-          </a>
-        ))}
-      </div>
+      <TreatmentList lang={lang} items={treatments} />
+      <div class="risk-row"><div class="callout"><p>{risksNote[lang]}</p></div></div>
     </div>
   </section>
+  <ContactBox lang={lang} title={ui.discuss} />
 </Base>
