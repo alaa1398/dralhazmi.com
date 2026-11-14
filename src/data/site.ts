@@ -88,7 +88,7 @@ export const ui = {
   breadcrumb: { en: 'Breadcrumb', ar: 'مسار الصفحة' },
   newTab: { en: 'opens in a new tab', ar: 'يفتح في نافذة جديدة' },
   discuss: { en: 'Discuss your options', ar: 'تحدّث معنا عن خياراتك العلاجية' },
-  tagline: { en: 'Robotic & Bariatric Surgery', ar: 'الجراحة الروبوتية وجراحة السمنة' },
+  tagline: { en: 'Bariatric, Metabolic & Robotic Surgery', ar: 'جراحة السمنة والجراحة الأيضية والروبوتية' },
 };
 
 export type Treatment = {
