@@ -49,6 +49,8 @@ const c = {
     ar: 'الجمعية الأمريكية لجراحة السمنة والأيض (ASMBS) · الكلية الأمريكية للجرّاحين (ACS) · الاتحاد الدولي لجراحة السمنة والاضطرابات الأيضية (IFSO) · جمعية جرّاحي الجهاز الهضمي والمناظير الأمريكية (SAGES) · جمعية الجراحة الروبوتية',
   },
 };
+// Year ranges such as 2009–2010 are isolated left-to-right so they do not display reversed in Arabic.
+const years = (text: string) => text.split(/(\d{4}–\d{4})/);
 ---
 <Base lang={lang} path="about" title={c.title} description={c.description}>
   <PageHero lang={lang} path="about" title={site.name} crumb={c.title}>
@@ -72,7 +74,7 @@ const c = {
       </section>
       <section class="chapter" aria-labelledby="ch-edu">
         <div class="ch-side"><p class="label ch-no num" aria-hidden="true">03</p><h2 id="ch-edu">{c.eduTitle[lang]}</h2></div>
-        <div class="ch-body"><ul class="rule-list">{c.edu.map((x) => <li>{x[lang]}</li>)}</ul></div>
+        <div class="ch-body"><ul class="rule-list">{c.edu.map((x) => <li>{years(x[lang]).map((part, i) => (i % 2 ? <bdi dir="ltr" class="num">{part}</bdi> : part))}</li>)}</ul></div>
       </section>
       <section class="chapter" aria-labelledby="ch-mem">
         <div class="ch-side"><p class="label ch-no num" aria-hidden="true">04</p><h2 id="ch-mem">{c.memTitle[lang]}</h2></div>
