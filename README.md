@@ -21,3 +21,5 @@ Bilingual (English/Arabic) website of Dr. Alaa Alhazmi, built with [Astro](https
 ## Before launch
 
 Set `DRAFT = false` in `src/data/site.ts` only after the content is approved. While it is `true`, every page shows a review banner and asks search engines not to index it.
+
+Files kept off GitHub are listed in [`FILES.md`](FILES.md).

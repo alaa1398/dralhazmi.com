@@ -2,6 +2,8 @@
 
 Bilingual (English, Arabic RTL) static website for Dr. Alaa Alhazmi, built with Astro and deployed by GitHub Pages on every push to `main`. See `AGENTS.md` for Astro dev-server notes.
 
+Files kept off GitHub (documents, media, sensitive files) are listed in `FILES.md`.
+
 ## Key files
 
 - `src/data/site.ts`: shared copy, navigation, treatments, UI strings.

@@ -22,3 +22,40 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Personal and sensitive files (never committed)
+/Private/
+
+# Documents, media and archives stay on Asus/Surface; see FILES.md
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.epub
+*.mobi
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.avif
+*.heic
+*.tif
+*.tiff
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mp3
+*.m4a
+*.wav
+*.zip
+*.rar
+*.7z
+
+# Build assets the site needs (final versions only, 25 MB or less each)
+!/src/assets/**
+!/public/**
