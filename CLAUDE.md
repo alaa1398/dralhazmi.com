@@ -11,6 +11,8 @@ Files kept off GitHub (documents, media, sensitive files) are listed in `FILES.m
 - `src/styles/global.css`: the whole design system (tokens, components, both languages).
 - `src/components/`: `PageHero`, `ContactBox`, `TreatmentList`, `Arcs`, `Wa`.
 - `src/pages/[lang]/`: one file per page; `team.astro` is intentionally hidden.
+- `src/data/education/`: patient education guides (one file per guide) shown at `/learn/`. Every item carries an evidence tag and references; guides stay `draft` until the owner approves them. Source drafts, evidence reviews and open decisions are in `docs/education/`.
+- `src/styles/learn.css`: styles for the library, guides and their two-sided A4 print layout.
 - `public/faisal/`: two static noindex pages required for a Google app review. Do not restyle or reword their Google API sections.
 
 ## Build and check

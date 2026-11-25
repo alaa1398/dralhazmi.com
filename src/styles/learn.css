@@ -147,11 +147,11 @@ mark.pending { background: var(--tone-amber-bg); color: #5c3c00; border: 1px das
   .keynums li { padding: 2mm 3mm; }
   .kn-v { font-size: 17pt; }
   .panels { display: block; columns: 2; column-gap: 3mm; margin-block-start: 3mm; }
-  .panel { display: inline-block; inline-size: 100%; margin-block-end: 3mm; padding: 3mm 4mm; border-radius: 3mm; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .panel { display: inline-block; inline-size: 100%; margin-block-end: 2.5mm; padding: 2.5mm 4mm; border-radius: 3mm; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .panel h2, .teachback h2 { font-size: 11pt; gap: 2mm; }
   .panel-ico { inline-size: 7mm; block-size: 7mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .items { margin-block-start: 1.5mm; }
-  .items li { display: block; padding-block: 1mm; }
+  .items li { display: block; padding-block: 0.8mm; }
   .it-text { font-size: 10pt; line-height: 1.28; }
   .it-meta { display: inline-flex; gap: 0.6mm; margin-inline-start: 1.2mm; vertical-align: baseline; }
   .ev { font-size: 0; gap: 0; } /* the dot alone; the legend explains it */

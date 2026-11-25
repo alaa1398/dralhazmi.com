@@ -1,22 +1,25 @@
 import type { T } from '../site';
 import type { Evidence, Topic } from './types';
+import { preparing } from './preparing';
+import { dietStages } from './diet-stages';
+import { vitamins } from './vitamins';
 import { warningSigns } from './warning-signs';
 
 export * from './types';
 
 /** All sheets, in library order. */
-export const sheets = [warningSigns];
+export const sheets = [preparing, dietStages, vitamins, warningSigns];
 
 export const learnUi = {
   title: { en: 'Patient education library', ar: 'مكتبة التثقيف الصحي' },
   navLabel: { en: 'Learn', ar: 'تثقيف' },
   description: {
-    en: 'One-page guides for before and after bariatric surgery, built on published guidelines and ready to print for the clinic.',
-    ar: 'أدلة من صفحة واحدة لما قبل جراحة السمنة وبعدها، مبنية على الإرشادات المنشورة وجاهزة للطباعة في العيادة.',
+    en: 'Guides for before and after bariatric surgery, built on published guidelines and ready to print for the clinic.',
+    ar: 'أدلة لما قبل جراحة السمنة وبعدها، مبنية على الإرشادات المنشورة وجاهزة للطباعة في العيادة.',
   },
   lead: {
-    en: 'Short, practical guides for patients and families. Each one shows where its advice comes from and prints on a single page.',
-    ar: 'أدلة قصيرة وعملية للمرضى وأسرهم. يوضّح كل دليل مصدر نصائحه، ويُطبع في صفحة واحدة.',
+    en: 'Short, practical guides for patients and families. Each one shows where its advice comes from and prints on one sheet of paper.',
+    ar: 'أدلة قصيرة وعملية للمرضى وأسرهم. يوضّح كل دليل مصدر نصائحه، ويُطبع على ورقة واحدة.',
   },
   all: { en: 'All', ar: 'الكل' },
   filterLabel: { en: 'Filter guides by topic', ar: 'تصفية الأدلة حسب الموضوع' },
@@ -52,7 +55,15 @@ export const learnUi = {
   reviewed: { en: 'Reviewed by Dr. Alaa Alhazmi', ar: 'راجعه د. علاء الحازمي' },
   nextReview: { en: 'Next review', ar: 'المراجعة القادمة' },
   version: { en: 'Version', ar: 'الإصدار' },
-  preparedBy: { en: 'Prepared with the clinic working group', ar: 'أُعدّ بالتعاون مع فريق العمل' },
+  madeTitle: { en: 'How this guide was made', ar: 'كيف أُعدّ هذا الدليل' },
+  madeDraft: {
+    en: 'Drafted with the help of AI tools from the published sources listed here. Not yet reviewed or approved by Dr. Alaa Alhazmi.',
+    ar: 'أُعدّت المسودة بمساعدة أدوات الذكاء الاصطناعي من المصادر المنشورة المذكورة هنا. لم يراجعها د. علاء الحازمي أو يعتمدها بعد.',
+  },
+  madeApproved: {
+    en: 'Drafted with the help of AI tools from the published sources listed here, then checked and approved by Dr. Alaa Alhazmi.',
+    ar: 'أُعدّت المسودة بمساعدة أدوات الذكاء الاصطناعي من المصادر المنشورة المذكورة هنا، ثم راجعها د. علاء الحازمي واعتمدها.',
+  },
   back: { en: 'All guides', ar: 'جميع الأدلة' },
   videos: { en: 'Videos and social channels', ar: 'المقاطع وحسابات التواصل' },
   resources: { en: 'Trusted resources from medical societies', ar: 'مصادر موثوقة من الجمعيات الطبية' },

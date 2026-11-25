@@ -3,7 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import Icon from '../../../components/learn/Icon.astro';
 import Txt from '../../../components/learn/Txt.astro';
 import { langs, nav, site, ui, type Lang } from '../../../data/site';
-import { sheets, learnUi, evidenceLabel, evidenceHelp, type Sheet, type Evidence } from '../../../data/education';
+import { sheets, learnUi, evidenceLabel, evidenceHelp, PENDING, type Sheet, type Evidence } from '../../../data/education';
 import '../../../styles/learn.css';
 
 export function getStaticPaths() {
@@ -13,8 +13,21 @@ const lang = Astro.params.lang as Lang;
 const { sheet } = Astro.props as { sheet: Sheet };
 const path = `learn/${sheet.slug}`;
 const isDraft = sheet.status === 'draft';
+if (!isDraft) {
+  // Approved sheets need a review date and a next review within 3 years (PIF TICK minimum).
+  if (!sheet.reviewed || !sheet.nextReview) throw new Error(`${sheet.slug}: approved sheets need reviewed and nextReview dates`);
+  const limit = new Date(sheet.reviewed); limit.setFullYear(limit.getFullYear() + 3);
+  if (new Date(sheet.nextReview) > limit) throw new Error(`${sheet.slug}: nextReview is more than 3 years after reviewed`);
+  if (JSON.stringify(sheet).includes(PENDING)) throw new Error(`${sheet.slug}: approved sheet still has decisions pending`);
+}
 const href = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
-const refNo = (id: string) => id.replace(/^R/, '');
+// Sources are numbered by their position on the page; ids stay stable for tracing to docs/education/.
+const refIndex = new Map(sheet.refs.map((r, i) => [r.id, i + 1]));
+const refNo = (id: string) => {
+  const n = refIndex.get(id);
+  if (!n) throw new Error(`${sheet.slug}: reference ${id} is cited but not listed`);
+  return String(n);
+};
 const fmtDate = (iso?: string) =>
   iso ? new Intl.DateTimeFormat(lang === 'ar' ? 'ar-SA-u-ca-gregory-nu-latn' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(iso)) : '';
 const evs: Evidence[] = ['guideline', 'consensus', 'opinion'];
@@ -145,7 +158,7 @@ const jsonLd = [
           <div><dt>{learnUi.version[lang]}</dt><dd class="num">{sheet.version}{isDraft && ` (${lang === 'ar' ? 'مسودة' : 'draft'})`}</dd></div>
           {sheet.reviewed && !isDraft && <div><dt>{learnUi.reviewed[lang]}</dt><dd>{fmtDate(sheet.reviewed)}</dd></div>}
           {sheet.nextReview && !isDraft && <div><dt>{learnUi.nextReview[lang]}</dt><dd>{fmtDate(sheet.nextReview)}</dd></div>}
-          <div><dt>{learnUi.preparedBy[lang]}</dt><dd>{sheet.drafters.join(' · ')}</dd></div>
+          <div><dt>{learnUi.madeTitle[lang]}</dt><dd>{(isDraft ? learnUi.madeDraft : learnUi.madeApproved)[lang]}</dd></div>
         </dl>
         <p class="small sheet-disclaimer">{learnUi.disclaimer[lang]}</p>
       </div>

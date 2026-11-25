@@ -63,7 +63,8 @@ export type Sheet = {
   reviewed?: string;
   /** ISO date; at most 3 years after `reviewed`. */
   nextReview?: string;
-  /** Working-group members who drafted and checked the sheet. */
+  /** Working-group AI agents that drafted and checked the sheet. For tracing only; never shown to
+   *  patients as authors, because they are not clinicians. */
   drafters: string[];
 };
 
