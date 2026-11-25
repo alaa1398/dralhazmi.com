@@ -58,7 +58,7 @@ export const nav: { path: string; label: T }[] = [
   { path: 'treatments', label: { en: 'Treatments', ar: 'العلاجات' } },
   { path: 'journey', label: { en: 'Your Journey', ar: 'رحلتك العلاجية' } },
   { path: 'second-opinion', label: { en: 'Second Opinion', ar: 'رأي طبي ثانٍ' } },
-  { path: 'media', label: { en: 'Learn', ar: 'تثقيف' } },
+  { path: 'learn', label: { en: 'Learn', ar: 'تثقيف' } },
 ];
 
 export const ui = {

@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { langs, nav, site, treatments } from '../data/site';
+import { sheets } from '../data/education';
 
 // Every page that exists in both languages, without the language prefix.
 const paths = [
@@ -7,6 +8,9 @@ const paths = [
   'links',
   'privacy',
   'resources',
+  'media',
+  // Draft sheets are left out until approved.
+  ...sheets.filter((s) => s.status === 'approved').map((s) => `learn/${s.slug}`),
   ...treatments.map((t) => `treatments/${t.slug}`),
 ];
 

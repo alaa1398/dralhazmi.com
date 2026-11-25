@@ -1,0 +1,65 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Icon from '../../../components/learn/Icon.astro';
+import { langPaths, ui, type Lang } from '../../../data/site';
+import { sheets, learnUi, topicLabel, type Topic } from '../../../data/education';
+import '../../../styles/learn.css';
+export function getStaticPaths() { return langPaths(); }
+const lang = Astro.params.lang as Lang;
+const topics = (Object.keys(topicLabel) as Topic[]).filter((t) => sheets.some((s) => s.topics.includes(t)));
+const arrow = lang === 'ar' ? '←' : '→';
+const draftLabel = { en: 'Draft', ar: 'مسودة' };
+---
+<Base lang={lang} path="learn" title={learnUi.title} description={learnUi.description}>
+  <PageHero lang={lang} path="learn" title={learnUi.title} crumb={learnUi.navLabel} lead={learnUi.lead} />
+
+  <section class="sec library" aria-label={learnUi.title[lang]}>
+    <div class="wrap">
+      {topics.length > 1 && (
+        <div class="filters js-only" role="group" aria-label={learnUi.filterLabel[lang]}>
+          <button type="button" class="chip" aria-pressed="true" data-topic="all">{learnUi.all[lang]}</button>
+          {topics.map((t) => <button type="button" class="chip" aria-pressed="false" data-topic={t}>{topicLabel[t][lang]}</button>)}
+        </div>
+      )}
+      <ul class="cards" role="list">
+        {sheets.map((s) => (
+          <li class:list={['card', `hue-${s.hue}`]} data-topics={s.topics.join(' ')}>
+            <a href={`/${lang}/learn/${s.slug}/`}>
+              <span class="card-art" aria-hidden="true"><Icon name={s.icon} /></span>
+              <span class="card-tags">
+                {s.topics.map((t) => <span class="tag">{topicLabel[t][lang]}</span>)}
+                {s.status === 'draft' && <span class="tag tag-draft">{draftLabel[lang]}</span>}
+              </span>
+              <span class="card-title">{s.title[lang]}</span>
+              <span class="card-sub">{s.subtitle[lang]}</span>
+              <span class="card-cta">{learnUi.open[lang]} <span aria-hidden="true">{arrow}</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="library-more">
+        <a class="tlink more" href={`/${lang}/media/`}>{learnUi.videos[lang]} <span aria-hidden="true">{arrow}</span></a>
+        <a class="tlink more" href={`/${lang}/resources/`}>{learnUi.resources[lang]} <span aria-hidden="true">{arrow}</span></a>
+      </div>
+      <p class="small library-note">{learnUi.disclaimer[lang]} {ui.emergency[lang]}</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var chips = document.querySelectorAll('.filters .chip');
+      var cards = document.querySelectorAll('.cards .card');
+      chips.forEach(function (c) {
+        c.addEventListener('click', function () {
+          var t = c.getAttribute('data-topic');
+          chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === c)); });
+          cards.forEach(function (card) {
+            card.hidden = t !== 'all' && card.getAttribute('data-topics').split(' ').indexOf(t) === -1;
+          });
+        });
+      });
+    })();
+  </script>
+</Base>

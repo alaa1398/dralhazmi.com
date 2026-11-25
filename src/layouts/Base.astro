@@ -8,8 +8,9 @@ interface Props {
   path: string; // page path without language prefix, e.g. 'about' or ''
   title: T;
   description: T;
+  noindex?: boolean; // e.g. patient education sheets still in draft
 }
-const { lang, path, title, description } = Astro.props;
+const { lang, path, title, description, noindex = false } = Astro.props;
 const other: Lang = lang === 'en' ? 'ar' : 'en';
 const href = (l: Lang, p: string) => `/${l}/${p ? p + '/' : ''}`;
 const pageTitle = path ? `${title[lang]} | ${site.name[lang]}` : `${site.name[lang]} | ${site.title[lang]}`;
@@ -28,7 +29,7 @@ const footerLinks = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description[lang]} />
-    {DRAFT && <meta name="robots" content="noindex, nofollow" />}
+    {(DRAFT || noindex) && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={site.url + href(lang, path)} />
     <link rel="alternate" hreflang="en" href={site.url + href('en', path)} />
     <link rel="alternate" hreflang="ar" href={site.url + href('ar', path)} />
@@ -49,6 +50,7 @@ const footerLinks = [
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f8f5ef" />
     <script is:inline>document.documentElement.classList.add('js');</script>
+    <slot name="head" />
   </head>
   <body>
     <a class="skip" href="#main">{ui.skip[lang]}</a>

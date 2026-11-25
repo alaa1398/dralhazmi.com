@@ -1,0 +1,168 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/learn/Icon.astro';
+import Txt from '../../../components/learn/Txt.astro';
+import { langs, nav, site, ui, type Lang } from '../../../data/site';
+import { sheets, learnUi, evidenceLabel, evidenceHelp, type Sheet, type Evidence } from '../../../data/education';
+import '../../../styles/learn.css';
+
+export function getStaticPaths() {
+  return langs.flatMap((lang) => sheets.map((sheet) => ({ params: { lang, slug: sheet.slug }, props: { sheet } })));
+}
+const lang = Astro.params.lang as Lang;
+const { sheet } = Astro.props as { sheet: Sheet };
+const path = `learn/${sheet.slug}`;
+const isDraft = sheet.status === 'draft';
+const href = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
+const refNo = (id: string) => id.replace(/^R/, '');
+const fmtDate = (iso?: string) =>
+  iso ? new Intl.DateTimeFormat(lang === 'ar' ? 'ar-SA-u-ca-gregory-nu-latn' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(iso)) : '';
+const evs: Evidence[] = ['guideline', 'consensus', 'opinion'];
+const used = new Set(sheet.panels.flatMap((p) => p.items.map((i) => i.ev)));
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: sheet.title[lang],
+    description: sheet.subtitle[lang],
+    inLanguage: lang,
+    url: site.url + href(path),
+    audience: { '@type': 'PeopleAudience', audienceType: 'Patients' },
+    ...(sheet.reviewed && !isDraft
+      ? { lastReviewed: sheet.reviewed, reviewedBy: { '@type': 'Physician', name: site.name.en } }
+      : {}),
+    citation: sheet.refs.map((r) => r.cite),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: nav[0].label[lang], item: site.url + href('') },
+      { '@type': 'ListItem', position: 2, name: learnUi.navLabel[lang], item: site.url + href('learn') },
+      { '@type': 'ListItem', position: 3, name: sheet.title[lang], item: site.url + href(path) },
+    ],
+  },
+];
+---
+<Base lang={lang} path={path} title={sheet.title} description={sheet.subtitle} noindex={isDraft}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  {isDraft && <p class="sheet-draft" role="note"><Icon name="alert" /> {learnUi.draftBanner[lang]}</p>}
+
+  <article class:list={['sheet', `hue-${sheet.hue}`]} aria-labelledby="sheet-title">
+    <header class="sheet-head">
+      <div class="wrap">
+        <nav class="crumbs label" aria-label={ui.breadcrumb[lang]}>
+          <a href={href('')}>{nav[0].label[lang]}</a><span aria-hidden="true">/</span>
+          <a href={href('learn')}>{learnUi.navLabel[lang]}</a><span aria-hidden="true">/</span>
+          <span aria-current="page">{sheet.title[lang]}</span>
+        </nav>
+        <div class="sheet-head-grid">
+          <div class="sheet-badge" aria-hidden="true"><Icon name={sheet.icon} /></div>
+          <div>
+            <h1 id="sheet-title">{sheet.title[lang]}</h1>
+            <p class="sheet-sub">{sheet.subtitle[lang]}</p>
+            <p class="sheet-applies"><span class="label">{learnUi.appliesTo[lang]}</span> {sheet.appliesTo[lang]}</p>
+          </div>
+          <div class="sheet-tools js-only">
+            <button type="button" class="btn btn-sm btn-ghost" data-print><Icon name="list" />{learnUi.print[lang]}</button>
+            <button type="button" class="btn btn-sm btn-ghost" data-large aria-pressed="false">{learnUi.largePrint[lang]}</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap sheet-body">
+      <section class="keynums" aria-label={learnUi.keyNumbers[lang]}>
+        <ul>
+          {sheet.keyNumbers.map((k) => (
+            <li>
+              <span class="kn-v num"><Txt text={k.value[lang]} lang={lang} /></span>
+              <span class="kn-l">{k.label[lang]}</span>
+              {k.refs && <span class="kn-r">{k.refs.map((r) => <a href={`#${r}`} class="ref"><span class="vh">{learnUi.references[lang]} </span>{refNo(r)}</a>)}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <p class="print-only print-emergency">{learnUi.emergency[lang]}</p>
+      <p class="print-only print-disclaimer">{learnUi.disclaimer[lang]} <span dir="ltr">{site.url.replace('https://', '') + href(path)}</span></p>
+
+      <div class="panels">
+        {sheet.panels.map((p, pi) => (
+          <section class:list={['panel', `tone-${p.tone ?? 'neutral'}`]} aria-labelledby={`p${pi}`}>
+            <h2 id={`p${pi}`}><span class="panel-ico"><Icon name={p.icon} /></span>{p.heading[lang]}</h2>
+            {p.intro && <p class="panel-intro">{p.intro[lang]}</p>}
+            <ul class="items">
+              {p.items.map((it) => (
+                <li>
+                  <span class="it-text"><Txt text={it.text[lang]} lang={lang} /></span>
+                  <span class="it-meta">
+                    <span class:list={['ev', `ev-${it.ev}`]}>{evidenceLabel[it.ev][lang]}</span>
+                    {it.refs?.map((r) => <a href={`#${r}`} class="ref"><span class="vh">{learnUi.references[lang]} </span>{refNo(r)}</a>)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+
+      <p class="sheet-emergency"><Icon name="phone" /> <span>{learnUi.emergency[lang]}</span></p>
+
+      <section class="teachback" aria-labelledby="tb">
+        <h2 id="tb"><span class="panel-ico"><Icon name="chat" /></span>{learnUi.teachBack[lang]}</h2>
+        <p class="small">{learnUi.teachBackNote[lang]}</p>
+        <ol>{sheet.teachBack.map((q) => <li>{q[lang]}</li>)}</ol>
+      </section>
+
+      <div class="sheet-foot">
+        <section aria-labelledby="ev-legend" class="legend">
+          <h2 id="ev-legend" class="label">{learnUi.evidenceTitle[lang]}</h2>
+          <dl>
+            {evs.filter((e) => used.has(e)).map((e) => (
+              <div><dt><span class:list={['ev', `ev-${e}`]}>{evidenceLabel[e][lang]}</span></dt><dd>{evidenceHelp[e][lang]}</dd></div>
+            ))}
+          </dl>
+        </section>
+
+        <section aria-labelledby="refs" class="refs">
+          <h2 id="refs" class="label">{learnUi.references[lang]}</h2>
+          {lang === 'ar' && <p class="small">{learnUi.refsNote.ar}</p>}
+          <ol>
+            {sheet.refs.map((r) => (
+              <li id={r.id} dir="ltr" lang="en">
+                <span class="num">{refNo(r.id)}.</span> {r.cite}{' '}
+                {r.url && <a href={r.url} target="_blank" rel="noopener" class="ref-link">{r.url.replace(/^https:\/\//, '')}<span class="vh"> ({ui.newTab[lang]})</span></a>}
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <dl class="sheet-meta small">
+          <div><dt>{learnUi.version[lang]}</dt><dd class="num">{sheet.version}{isDraft && ` (${lang === 'ar' ? 'مسودة' : 'draft'})`}</dd></div>
+          {sheet.reviewed && !isDraft && <div><dt>{learnUi.reviewed[lang]}</dt><dd>{fmtDate(sheet.reviewed)}</dd></div>}
+          {sheet.nextReview && !isDraft && <div><dt>{learnUi.nextReview[lang]}</dt><dd>{fmtDate(sheet.nextReview)}</dd></div>}
+          <div><dt>{learnUi.preparedBy[lang]}</dt><dd>{sheet.drafters.join(' · ')}</dd></div>
+        </dl>
+        <p class="small sheet-disclaimer">{learnUi.disclaimer[lang]}</p>
+      </div>
+
+      <p class="sheet-back"><a class="tlink more" href={href('learn')}><span aria-hidden="true">{lang === 'ar' ? '→' : '←'}</span> {learnUi.back[lang]}</a></p>
+    </div>
+  </article>
+
+  <script is:inline>
+    (function () {
+      var p = document.querySelector('[data-print]');
+      if (p) p.addEventListener('click', function () { window.print(); });
+      var l = document.querySelector('[data-large]');
+      if (l) l.addEventListener('click', function () {
+        var on = document.documentElement.classList.toggle('large-print');
+        l.setAttribute('aria-pressed', String(on));
+      });
+    })();
+  </script>
+</Base>
