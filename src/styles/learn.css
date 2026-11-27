@@ -1,16 +1,15 @@
 /* Patient education library and sheets. Screen first, then A4 print. */
 
 :root {
-  --hue-teal: #0d5c55;   --hue-teal-bg: #dcefea;
+  --hue-teal: var(--teal); --hue-teal-bg: #dcf1f3;
   --hue-coral: #a63d2a;  --hue-coral-bg: #f8e1d9;
   --hue-amber: #8a5a00;  --hue-amber-bg: #f6e8c8;
-  --hue-violet: #5b3f8c; --hue-violet-bg: #e7e0f2;
+  --hue-violet: var(--accent); --hue-violet-bg: #e7e0f2;
   --hue-sky: #1f5a8a;    --hue-sky-bg: #dce9f4;
   --hue-leaf: #3f6b1f;   --hue-leaf-bg: #e2edd5;
   --tone-green: #2f6b3a;  --tone-green-bg: #e3f0e2;
   --tone-amber: #8a5a00;  --tone-amber-bg: #fbefd2;
   --tone-red: #a12a1c;    --tone-red-bg: #fbe2dc;
-  --radius: 1.25rem;
 }
 .hue-teal { --h: var(--hue-teal); --h-bg: var(--hue-teal-bg); }
 .hue-coral { --h: var(--hue-coral); --h-bg: var(--hue-coral-bg); }

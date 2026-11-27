@@ -53,3 +53,16 @@ Either way the light teal #52bfd3 cannot carry text.
 - **English wordmark.** The logo has only an Arabic wordmark. The English site needs either the leaves alone or an English name line.
 - **Business card wording is out of date for the site.** It says "For Appointments", lists a second number (0509509484), four social handles, info@alaaalhazmi.com and www.alaaalhazmi.com (not the current dralhazmi.com). Site content rule 3 allows no "appointment" wording and only WhatsApp and +966 50 970 4040, so none of that card text carries over.
 - **Logo rule.** Site content rule 6 forbids invented logos; this is the owner's own logo, so using it is allowed once he approves.
+
+## Decision and what changed (27 November 2026)
+
+Dr. Alhazmi chose option 1, the logo palette made accessible. Applied on PR 31, still waiting on his approval of the screenshots before merge:
+
+- **Colors** (`src/styles/global.css` tokens): background #fdfcfc, soft panels #f3f1f6, ink #1c1530, purple #3a2560 for buttons and accents, text-safe teal #17727c for links, numbers and section numbers, logo teal #44c3d2 for hairlines, dots and the gradient spheres only. The robotic-surgery band and the closing call use the deep purple #2a1b47.
+- **Type**: English display text moves from Newsreader to Inter Light (300) with tight tracking; Newsreader is no longer loaded. Arabic keeps Alexandria and IBM Plex Sans Arabic.
+- **Shapes**: rounded soft panels for the credential strip, the two treatment paths, the BMI check, callouts, facts, contact boxes and the footer; the portrait is a rounded plate (crop marks removed); soft teal and violet gradient spheres behind the homepage and inner-page heroes.
+- **Logo**: the leaf mark is exported as vector from the Illustrator source to `src/assets/brand/leaf-mark.svg` (3.3 KB; light end of the purple gradient approximated as #9a5aa2) and sits before the name in the header. The favicon is the leaf mark on white. The Arabic wordmark is not used on the site.
+- **Patient guides** (`src/styles/learn.css`): the teal and violet guide hues now use the brand teal and purple.
+- **Not changed**: wording, page structure, `apple-touch-icon.png` and the share image `og.jpg` (both still the old design).
+
+Checks on this build: axe-core 4.10.2 (WCAG 2.0 to 2.2 A and AA) on 39 pages at 1440 and 375 px, 0 violations; no horizontal overflow at 375 or 320 px; header links on one row at 1440 px; every guide prints on one A4 sheet, both sides; English homepage 172 KB, Arabic 296 KB (uncompressed, fonts included; before: 198 KB and 304 KB); no third-party requests.

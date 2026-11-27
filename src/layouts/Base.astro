@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { DRAFT, site, nav, ui, phone, faisalNote, whatsappLink, whatsappMessages, type Lang, type T } from '../data/site';
 import Wa from '../components/Wa.astro';
+import leafMark from '../assets/brand/leaf-mark.svg?raw';
 
 interface Props {
   lang: Lang;
@@ -48,7 +49,7 @@ const footerLinks = [
     <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
     <meta property="og:locale:alternate" content={lang === 'ar' ? 'en_US' : 'ar_SA'} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#f8f5ef" />
+    <meta name="theme-color" content="#fdfcfc" />
     <script is:inline>document.documentElement.classList.add('js');</script>
     <slot name="head" />
   </head>
@@ -58,6 +59,7 @@ const footerLinks = [
     <header class="header">
       <div class="wrap header-row">
         <a class="brand" href={href(lang, '')}>
+          <Fragment set:html={leafMark.replace('<svg ', '<svg class="brand-mark" ')} />
           <span class="brand-name">{site.name[lang]}</span>
           <span class="brand-sub">{ui.tagline[lang]}</span>
         </a>
