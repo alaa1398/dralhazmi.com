@@ -1,7 +1,7 @@
 // Drafted by Dana (Clinical Nutrition) with Noura (Bariatric Nurse Coordinator), 2026-11-25.
 // Evidence review by Ali, 2026-11-25 (docs/education/diet-stages.md).
 // Arabic: draft translation [ARABIC REVIEW] - needs a native-speaker read-aloud before approval.
-// R7 (SCFHS pathway) is left off the page: it could not be opened to confirm.
+// R7 (SCFHS pathway) read and confirmed through Tavily on 2026-11-27 (docs/education/diet-stages-validation.md).
 import { PENDING, type Sheet } from './types';
 
 export const dietStages: Sheet = {
@@ -19,19 +19,19 @@ export const dietStages: Sheet = {
     { value: { en: '60 g+', ar: '60 غ+' }, label: { en: `protein a day, at least ${PENDING}`, ar: `بروتين يوميًا على الأقل ${PENDING}` }, ev: 'guideline', refs: ['R1', 'R2'] },
     { value: { en: '6–8 cups', ar: '6–8 أكواب' }, label: { en: `fluid a day, about 1.4–1.9 liters ${PENDING}`, ar: `سوائل يوميًا، نحو 1.4–1.9 لتر ${PENDING}` }, ev: 'guideline', refs: ['R1'] },
     { value: { en: '20–30 min', ar: '20–30 دقيقة' }, label: { en: 'to eat each meal', ar: 'لتناول كل وجبة' }, ev: 'guideline', refs: ['R1'] },
-    { value: { en: '4–6 weeks', ar: '4–6 أسابيع' }, label: { en: `until regular textures ${PENDING}`, ar: `حتى العودة إلى الطعام المعتاد ${PENDING}` }, ev: 'guideline', refs: ['R1'] },
+    { value: { en: 'About 7 weeks', ar: 'نحو 7 أسابيع' }, label: { en: 'until solid food', ar: 'حتى العودة إلى الطعام الصلب' }, ev: 'guideline', refs: ['R7'] },
   ],
   panels: [
     {
       tone: 'neutral', icon: 'calendar',
       heading: { en: 'The stages', ar: 'المراحل' },
-      intro: { en: `Your team tells you when to move on. ${PENDING}`, ar: `فريقك يخبرك متى تنتقل إلى المرحلة التالية. ${PENDING}` },
+      intro: { en: 'Your team tells you when to move on.', ar: 'فريقك يخبرك متى تنتقل إلى المرحلة التالية.' },
       items: [
-        { text: { en: 'Clear liquids: water, broth, decaf tea. First 1–2 days.', ar: 'سوائل صافية: ماء، مرق، شاي منزوع الكافيين. أول يوم أو يومين.' }, ev: 'guideline', refs: ['R1', 'R2'] },
-        { text: { en: 'Full liquids: high-protein, low-sugar drinks and soups. Up to week 1–2.', ar: 'سوائل كاملة: مشروبات وشوربات غنية بالبروتين وقليلة السكر. حتى الأسبوع 1–2.' }, ev: 'guideline', refs: ['R1'] },
-        { text: { en: 'Puree (smooth) food after liquids.', ar: 'طعام مهروس ناعم بعد السوائل.' }, ev: 'guideline', refs: ['R1'] },
-        { text: { en: 'Soft food you can mash with a fork: from week 2–3.', ar: 'طعام طري يُهرس بالشوكة: من الأسبوع 2–3.' }, ev: 'guideline', refs: ['R1'] },
-        { text: { en: 'Regular textures: from week 4–6.', ar: 'الطعام المعتاد: من الأسبوع 4–6.' }, ev: 'guideline', refs: ['R1'] },
+        { text: { en: 'Clear liquids: water, broth, decaf tea. First 1–2 days.', ar: 'سوائل صافية: ماء، مرق، شاي منزوع الكافيين. أول يوم أو يومين.' }, ev: 'guideline', refs: ['R7', 'R1'] },
+        { text: { en: 'Full liquids: high-protein, low-sugar drinks and soups, for 3–7 days.', ar: 'سوائل كاملة: مشروبات وشوربات غنية بالبروتين وقليلة السكر، لمدة 3–7 أيام.' }, ev: 'guideline', refs: ['R7', 'R1'] },
+        { text: { en: 'Puree (smooth) food: about 1–2 weeks.', ar: 'طعام مهروس ناعم: نحو أسبوع إلى أسبوعين.' }, ev: 'guideline', refs: ['R7'] },
+        { text: { en: 'Soft food you can mash with a fork: about 2 weeks, after you see your dietitian.', ar: 'طعام طري يُهرس بالشوكة: نحو أسبوعين، بعد زيارة أخصائي التغذية.' }, ev: 'guideline', refs: ['R7'] },
+        { text: { en: 'Solid food: from about week 7. Then a balanced diet for life.', ar: 'الطعام الصلب: من الأسبوع السابع تقريبًا، ثم نظام متوازن مدى الحياة.' }, ev: 'guideline', refs: ['R7'] },
         { text: { en: 'Try one new food at a time.', ar: 'جرّب صنفًا جديدًا واحدًا في كل مرة.' }, ev: 'opinion' },
       ],
     },
@@ -51,7 +51,7 @@ export const dietStages: Sheet = {
       items: [
         { text: { en: 'Sip all day, between meals.', ar: 'ارتشف طوال اليوم، بين الوجبات.' }, ev: 'guideline', refs: ['R1'] },
         { text: { en: `Do not drink with meals. ${PENDING}`, ar: `لا تشرب مع الوجبات. ${PENDING}` }, ev: 'guideline', refs: ['R2'] },
-        { text: { en: `After eating, wait 30 minutes before drinking. ${PENDING}`, ar: `بعد الأكل، انتظر 30 دقيقة قبل الشرب. ${PENDING}` }, ev: 'consensus', refs: ['R3', 'R5'] },
+        { text: { en: `After eating, wait 30 minutes before drinking. ${PENDING}`, ar: `بعد الأكل، انتظر 30 دقيقة قبل الشرب. ${PENDING}` }, ev: 'guideline', refs: ['R3'] },
         { text: { en: 'Limit caffeine (regular coffee and tea) early on.', ar: 'قلّل الكافيين (القهوة والشاي العاديين) في البداية.' }, ev: 'guideline', refs: ['R1'] },
       ],
     },
@@ -70,10 +70,11 @@ export const dietStages: Sheet = {
       heading: { en: 'Avoid early on', ar: 'تجنّب في البداية' },
       items: [
         { text: { en: 'Fizzy drinks.', ar: 'المشروبات الغازية.' }, ev: 'guideline', refs: ['R1'] },
-        { text: { en: 'Sugary drinks, sweets and baked goods.', ar: 'المشروبات المحلّاة والحلويات والمخبوزات.' }, ev: 'guideline', refs: ['R1', 'R5'] },
+        { text: { en: 'Sugary drinks, fruit juice, sweets and baked goods.', ar: 'المشروبات المحلّاة وعصير الفواكه والحلويات والمخبوزات.' }, ev: 'guideline', refs: ['R1', 'R3', 'R5'] },
         { text: { en: 'Tough or dry meat.', ar: 'اللحوم القاسية أو الجافة.' }, ev: 'guideline', refs: ['R1'] },
         { text: { en: 'Bread, rice and pasta: they may feel “stuck”.', ar: 'الخبز والأرز والمعكرونة: قد تشعر أنها «عالقة».' }, ev: 'guideline', refs: ['R1'] },
         { text: { en: 'Skins, peels and stringy vegetables.', ar: 'القشور والخضار الليفية.' }, ev: 'guideline', refs: ['R1'] },
+        { text: { en: 'Nuts and popcorn.', ar: 'المكسرات والفشار.' }, ev: 'guideline', refs: ['R3'] },
       ],
     },
     {
@@ -117,9 +118,10 @@ export const dietStages: Sheet = {
     { id: 'R2', cite: 'Stenberg E, et al. Guidelines for perioperative care in bariatric surgery: Enhanced Recovery After Surgery (ERAS) Society recommendations: a 2021 update. World J Surg. 2022;46:729–751.', url: 'https://doi.org/10.1007/s00268-021-06394-9' },
     { id: 'R3', cite: 'Mechanick JI, et al. Clinical practice guidelines for the perioperative nutrition, metabolic, and nonsurgical support of patients undergoing bariatric procedures, 2019 update (AACE/TOS/ASMBS/OMA/ASA). Surg Obes Relat Dis. 2020;16:175–247.', url: 'https://doi.org/10.1016/j.soard.2019.10.025' },
     { id: 'R5', cite: 'Scarpellini E, et al. International consensus on the diagnosis and management of dumping syndrome. Nat Rev Endocrinol. 2020;16:448–466.', url: 'https://doi.org/10.1038/s41574-020-0357-5' },
+    { id: 'R7', cite: 'Saudi Commission for Health Specialties. Adult bariatric surgery clinical nutrition pathway. 2020.', url: 'https://scfhs.org.sa/sites/default/files/2022-01/SCFHS_6_5_Clinical_Pathway_Bariatric_Surgery_Mar_11_2021%20(1).pdf' },
     { id: 'R6', cite: 'Kermansaravi M, et al. Religious fasting of Muslim patients after metabolic and bariatric surgery: a modified Delphi consensus. Obes Surg. 2021;31:5303–5311.', url: 'https://doi.org/10.1007/s11695-021-05724-z' },
   ],
   status: 'draft',
-  version: '0.2',
+  version: '0.3',
   drafters: ['Dana (Clinical Nutrition)', 'Noura (Bariatric Nurse Coordinator)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };
