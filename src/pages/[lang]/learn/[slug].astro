@@ -3,7 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import Icon from '../../../components/learn/Icon.astro';
 import Txt from '../../../components/learn/Txt.astro';
 import Qr from '../../../components/learn/Qr.astro';
-import { langs, nav, site, ui, type Lang } from '../../../data/site';
+import { langs, nav, site, ui, phone, type Lang } from '../../../data/site';
 import { sheets, learnUi, evidenceLabel, evidenceHelp, PENDING, type Sheet, type Evidence } from '../../../data/education';
 import '../../../styles/learn.css';
 
@@ -114,6 +114,12 @@ const jsonLd = [
           <section class:list={['panel', `tone-${p.tone ?? 'neutral'}`]} aria-labelledby={`p${pi}`}>
             <h2 id={`p${pi}`}><span class="panel-ico"><Icon name={p.icon} /></span>{p.heading[lang]}</h2>
             {p.intro && <p class="panel-intro">{p.intro[lang]}</p>}
+            {p.whatsapp && (
+              <p class="panel-wa">
+                {learnUi.whatsappLine[lang]} <a href={phone.whatsapp}><bdi dir="ltr" class="num">{phone.intl}</bdi></a>
+                <span class="small">{learnUi.whatsappNote[lang]}</span>
+              </p>
+            )}
             <ul class="items">
               {p.items.map((it) => (
                 <li>

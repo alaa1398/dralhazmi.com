@@ -31,7 +31,7 @@ export const warningSigns: Sheet = {
       ],
     },
     {
-      tone: 'amber', icon: 'phone',
+      tone: 'amber', icon: 'phone', whatsapp: true,
       heading: { en: 'Contact your surgical team today', ar: 'تواصل مع فريقك الجراحي اليوم' },
       items: [
         { text: { en: 'Nausea or vomiting that keeps coming back', ar: 'غثيان أو قيء يتكرر' }, ev: 'guideline', refs: ['R7', 'R6'] },
@@ -51,6 +51,7 @@ export const warningSigns: Sheet = {
         { text: { en: 'Heart racing at rest, over 120 beats a minute', ar: 'تسارع ضربات القلب أثناء الراحة، أكثر من 120 نبضة في الدقيقة' }, ev: 'study', refs: ['R15', 'R3', 'R4'] },
         { text: { en: 'Severe stomach pain, or pain that keeps getting worse', ar: 'ألم شديد في البطن، أو ألم يزداد سوءًا' }, ev: 'opinion', refs: ['R4'] },
         { text: { en: 'Shoulder or back pain with stomach pain or fever', ar: 'ألم في الكتف أو الظهر مع ألم في البطن أو حرارة' }, ev: 'study', refs: ['R4'] },
+        { text: { en: 'Cannot swallow your saliva, or cannot keep down any sips', ar: 'لا تستطيع بلع ريقك، أو لا تستطيع الاحتفاظ بأي رشفة' }, ev: 'opinion' },
         { text: { en: 'Short of breath or breathing fast', ar: 'ضيق في التنفس أو تنفس سريع' }, ev: 'opinion', refs: ['R3', 'R4'] },
         { text: { en: 'Any chest pain', ar: 'أي ألم في الصدر' }, ev: 'opinion' },
         { text: { en: 'One leg swollen, painful, or warm', ar: 'تورم إحدى الساقين أو ألمها أو سخونتها' }, ev: 'opinion', refs: ['R1'] },
@@ -96,6 +97,6 @@ export const warningSigns: Sheet = {
     { id: 'R16', cite: 'Oudman E, et al. Preventing Wernicke encephalopathy after bariatric surgery. Obes Surg. 2018;28:2060–2068.', url: 'https://doi.org/10.1007/s11695-018-3262-4' },
   ],
   status: 'draft',
-  version: '0.3',
+  version: '0.4',
   drafters: ['Amal (Quality & Patient Safety)', 'Khalid (Surgical Lead)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };

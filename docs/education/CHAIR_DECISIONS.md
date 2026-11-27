@@ -48,8 +48,8 @@ To answer, write the option letter (or your own wording) next to each number.
 | W3 | **Decided 2026-11-27: b) 12 hours** (UCSF uses 12 hours). Hours unable to keep fluids down before calling | a) 6; b) 12; c) 24 | Expert opinion only. |
 | W4 | "First weeks" window | a) 30 days; b) 6 weeks | Expert opinion. |
 | W5 | **Decided 2026-11-27: added.** Safety addition (Ali) | Add "Shoulder or back pain with stomach pain or fever" to the emergency list? | Shoulder pain in 35% and back pain in 25% of sleeve leaks (Al Zoubi 2021). |
-| W6 | Safety addition (Ali) | Move "Cannot swallow saliva or keep down any sips" from "call today" to emergency? | Expert opinion. |
-| W7 | Contact details on the printed sheet | a) no; b) add WhatsApp and phone | Site rule 3 allows only WhatsApp and +966 50 970 4040. |
+| W6 | **Decided 2026-11-27: yes, added to the emergency list.** Safety addition (Ali) | Move "Cannot swallow saliva or keep down any sips" from "call today" to emergency? | Expert opinion. |
+| W7 | **Decided 2026-11-27: WhatsApp number only.** Contact details on the printed sheet | a) no; b) add WhatsApp and phone | Site rule 3 allows only WhatsApp and +966 50 970 4040. |
 
 ## 5. Site decisions
 

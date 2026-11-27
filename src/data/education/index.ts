@@ -52,6 +52,8 @@ export const learnUi = {
     ar: 'مسودة للمراجعة الطبية. لم تُعتمد بعد؛ لا تُستخدم في رعاية المرضى.',
   },
   pending: { en: 'decision needed', ar: 'بانتظار القرار' },
+  whatsappLine: { en: 'Dr. Alhazmi’s patients: WhatsApp', ar: 'لمرضى د. علاء الحازمي: واتساب' },
+  whatsappNote: { en: 'Not for emergencies. In an emergency, call 997.', ar: 'ليس للحالات الطارئة. في الطوارئ اتصل على 997.' },
   qrThis: { en: 'Scan to open this guide online', ar: 'امسح لفتح هذا الدليل على الإنترنت' },
   qrOther: { en: 'بالعربية', ar: 'In English' },
   reviewed: { en: 'Reviewed by Dr. Alaa Alhazmi', ar: 'راجعه د. علاء الحازمي' },

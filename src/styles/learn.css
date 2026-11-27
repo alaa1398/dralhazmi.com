@@ -84,6 +84,9 @@
 .panel-ico { display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; border-radius: 50%; background: var(--t, var(--h)); color: #fff; flex: none; }
 .panel-ico .ico { inline-size: 1.3rem; block-size: 1.3rem; }
 .panel-intro { margin-block-start: 0.75rem; }
+.panel-wa { display: grid; gap: 0.15rem; margin-block-start: 0.75rem; padding: 0.6rem 0.85rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.7); font-weight: 500; color: var(--ink); }
+.panel-wa a { color: var(--ink); }
+.panel-wa .small { font-weight: 400; }
 .items { list-style: none; margin-block-start: 1rem; display: grid; gap: 0.15rem; }
 .items li { display: grid; gap: 0.3rem; padding-block: 0.7rem; border-block-start: 1px solid rgba(21, 32, 42, 0.12); }
 .items li:first-child { border-block-start: 0; padding-block-start: 0.2rem; }

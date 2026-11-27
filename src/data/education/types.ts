@@ -32,6 +32,8 @@ export type Panel = {
   icon: IconName;
   tone?: Tone;
   intro?: T;
+  /** Show the practice's WhatsApp number in this panel (screen and print). */
+  whatsapp?: boolean;
   items: Item[];
 };
 
