@@ -22,9 +22,9 @@ To answer, write the option letter (or your own wording) next to each number.
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
 | D1 | **Decided 2026-11-27: d) SCFHS schedule.** Stage timing | a) OMA 2025 schedule (used in the draft): clear day 0–1, full liquids to day 7–14, soft from week 2–3, regular from week 4–6; b) your own schedule; c) "your team will tell you" with no weeks | OMA 2025 itself says "there is no evidence to support a specific protocol". ERAS and AACE: each program sets its own. Updated 2026-11-27: the Saudi SCFHS pathway (read via Tavily) gives clear 24–48 h, liquids 3–7 days, puree 1–2 weeks from week 3, soft about 2 weeks, solid from about week 7. Options now include d) the SCFHS schedule. See `diet-stages-validation.md`. |
-| D2 | Protein target | a) at least 60 g a day; b) 60–80 g a day | OMA 2025: at least 60 g, up to 1.5 g/kg ideal weight. ERAS 2021: 60–80 g or 1.0–1.5 g/kg. |
-| D3 | Drinks and meals | a) wait 30 minutes after eating; b) "don't drink with meals"; c) small sips with meals allowed | Updated 2026-11-27: AACE 2019 Table 10 says both "Do not drink liquids during meals" and "Wait 30 minutes after eating before resuming fluid intake" for all patients (a and b together). OMA allows small sips. See `diet-stages-validation.md`. |
-| D4 | Fluid target | a) 6–8 cups (about 1.4–1.9 L); b) more than 1.5 L | OMA 2025: 48–64 oz. AACE 2019 (as quoted): more than 1.5 L. |
+| D2 | **Decided 2026-11-27: 60–80 g a day (ERAS 2021: "at least 60–80 g/day total protein intake or 1.0–1.5 g/kg ideal body weight").** Protein target | a) at least 60 g a day; b) 60–80 g a day | OMA 2025: at least 60 g, up to 1.5 g/kg ideal weight. ERAS 2021: 60–80 g or 1.0–1.5 g/kg. |
+| D3 | **Decided 2026-11-27: keep both lines ("Do not drink with meals", ERAS 2021 and AACE 2019; "wait 30 minutes after eating", AACE 2019).** Drinks and meals | a) wait 30 minutes after eating; b) "don't drink with meals"; c) small sips with meals allowed | Updated 2026-11-27: AACE 2019 Table 10 says both "Do not drink liquids during meals" and "Wait 30 minutes after eating before resuming fluid intake" for all patients (a and b together). OMA allows small sips. See `diet-stages-validation.md`. |
+| D4 | **Decided 2026-11-27: 6–8 cups (about 1.4–1.9 L). ERAS 2021 gives no daily amount; sources are OMA 2025 and AACE 2019.** Fluid target | a) 6–8 cups (about 1.4–1.9 L); b) more than 1.5 L | OMA 2025: 48–64 oz. AACE 2019 (as quoted): more than 1.5 L. |
 
 ## 3. Vitamins after surgery (`vitamins`)
 

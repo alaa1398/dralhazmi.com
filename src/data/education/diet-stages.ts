@@ -16,8 +16,8 @@ export const dietStages: Sheet = {
   },
   appliesTo: { en: 'Sleeve gastrectomy and gastric bypass', ar: 'تكميم المعدة وتحويل المسار' },
   keyNumbers: [
-    { value: { en: '60 g+', ar: '60 غ+' }, label: { en: `protein a day, at least ${PENDING}`, ar: `بروتين يوميًا على الأقل ${PENDING}` }, ev: 'guideline', refs: ['R1', 'R2'] },
-    { value: { en: '6–8 cups', ar: '6–8 أكواب' }, label: { en: `fluid a day, about 1.4–1.9 liters ${PENDING}`, ar: `سوائل يوميًا، نحو 1.4–1.9 لتر ${PENDING}` }, ev: 'guideline', refs: ['R1'] },
+    { value: { en: '60–80 g', ar: '60–80 غ' }, label: { en: 'protein a day, at least', ar: 'بروتين يوميًا على الأقل' }, ev: 'guideline', refs: ['R2', 'R1'] },
+    { value: { en: '6–8 cups', ar: '6–8 أكواب' }, label: { en: 'fluid a day, about 1.4–1.9 liters', ar: 'سوائل يوميًا، نحو 1.4–1.9 لتر' }, ev: 'guideline', refs: ['R1', 'R3'] },
     { value: { en: '20–30 min', ar: '20–30 دقيقة' }, label: { en: 'to eat each meal', ar: 'لتناول كل وجبة' }, ev: 'guideline', refs: ['R1'] },
     { value: { en: 'About 7 weeks', ar: 'نحو 7 أسابيع' }, label: { en: 'until solid food', ar: 'حتى العودة إلى الطعام الصلب' }, ev: 'guideline', refs: ['R7'] },
   ],
@@ -50,8 +50,8 @@ export const dietStages: Sheet = {
       heading: { en: 'Drink enough, by sipping', ar: 'اشرب كفايتك، رشفة رشفة' },
       items: [
         { text: { en: 'Sip all day, between meals.', ar: 'ارتشف طوال اليوم، بين الوجبات.' }, ev: 'guideline', refs: ['R1'] },
-        { text: { en: `Do not drink with meals. ${PENDING}`, ar: `لا تشرب مع الوجبات. ${PENDING}` }, ev: 'guideline', refs: ['R2'] },
-        { text: { en: `After eating, wait 30 minutes before drinking. ${PENDING}`, ar: `بعد الأكل، انتظر 30 دقيقة قبل الشرب. ${PENDING}` }, ev: 'guideline', refs: ['R3'] },
+        { text: { en: 'Do not drink with meals.', ar: 'لا تشرب مع الوجبات.' }, ev: 'guideline', refs: ['R2', 'R3'] },
+        { text: { en: 'After eating, wait 30 minutes before drinking.', ar: 'بعد الأكل، انتظر 30 دقيقة قبل الشرب.' }, ev: 'guideline', refs: ['R3'] },
         { text: { en: 'Limit caffeine (regular coffee and tea) early on.', ar: 'قلّل الكافيين (القهوة والشاي العاديين) في البداية.' }, ev: 'guideline', refs: ['R1'] },
       ],
     },
@@ -122,6 +122,6 @@ export const dietStages: Sheet = {
     { id: 'R6', cite: 'Kermansaravi M, et al. Religious fasting of Muslim patients after metabolic and bariatric surgery: a modified Delphi consensus. Obes Surg. 2021;31:5303–5311.', url: 'https://doi.org/10.1007/s11695-021-05724-z' },
   ],
   status: 'draft',
-  version: '0.3',
+  version: '0.4',
   drafters: ['Dana (Clinical Nutrition)', 'Noura (Bariatric Nurse Coordinator)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };
