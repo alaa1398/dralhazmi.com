@@ -30,10 +30,10 @@ To answer, write the option letter (or your own wording) next to each number.
 
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
-| V1 | Multivitamins per day | a) state a number (e.g. 2); b) "your team will tell you" | ASMBS/AACE reportedly 2 (not confirmed from the primary text). BOMSS gives no count. |
+| V1 | Multivitamins per day | a) state a number (e.g. 2); b) "your team will tell you" | Confirmed 2026-11-27 from the primary text: AACE 2019 R39 and Table 9 say 2 adult multivitamins a day after sleeve or bypass, chewable at first. BOMSS: 1 complete tablet, doubled if it lacks enough zinc and copper. See `vitamins-validation.md`. |
 | V2 | Vitamin D | a) at least 3,000 IU a day; b) 2,000–4,000 IU a day | AACE 2019 vs BOMSS 2020. Both target the same blood level (30 ng/mL = 75 nmol/L). |
 | V3 | Vitamin B12 route | a) daily tablet or monthly injection; b) injection every 3 months | AACE 2019: 350–1,000 mcg daily by mouth or 1,000 mcg monthly injection. BOMSS: injection every 3 months. |
-| V4 | Extra iron | a) only for higher-risk patients and women with periods; b) for everyone after sleeve or bypass | AACE 2019 vs BOMSS 2020. |
+| V4 | Extra iron | a) 45–60 mg a day in total (from all supplements) after sleeve or bypass and for women with periods, at least 18 mg for low-risk men (ASMBS 2016); b) a separate iron tablet for everyone after sleeve or bypass, 50–100 mg for women with periods (BOMSS 2020) | Corrected 2026-11-27: the earlier wording said the US position covered only higher-risk patients and women with periods; ASMBS 2016 also names everyone after sleeve or bypass. See `vitamins-validation.md`. |
 | V5 | Calcium | a) name citrate only; b) citrate or carbonate (carbonate with meals) | ASMBS 2016: 1,200–1,500 mg a day from food plus supplements. BOMSS: diet first; carbonate better tolerated. |
 | V6 | Extra vitamin B1 | a) routine for the first 3–4 months; b) only for people at risk | ASMBS 2016 vs BOMSS 2020. Read the ASMBS 2025 Wernicke guideline first (only the abstract was reachable). |
 | V7 | Blood tests | a) 3, 6, 12 months, then yearly; b) add 24 months | BOMSS vs most other guidelines (2025 scoping review). |
