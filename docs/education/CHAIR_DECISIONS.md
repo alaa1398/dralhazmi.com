@@ -43,8 +43,8 @@ To answer, write the option letter (or your own wording) next to each number.
 
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
-| W1 | Heart-rate threshold for emergency | a) over 120 a minute; b) over 100 a minute; c) no number: "heart racing at rest that does not settle" | Hamilton 2003: over 120 was one of the two most sensitive signs of leak after bypass (9 leaks). Al Zoubi 2021: fast heart rate in 71% of sleeve leaks, no number. No bariatric source found for 100. Many patients cannot count a pulse. |
-| W2 | Fever cut-offs | a) 38.0 °C call today, 38.5 °C emergency; b) any 38.0 °C in the first month is an emergency; c) your numbers | No guideline number found. Fever in 61% of sleeve leaks (Al Zoubi). |
+| W1 | **Decided 2026-11-27: a) over 120 a minute.** Heart-rate threshold for emergency | a) over 120 a minute; b) over 100 a minute; c) no number: "heart racing at rest that does not settle" | Hamilton 2003: over 120 was one of the two most sensitive signs of leak after bypass (9 leaks). Al Zoubi 2021: fast heart rate in 71% of sleeve leaks, no number. No bariatric source found for 100. Many patients cannot count a pulse. |
+| W2 | **Decided 2026-11-27: a) 38.0 °C call today, 38.5 °C emergency.** Fever cut-offs | a) 38.0 °C call today, 38.5 °C emergency; b) any 38.0 °C in the first month is an emergency; c) your numbers | No guideline number found. Fever in 61% of sleeve leaks (Al Zoubi). |
 | W3 | Hours unable to keep fluids down before calling | a) 6; b) 12; c) 24 | Expert opinion only. |
 | W4 | "First weeks" window | a) 30 days; b) 6 weeks | Expert opinion. |
 | W5 | Safety addition (Ali) | Add "Shoulder or back pain with stomach pain or fever" to the emergency list? | Shoulder pain in 35% and back pain in 25% of sleeve leaks (Al Zoubi 2021). |
