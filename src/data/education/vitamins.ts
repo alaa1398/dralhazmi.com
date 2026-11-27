@@ -89,7 +89,7 @@ export const vitamins: Sheet = {
         { text: { en: 'Vomiting that does not stop, or you cannot keep vitamins down.', ar: 'قيء لا يتوقف، أو لا تستطيع الاحتفاظ بالفيتامينات.' }, ev: 'guideline', refs: ['R2'] },
         { text: { en: 'Eating very little, or losing weight very fast.', ar: 'تأكل قليلًا جدًا، أو ينخفض وزنك بسرعة كبيرة.' }, ev: 'guideline', refs: ['R2'] },
         { text: { en: 'Numbness, tingling or burning in your feet or legs.', ar: 'تنميل أو وخز أو حرقة في القدمين أو الساقين.' }, ev: 'guideline', refs: ['R2'] },
-        { text: { en: `Hair loss or a change in taste. ${PENDING}`, ar: `تساقط الشعر أو تغيّر في التذوق. ${PENDING}` }, ev: 'guideline', refs: ['R2', 'R8'] },
+        { text: { en: 'Hair loss lasting more than 6 months, or a change in taste.', ar: 'تساقط الشعر لأكثر من 6 أشهر، أو تغيّر في التذوق.' }, ev: 'guideline', refs: ['R8', 'R2'] },
         { text: { en: 'Unusual tiredness, breathlessness or pale skin.', ar: 'تعب غير معتاد، أو ضيق في التنفس، أو شحوب.' }, ev: 'opinion' },
         { text: { en: 'You stopped your vitamins, for any reason.', ar: 'توقفت عن الفيتامينات لأي سبب.' }, ev: 'opinion' },
       ],
@@ -119,6 +119,6 @@ export const vitamins: Sheet = {
     { id: 'R9', cite: 'British Obesity and Metabolic Surgery Society. Post-bariatric surgery nutritional guidance for GPs. Updated 2023.', url: 'https://bomss.org/bomss-post-bariatric-surgery-nutritional-guidance-for-gps' },
   ],
   status: 'draft',
-  version: '0.4',
+  version: '0.5',
   drafters: ['Anas (Clinical Pharmacist)', 'Dana (Clinical Nutrition)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };

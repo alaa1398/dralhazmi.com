@@ -37,7 +37,7 @@ To answer, write the option letter (or your own wording) next to each number.
 | V5 | **Decided 2026-11-27: follow ASMBS 2016, citrate or carbonate (carbonate with meals).** Calcium | a) name citrate only; b) citrate or carbonate (carbonate with meals) | ASMBS 2016: 1,200–1,500 mg a day from food plus supplements. BOMSS: diet first; carbonate better tolerated. |
 | V6 | **Decided 2026-11-27: follow ASMBS 2016, at least 12 mg B1 a day, preferably 50 mg once or twice daily, for all.** Extra vitamin B1 | a) routine for the first 3–4 months; b) only for people at risk | ASMBS 2016 vs BOMSS 2020. Read the ASMBS 2025 Wernicke guideline first (only the abstract was reachable). |
 | V7 | **Decided 2026-11-27: follow ASMBS 2016, every 3–6 months in year one, then yearly.** Blood tests | a) 3, 6, 12 months, then yearly; b) add 24 months | BOMSS vs most other guidelines (2025 scoping review). |
-| V8 | **Still open 2026-11-27: the ASMBS 2016 text read does not address hair loss.** Hair loss | a) contact the team for any hair loss; b) only if it lasts beyond 6 months | OMA 2025: early shedding is normal; check if it lasts more than 6 months. |
+| V8 | **Decided 2026-11-27: b) follow OMA 2025, contact the team if hair loss lasts more than 6 months.** Hair loss | a) contact the team for any hair loss; b) only if it lasts beyond 6 months | OMA 2025: early shedding is normal; check if it lasts more than 6 months. |
 
 ## 4. Warning signs after surgery (`warning-signs`)
 
@@ -72,3 +72,7 @@ Diet stages guide, 2026-11-27 (owner's instruction, from `diet-stages-validation
 Preparing guide, 2026-11-27 (owner's instruction, from `preparing-validation.md`): AACE 2019 cited again (pregnancy, estrogen, fertility, sleep apnea, CPAP, smoking); hormone line now "Estrogen pills are usually stopped before surgery: 1 cycle of birth control pills, or 3 weeks of hormone replacement."; smoking panel adds "Surgery soon? Stop now. It still helps.". P3 and P5 stay open: ERAS 2021 does not address GLP-1 medicines or routine endoscopy.
 
 Preparing guide, 2026-11-27 (P3): with 24 hours of clear liquids for every patient, the ERAS line "Last light meal 6 hours before anesthesia" no longer applies and was replaced by "For 24 hours before surgery: clear liquids only, no solid food." (tagged Expert opinion: guidelines advise it only for GLP-1 users). "Clear drinks (water) until 2 hours before" stays. The key number "6 h · 2 h" became "24 hours: clear liquids only before surgery".
+
+## Status 2026-11-27
+
+All 22 clinical decisions across the four guides are made. Each guide still needs Dr. Alhazmi's sign-off and a native-speaker read-aloud of the Arabic before its status changes from draft to approved.
