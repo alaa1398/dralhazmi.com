@@ -17,9 +17,9 @@ export const vitamins: Sheet = {
   appliesTo: { en: 'Sleeve gastrectomy and gastric bypass', ar: 'تكميم المعدة وتحويل المسار' },
   keyNumbers: [
     { value: { en: 'For life', ar: 'مدى الحياة' }, label: { en: 'vitamins and minerals every day', ar: 'فيتامينات ومعادن كل يوم' }, ev: 'guideline', refs: ['R1', 'R2'] },
-    { value: { en: '1,200–1,500 mg', ar: '1200–1500 ملغ' }, label: { en: `calcium a day, from food plus supplements ${PENDING}`, ar: `كالسيوم يوميًا من الطعام والمكمّلات ${PENDING}` }, ev: 'guideline', refs: ['R1', 'R2'] },
+    { value: { en: '1,200–1,500 mg', ar: '1200–1500 ملغ' }, label: { en: 'calcium a day, from food plus supplements', ar: 'كالسيوم يوميًا من الطعام والمكمّلات' }, ev: 'guideline', refs: ['R1', 'R2'] },
     { value: { en: '2 hours', ar: 'ساعتان' }, label: { en: 'gap between calcium and iron', ar: 'فاصل بين الكالسيوم والحديد' }, ev: 'guideline', refs: ['R2', 'R8'] },
-    { value: { en: '3 · 6 · 12', ar: '3 · 6 · 12' }, label: { en: `months: blood tests in year one, then yearly ${PENDING}`, ar: `شهرًا: تحاليل الدم في السنة الأولى، ثم سنويًا ${PENDING}` }, ev: 'guideline', refs: ['R2', 'R3'] },
+    { value: { en: '3–6 months', ar: '3–6 أشهر' }, label: { en: 'between blood tests in year one, then yearly', ar: 'بين تحاليل الدم في السنة الأولى، ثم سنويًا' }, ev: 'guideline', refs: ['R1', 'R2'] },
   ],
   panels: [
     {
@@ -38,19 +38,19 @@ export const vitamins: Sheet = {
       heading: { en: 'Calcium and vitamin D: for your bones', ar: 'الكالسيوم وفيتامين د: لعظامك' },
       items: [
         { text: { en: 'Split calcium into smaller doses through the day.', ar: 'قسّم الكالسيوم على جرعات صغيرة خلال اليوم.' }, ev: 'guideline', refs: ['R1', 'R2'] },
-        { text: { en: `Calcium citrate: with or without food. Carbonate: with meals. ${PENDING}`, ar: `سترات الكالسيوم: مع الطعام أو بدونه. كربونات الكالسيوم: مع الوجبات. ${PENDING}` }, ev: 'guideline', refs: ['R1', 'R2'] },
-        { text: { en: `Take vitamin D daily; your blood test guides the dose. ${PENDING}`, ar: `تناول فيتامين د يوميًا؛ وتحليل الدم يحدد الجرعة. ${PENDING}` }, ev: 'guideline', refs: ['R2', 'R8'] },
+        { text: { en: 'Calcium citrate: with or without food. Carbonate: with meals.', ar: 'سترات الكالسيوم: مع الطعام أو بدونه. كربونات الكالسيوم: مع الوجبات.' }, ev: 'guideline', refs: ['R1', 'R2'] },
+        { text: { en: 'Take vitamin D 3,000 IU a day; your blood test may change the dose.', ar: 'تناول فيتامين د بجرعة 3000 وحدة دولية يوميًا؛ وقد يغيّر تحليل الدم الجرعة.' }, ev: 'guideline', refs: ['R1', 'R8'] },
       ],
     },
     {
       tone: 'neutral', icon: 'drop',
       heading: { en: 'Iron and vitamin B12: for your blood', ar: 'الحديد وفيتامين ب12: لدمك' },
       items: [
-        { text: { en: `Many people need extra iron beyond the multivitamin. ${PENDING}`, ar: `يحتاج كثيرون إلى حديد إضافي غير الموجود في الفيتامينات المتعددة. ${PENDING}` }, ev: 'guideline', refs: ['R2'] },
+        { text: { en: 'Iron: 45–60 mg a day in total. Men with no history of anemia may need only 18 mg.', ar: 'الحديد: 45–60 ملغ يوميًا من كل المكمّلات. وقد يكفي 18 ملغ للرجال الذين لم يُصابوا بفقر الدم من قبل.' }, ev: 'guideline', refs: ['R1'] },
         { text: { en: 'Women who have periods usually need more iron.', ar: 'النساء في سن الدورة الشهرية يحتجن عادةً إلى حديد أكثر.' }, ev: 'guideline', refs: ['R1', 'R2'] },
         { text: { en: 'Take iron with orange juice or vitamin C.', ar: 'تناول الحديد مع عصير البرتقال أو فيتامين سي.' }, ev: 'guideline', refs: ['R2'] },
         { text: { en: 'Keep iron and calcium at least 2 hours apart.', ar: 'افصل بين الحديد والكالسيوم ساعتين على الأقل.' }, ev: 'guideline', refs: ['R2', 'R8'] },
-        { text: { en: `You need extra vitamin B12: injection or daily tablet. ${PENDING}`, ar: `تحتاج إلى فيتامين ب12 إضافي: حقنة أو حبة يومية. ${PENDING}` }, ev: 'guideline', refs: ['R1', 'R2'] },
+        { text: { en: 'You need extra vitamin B12: an injection once a month.', ar: 'تحتاج إلى فيتامين ب12 إضافي: حقنة مرة كل شهر.' }, ev: 'guideline', refs: ['R1'] },
       ],
     },
     {
@@ -59,7 +59,7 @@ export const vitamins: Sheet = {
       items: [
         { text: { en: 'Your multivitamin must contain vitamin B1.', ar: 'يجب أن تحتوي الفيتامينات المتعددة على فيتامين ب1.' }, ev: 'guideline', refs: ['R1', 'R2'] },
         { text: { en: 'B1 can drop fast if you keep vomiting.', ar: 'قد ينخفض فيتامين ب1 بسرعة إذا تكرر القيء.' }, ev: 'guideline', refs: ['R2'] },
-        { text: { en: `Some teams add extra B1 for the first 3–4 months. ${PENDING}`, ar: `يضيف بعض الفرق جرعة إضافية من ب1 في أول 3–4 أشهر. ${PENDING}` }, ev: 'guideline', refs: ['R2'] },
+        { text: { en: 'Vitamin B1: at least 12 mg a day, ideally 50 mg once or twice a day.', ar: 'فيتامين ب1: 12 ملغ يوميًا على الأقل، والأفضل 50 ملغ مرة أو مرتين يوميًا.' }, ev: 'guideline', refs: ['R1'] },
       ],
     },
     {
@@ -75,7 +75,7 @@ export const vitamins: Sheet = {
       tone: 'neutral', icon: 'test',
       heading: { en: 'Your blood tests', ar: 'تحاليل الدم' },
       items: [
-        { text: { en: `Year one: about 3, 6 and 12 months after surgery. ${PENDING}`, ar: `السنة الأولى: بعد نحو 3 و6 و12 شهرًا من العملية. ${PENDING}` }, ev: 'guideline', refs: ['R2', 'R3'] },
+        { text: { en: 'Year one: every 3–6 months.', ar: 'السنة الأولى: كل 3–6 أشهر.' }, ev: 'guideline', refs: ['R1', 'R2'] },
         { text: { en: 'After that: at least once a year, for life.', ar: 'بعد ذلك: مرة في السنة على الأقل، مدى الحياة.' }, ev: 'guideline', refs: ['R2', 'R3'] },
         { text: { en: 'Blood count, iron stores (ferritin), folate (a B vitamin) and B12.', ar: 'صورة الدم، ومخزون الحديد (الفيريتين)، والفولات (من فيتامينات ب)، وب12.' }, ev: 'guideline', refs: ['R2'] },
         { text: { en: 'Vitamin D, calcium, kidney and liver tests.', ar: 'فيتامين د، والكالسيوم، ووظائف الكلى والكبد.' }, ev: 'guideline', refs: ['R2'] },
@@ -119,6 +119,6 @@ export const vitamins: Sheet = {
     { id: 'R9', cite: 'British Obesity and Metabolic Surgery Society. Post-bariatric surgery nutritional guidance for GPs. Updated 2023.', url: 'https://bomss.org/bomss-post-bariatric-surgery-nutritional-guidance-for-gps' },
   ],
   status: 'draft',
-  version: '0.3',
+  version: '0.4',
   drafters: ['Anas (Clinical Pharmacist)', 'Dana (Clinical Nutrition)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };
