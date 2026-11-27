@@ -19,7 +19,7 @@ export const preparing: Sheet = {
   keyNumbers: [
     { value: { en: '4 weeks', ar: '4 أسابيع' }, label: { en: 'at least: stop smoking before surgery', ar: 'على الأقل: توقّف عن التدخين قبل العملية' }, ev: 'guideline', refs: ['R1'] },
     { value: { en: '2–4 weeks', ar: '2–4 أسابيع' }, label: { en: 'low-calorie diet before surgery', ar: 'نظام منخفض السعرات قبل العملية' }, ev: 'guideline', refs: ['R1'] },
-    { value: { en: '6 h · 2 h', ar: '6 س · 2 س' }, label: { en: 'last light meal · last clear drink before anesthesia', ar: 'آخر وجبة خفيفة · آخر مشروب صافٍ قبل التخدير' }, ev: 'guideline', refs: ['R1', 'R4'] },
+    { value: { en: '24 hours', ar: '24 ساعة' }, label: { en: 'clear liquids only before surgery', ar: 'سوائل صافية فقط قبل العملية' }, ev: 'opinion' },
     { value: { en: '12–18 months', ar: '12–18 شهرًا' }, label: { en: 'wait before pregnancy after surgery', ar: 'انتظار قبل الحمل بعد العملية' }, ev: 'guideline', refs: ['R2', 'R11', 'R5'] },
   ],
   panels: [
@@ -62,7 +62,7 @@ export const preparing: Sheet = {
       items: [
         { text: { en: 'Blood thinners: ask before stopping. Never stop on your own.', ar: 'مميّعات الدم: اسأل قبل إيقافها، ولا توقفها من تلقاء نفسك.' }, ev: 'opinion' },
         { text: { en: 'Diabetes medicines may need new doses before surgery.', ar: 'قد تحتاج أدوية السكري إلى تعديل الجرعات قبل العملية.' }, ev: 'guideline', refs: ['R1'] },
-        { text: { en: `Weight-loss injections (GLP-1 medicines): ask early; you may need a liquid diet first. ${PENDING}`, ar: `إبر إنقاص الوزن (أدوية GLP-1): اسأل مبكرًا؛ قد تحتاج إلى نظام سوائل قبلها. ${PENDING}` }, ev: 'guideline', refs: ['R3'] },
+        { text: { en: 'Weight-loss injections (GLP-1 medicines): stop them 7 days before surgery.', ar: 'إبر إنقاص الوزن (أدوية GLP-1): أوقفها قبل العملية بـ 7 أيام.' }, ev: 'guideline', refs: ['R13', 'R3'] },
         { text: { en: 'Herbal products and supplements: tell your team. Some are paused.', ar: 'الأعشاب والمكمّلات: أخبر فريقك، فبعضها يُوقف مؤقتًا.' }, ev: 'consensus', refs: ['R7'] },
         { text: { en: 'Estrogen pills are usually stopped before surgery: 1 cycle of birth control pills, or 3 weeks of hormone replacement.', ar: 'تُوقف حبوب الإستروجين عادةً قبل العملية: دورة واحدة من حبوب منع الحمل، أو 3 أسابيع من العلاج الهرموني التعويضي.' }, ev: 'guideline', refs: ['R2', 'R1'] },
       ],
@@ -81,7 +81,7 @@ export const preparing: Sheet = {
       tone: 'neutral', icon: 'bag',
       heading: { en: 'Fasting and what to bring', ar: 'الصيام قبل العملية وما تحضره معك' },
       items: [
-        { text: { en: 'Last light meal 6 hours before anesthesia.', ar: 'آخر وجبة خفيفة قبل التخدير بـ 6 ساعات.' }, ev: 'guideline', refs: ['R1', 'R4'] },
+        { text: { en: 'For 24 hours before surgery: clear liquids only, no solid food.', ar: 'خلال 24 ساعة قبل العملية: سوائل صافية فقط، دون طعام صلب.' }, ev: 'opinion' },
         { text: { en: 'Clear drinks (water) until 2 hours before.', ar: 'المشروبات الصافية (الماء) حتى ساعتين قبل التخدير.' }, ev: 'guideline', refs: ['R1', 'R4'] },
         { text: { en: 'Follow the exact times your hospital gives you.', ar: 'التزم بالأوقات التي يحددها لك المستشفى.' }, ev: 'opinion' },
         { text: { en: 'Bring your sleep apnea (CPAP) machine and mask.', ar: 'أحضر جهاز انقطاع النفس أثناء النوم (CPAP) والقناع.' }, ev: 'guideline', refs: ['R1', 'R2'] },
@@ -113,9 +113,10 @@ export const preparing: Sheet = {
     { id: 'R5', cite: 'Shawe J, et al. Pregnancy after bariatric surgery: consensus recommendations for periconception, antenatal and postnatal care. Obes Rev. 2019;20:1507–1522.', url: 'https://doi.org/10.1111/obr.12927' },
     { id: 'R7', cite: 'Cummings KC, et al. Preoperative management of surgical patients using dietary supplements: Society for Perioperative Assessment and Quality Improvement (SPAQI) consensus statement. Mayo Clin Proc. 2021;96:1342–1355.', url: 'https://doi.org/10.1016/j.mayocp.2020.08.016' },
     { id: 'R8', cite: 'Brown WA, et al. International Federation for Surgery for Obesity and Metabolic Disorders position statement on the role of upper gastrointestinal endoscopy before and after metabolic bariatric surgery. Obes Surg. 2025;35:4889–4916.', url: 'https://doi.org/10.1007/s11695-025-08206-8' },
+    { id: 'R13', cite: 'American Society of Anesthesiologists Task Force on Preoperative Fasting. Consensus-based guidance on preoperative management of patients (adults and children) on glucagon-like peptide-1 (GLP-1) receptor agonists. June 2023.', url: 'https://www.asahq.org/about-asa/newsroom/news-releases/2023/06/american-society-of-anesthesiologists-consensus-based-guidance-on-preoperative' },
     { id: 'R11', cite: 'American Society for Metabolic and Bariatric Surgery. Life after bariatric surgery; FAQs of bariatric surgery (patient pages). Accessed 25 November 2026.', url: 'https://asmbs.org/patients/life-after-bariatric-surgery/' },
   ],
   status: 'draft',
-  version: '0.4',
+  version: '0.5',
   drafters: ['Noura (Bariatric Nurse Coordinator)', 'Tariq (Anesthesia & Perioperative Medicine)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };

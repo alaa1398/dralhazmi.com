@@ -174,8 +174,8 @@ mark.pending { background: var(--tone-amber-bg); color: #5c3c00; border: 1px das
   .teachback ol { margin-block-start: 1mm; gap: 0; }
   .teachback ol li { font-size: 9.5pt; }
   .sheet-emergency { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .sheet-foot { margin-block-start: 2.5mm; padding-block-start: 2mm; gap: 1.5mm; grid-template-columns: 1fr; font-size: 7.5pt; }
-  .sheet-meta { gap: 0 4mm; }
+  .sheet-foot { margin-block-start: 1.5mm; padding-block-start: 1.5mm; gap: 1.2mm; grid-template-columns: 1fr; font-size: 7.5pt; }
+  .sheet-meta { gap: 0 4mm; font-size: 7pt; }
   .sheet-meta > div { display: flex; gap: 1.5mm; }
   .sheet-disclaimer { display: none; }
   .print-disclaimer { margin-block-start: 1.5mm; font-size: 8pt; color: #333; }
@@ -183,11 +183,11 @@ mark.pending { background: var(--tone-amber-bg); color: #5c3c00; border: 1px das
   .legend dl { margin-block-start: 1mm; gap: 0.5mm; }
   .legend dl > div { grid-template-columns: 1fr; gap: 0; }
   .legend dd, .sheet-meta, .sheet-disclaimer, .print-url { font-size: 7.5pt; }
-  .refs ol { font-size: 6.6pt; }
+  .refs ol { font-size: 6.3pt; }
   .refs .small { font-size: 7pt; }
   .legend dl > div { grid-template-columns: 32mm 1fr; gap: 3mm; }
   .legend .ev { font-size: 8pt; gap: 1.5mm; }
-  .refs ol { display: block; columns: 2; column-gap: 6mm; margin-block-start: 1mm; line-height: 1.22; }
+  .refs ol { display: block; columns: 2; column-gap: 6mm; margin-block-start: 1mm; line-height: 1.15; }
   .refs li { break-inside: avoid; margin-block-end: 0.8mm; }
   .legend dl { gap: 0; }
   :lang(ar) .it-text { line-height: 1.5; }
