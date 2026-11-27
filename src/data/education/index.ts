@@ -52,6 +52,8 @@ export const learnUi = {
     ar: 'مسودة للمراجعة الطبية. لم تُعتمد بعد؛ لا تُستخدم في رعاية المرضى.',
   },
   pending: { en: 'decision needed', ar: 'بانتظار القرار' },
+  qrThis: { en: 'Scan to open this guide online', ar: 'امسح لفتح هذا الدليل على الإنترنت' },
+  qrOther: { en: 'بالعربية', ar: 'In English' },
   reviewed: { en: 'Reviewed by Dr. Alaa Alhazmi', ar: 'راجعه د. علاء الحازمي' },
   nextReview: { en: 'Next review', ar: 'المراجعة القادمة' },
   version: { en: 'Version', ar: 'الإصدار' },

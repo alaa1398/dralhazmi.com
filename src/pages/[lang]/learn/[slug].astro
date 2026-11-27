@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import Icon from '../../../components/learn/Icon.astro';
 import Txt from '../../../components/learn/Txt.astro';
+import Qr from '../../../components/learn/Qr.astro';
 import { langs, nav, site, ui, type Lang } from '../../../data/site';
 import { sheets, learnUi, evidenceLabel, evidenceHelp, PENDING, type Sheet, type Evidence } from '../../../data/education';
 import '../../../styles/learn.css';
@@ -21,6 +22,8 @@ if (!isDraft) {
   if (JSON.stringify(sheet).includes(PENDING)) throw new Error(`${sheet.slug}: approved sheet still has decisions pending`);
 }
 const href = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
+const other: Lang = lang === 'en' ? 'ar' : 'en';
+const otherUrl = `${site.url}/${other}/${path}/`;
 // Sources are numbered by their position on the page; ids stay stable for tracing to docs/education/.
 const refIndex = new Map(sheet.refs.map((r, i) => [r.id, i + 1]));
 const refNo = (id: string) => {
@@ -77,6 +80,10 @@ const jsonLd = [
             <h1 id="sheet-title">{sheet.title[lang]}</h1>
             <p class="sheet-sub">{sheet.subtitle[lang]}</p>
             <p class="sheet-applies"><span class="label">{learnUi.appliesTo[lang]}</span> {sheet.appliesTo[lang]}</p>
+          </div>
+          <div class="print-only sheet-qr">
+            <Qr url={site.url + href(path)} label={learnUi.qrThis[lang]} lang={lang} />
+            <Qr url={otherUrl} label={learnUi.qrOther[lang]} lang={other} />
           </div>
           <div class="sheet-tools js-only">
             <button type="button" class="btn btn-sm btn-ghost" data-print><Icon name="list" />{learnUi.print[lang]}</button>

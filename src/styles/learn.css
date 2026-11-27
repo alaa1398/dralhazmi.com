@@ -137,7 +137,11 @@ mark.pending { background: var(--tone-amber-bg); color: #5c3c00; border: 1px das
   .sheet-emergency { display: none; }
   .wrap { max-inline-size: none; padding-inline: 0; }
   .sheet-head { padding-block: 0 3mm; background: none; border-block-end: 2px solid var(--h); }
-  .sheet-head-grid { grid-template-columns: auto 1fr; gap: 4mm; align-items: center; }
+  .sheet-head-grid { grid-template-columns: auto 1fr auto; gap: 4mm; align-items: center; }
+  .sheet-qr { display: flex; gap: 3mm; align-items: flex-start; }
+  .qr { margin: 0; inline-size: 17mm; display: grid; gap: 1mm; justify-items: center; text-align: center; }
+  .qr-code, .qr-code svg { display: block; inline-size: 17mm; block-size: 17mm; }
+  .qr figcaption { font-size: 6.5pt; line-height: 1.2; color: #333; }
   .sheet-badge { inline-size: 14mm; block-size: 14mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .sheet h1 { font-size: 20pt; }
   .sheet-sub { font-size: 11pt; margin-block-start: 1mm; }

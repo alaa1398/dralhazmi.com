@@ -57,6 +57,6 @@ To answer, write the option letter (or your own wording) next to each number.
 |---|---|---|
 | S1 | Wording on every sheet: "Drafted with the help of AI tools from the published sources listed here, then checked and approved by Dr. Alaa Alhazmi." | Replaces naming the working-group members, which are AI agents and must not read as clinic staff. Keep, reword, or remove? |
 | S2 | "Learn" in the menu now opens the library; the videos page moves to a link inside it | Before: Learn → videos and social channels. After: Learn → patient education library, with "Videos and social channels" linked from it. |
-| S3 | QR code on each printed sheet, linking to its web and Arabic versions | Needs one small build-time package (`qrcode`); adding packages needs your approval in this environment. |
+| S3 | QR code on each printed sheet | Decided 2026-11-27: yes. `qrcode` added; page 1 of every printed guide carries two codes, this guide online and the other language. |
 | S4 | Arabic text | All Arabic is a draft translation and needs a native-speaker read-aloud before any sheet is approved. |
 | S5 | Unconfirmed sources | Several primary guideline PDFs were blocked (members-only or bot checks): AACE/TOS/ASMBS 2019, ASMBS 2016 micronutrients, ASMBS 2025 Wernicke full text, Saudi SCFHS nutrition pathway. Claims resting only on them are off the public sheets or marked. If you have member access, a copy of these four would let Ali close the gaps. |
