@@ -15,8 +15,9 @@ export const warningSigns: Sheet = {
   appliesTo: { en: 'Sleeve gastrectomy and gastric bypass', ar: 'تكميم المعدة وتحويل المسار' },
   keyNumbers: [
     { value: { en: '997', ar: '997' }, label: { en: 'Saudi ambulance (Red Crescent)', ar: 'الإسعاف في المملكة (الهلال الأحمر)' }, ev: 'fact', refs: ['R13'] },
-    { value: { en: 'Over 120', ar: 'أكثر من 120' }, label: { en: 'heartbeats a minute at rest: an emergency', ar: 'نبضة في الدقيقة أثناء الراحة: حالة طارئة' }, ev: 'opinion', refs: ['R3'] },
+    { value: { en: 'Over 120', ar: 'أكثر من 120' }, label: { en: 'heartbeats a minute at rest: an emergency', ar: 'نبضة في الدقيقة أثناء الراحة: حالة طارئة' }, ev: 'study', refs: ['R15', 'R3'] },
     { value: { en: '38.5 °C', ar: '38.5 °م' }, label: { en: 'temperature or higher: an emergency', ar: 'أو أعلى: حالة طارئة' }, ev: 'opinion' },
+    { value: { en: 'About 8 in 10', ar: 'نحو 8 من 10' }, label: { en: 'vitamin B1 emergencies start in the first 6 months', ar: 'من حالات نقص فيتامين ب1 الطارئة تبدأ في أول 6 أشهر' }, ev: 'study', refs: ['R16'] },
     { value: { en: 'Over 8 in 10', ar: 'أكثر من 8 من 10' }, label: { en: 'blood clots after weight-loss surgery that start after going home', ar: 'من الجلطات بعد جراحة السمنة تبدأ بعد الخروج من المستشفى' }, ev: 'guideline', refs: ['R1'] },
   ],
   panels: [
@@ -34,7 +35,7 @@ export const warningSigns: Sheet = {
       heading: { en: 'Contact your surgical team today', ar: 'تواصل مع فريقك الجراحي اليوم' },
       items: [
         { text: { en: 'Nausea or vomiting that keeps coming back', ar: 'غثيان أو قيء يتكرر' }, ev: 'guideline', refs: ['R7', 'R6'] },
-        { text: { en: `Cannot keep fluids or vitamins down for ${PENDING} hours`, ar: `لا تستطيع الاحتفاظ بالسوائل أو الفيتامينات لمدة ${PENDING} ساعة` }, ev: 'opinion', refs: ['R6'] },
+        { text: { en: 'Cannot keep fluids or vitamins down for 12 hours', ar: 'لا تستطيع الاحتفاظ بالسوائل أو الفيتامينات لمدة 12 ساعة' }, ev: 'opinion', refs: ['R6'] },
         { text: { en: 'Drying out: dark or little urine, dizzy when standing', ar: 'علامات الجفاف: بول داكن أو قليل، ودوخة عند الوقوف' }, ev: 'opinion' },
         { text: { en: 'Wound red, swollen, warm, or leaking', ar: 'الجرح أحمر أو متورم أو ساخن أو يخرج منه سائل' }, ev: 'opinion' },
         { text: { en: 'Temperature of 38.0 °C or higher', ar: 'حرارة 38.0 درجة مئوية أو أعلى' }, ev: 'opinion' },
@@ -45,9 +46,11 @@ export const warningSigns: Sheet = {
     {
       tone: 'red', icon: 'alert',
       heading: { en: 'Call 997 or go to the emergency department now', ar: 'اتصل على 997 أو توجّه إلى الطوارئ فورًا' },
+      intro: { en: 'To count your pulse: count the beats at your wrist for 15 seconds, then multiply by 4.', ar: 'لقياس النبض: عُدّ النبضات في معصمك لمدة 15 ثانية، ثم اضرب العدد في 4.' },
       items: [
-        { text: { en: 'Heart racing at rest, over 120 beats a minute', ar: 'تسارع ضربات القلب أثناء الراحة، أكثر من 120 نبضة في الدقيقة' }, ev: 'opinion', refs: ['R3', 'R4'] },
+        { text: { en: 'Heart racing at rest, over 120 beats a minute', ar: 'تسارع ضربات القلب أثناء الراحة، أكثر من 120 نبضة في الدقيقة' }, ev: 'study', refs: ['R15', 'R3', 'R4'] },
         { text: { en: 'Severe stomach pain, or pain that keeps getting worse', ar: 'ألم شديد في البطن، أو ألم يزداد سوءًا' }, ev: 'opinion', refs: ['R4'] },
+        { text: { en: 'Shoulder or back pain with stomach pain or fever', ar: 'ألم في الكتف أو الظهر مع ألم في البطن أو حرارة' }, ev: 'study', refs: ['R4'] },
         { text: { en: 'Short of breath or breathing fast', ar: 'ضيق في التنفس أو تنفس سريع' }, ev: 'opinion', refs: ['R3', 'R4'] },
         { text: { en: 'Any chest pain', ar: 'أي ألم في الصدر' }, ev: 'opinion' },
         { text: { en: 'One leg swollen, painful, or warm', ar: 'تورم إحدى الساقين أو ألمها أو سخونتها' }, ev: 'opinion', refs: ['R1'] },
@@ -61,7 +64,7 @@ export const warningSigns: Sheet = {
       tone: 'neutral', icon: 'calendar',
       heading: { en: 'Later warning signs (months or years after)', ar: 'علامات خطر لاحقة (بعد أشهر أو سنوات)' },
       items: [
-        { text: { en: 'Days of vomiting with confusion, unsteady walking or double vision: emergency', ar: 'قيء لأيام مع تشوّش أو عدم اتزان أو رؤية مزدوجة: حالة طارئة' }, ev: 'guideline', refs: ['R7'] },
+        { text: { en: 'Days of vomiting with confusion, unsteady walking or double vision: emergency', ar: 'قيء لأيام مع تشوّش أو عدم اتزان أو رؤية مزدوجة: حالة طارئة' }, ev: 'guideline', refs: ['R7', 'R16'] },
         { text: { en: 'Numbness or weakness while eating poorly: contact your team today', ar: 'تنميل أو ضعف مع قلة الأكل: تواصل مع فريقك اليوم' }, ev: 'opinion', refs: ['R7'] },
         { text: { en: 'Bypass: sudden cramping belly pain that comes and goes: emergency', ar: 'بعد تحويل المسار: مغص مفاجئ في البطن يأتي ويذهب: حالة طارئة' }, ev: 'guideline', refs: ['R8', 'R9'] },
         { text: { en: 'Sleeve: new heartburn, or food coming back up: tell your team', ar: 'بعد التكميم: حرقة جديدة أو رجوع الطعام: أخبر فريقك' }, ev: 'guideline', refs: ['R10'] },
@@ -89,8 +92,10 @@ export const warningSigns: Sheet = {
     { id: 'R12', cite: 'Abdelgadir E, et al. Post-bariatric hypoglycemia management: a Gulf Cooperation Council consensus statement. J Endocr Soc. 2026;10:bvaf225.', url: 'https://pubmed.ncbi.nlm.nih.gov/41647132/' },
     { id: 'R13', cite: 'Aljabri D, Albinali H. Public awareness and use of 997 emergency medical service phone number during the COVID-19 pandemic. Front Public Health. 2022;10:937202.', url: 'https://pubmed.ncbi.nlm.nih.gov/36262224/' },
     { id: 'R14', cite: 'Dick A, et al. Gastrointestinal bleeding after gastric bypass surgery: nuisance or catastrophe? Surg Obes Relat Dis. 2010;6:643–647.', url: 'https://pubmed.ncbi.nlm.nih.gov/21111381/' },
+    { id: 'R15', cite: 'Bellorin O, et al. Understanding the significance, reasons and patterns of abnormal vital signs after gastric bypass for morbid obesity. Obes Surg. 2011;21:707–713.', url: 'https://doi.org/10.1007/s11695-010-0221-0' },
+    { id: 'R16', cite: 'Oudman E, et al. Preventing Wernicke encephalopathy after bariatric surgery. Obes Surg. 2018;28:2060–2068.', url: 'https://doi.org/10.1007/s11695-018-3262-4' },
   ],
   status: 'draft',
-  version: '0.2',
+  version: '0.3',
   drafters: ['Amal (Quality & Patient Safety)', 'Khalid (Surgical Lead)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };

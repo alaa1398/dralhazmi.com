@@ -5,8 +5,9 @@
 import type { T } from '../site';
 
 /** guideline: a society guideline or position statement; consensus: a published
- *  expert consensus or Delphi; opinion: common practice with no published source. */
-export type Evidence = 'guideline' | 'consensus' | 'opinion';
+ *  expert consensus or Delphi; study: published research (cohort, review) that no
+ *  guideline states; opinion: common practice with no published source. */
+export type Evidence = 'guideline' | 'consensus' | 'study' | 'opinion';
 
 /** A value Dr. Alhazmi still has to decide. Drafts show it as "decision needed". */
 export const PENDING = '{{CHAIR}}';

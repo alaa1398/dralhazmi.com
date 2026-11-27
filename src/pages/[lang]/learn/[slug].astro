@@ -33,7 +33,7 @@ const refNo = (id: string) => {
 };
 const fmtDate = (iso?: string) =>
   iso ? new Intl.DateTimeFormat(lang === 'ar' ? 'ar-SA-u-ca-gregory-nu-latn' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(iso)) : '';
-const evs: Evidence[] = ['guideline', 'consensus', 'opinion'];
+const evs: Evidence[] = ['guideline', 'consensus', 'study', 'opinion'];
 const used = new Set(sheet.panels.flatMap((p) => p.items.map((i) => i.ev)));
 
 const jsonLd = [

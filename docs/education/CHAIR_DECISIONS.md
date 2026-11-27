@@ -45,9 +45,9 @@ To answer, write the option letter (or your own wording) next to each number.
 |---|---|---|---|
 | W1 | **Decided 2026-11-27: a) over 120 a minute.** Heart-rate threshold for emergency | a) over 120 a minute; b) over 100 a minute; c) no number: "heart racing at rest that does not settle" | Hamilton 2003: over 120 was one of the two most sensitive signs of leak after bypass (9 leaks). Al Zoubi 2021: fast heart rate in 71% of sleeve leaks, no number. No bariatric source found for 100. Many patients cannot count a pulse. |
 | W2 | **Decided 2026-11-27: a) 38.0 °C call today, 38.5 °C emergency.** Fever cut-offs | a) 38.0 °C call today, 38.5 °C emergency; b) any 38.0 °C in the first month is an emergency; c) your numbers | No guideline number found. Fever in 61% of sleeve leaks (Al Zoubi). |
-| W3 | Hours unable to keep fluids down before calling | a) 6; b) 12; c) 24 | Expert opinion only. |
+| W3 | **Decided 2026-11-27: b) 12 hours** (UCSF uses 12 hours). Hours unable to keep fluids down before calling | a) 6; b) 12; c) 24 | Expert opinion only. |
 | W4 | "First weeks" window | a) 30 days; b) 6 weeks | Expert opinion. |
-| W5 | Safety addition (Ali) | Add "Shoulder or back pain with stomach pain or fever" to the emergency list? | Shoulder pain in 35% and back pain in 25% of sleeve leaks (Al Zoubi 2021). |
+| W5 | **Decided 2026-11-27: added.** Safety addition (Ali) | Add "Shoulder or back pain with stomach pain or fever" to the emergency list? | Shoulder pain in 35% and back pain in 25% of sleeve leaks (Al Zoubi 2021). |
 | W6 | Safety addition (Ali) | Move "Cannot swallow saliva or keep down any sips" from "call today" to emergency? | Expert opinion. |
 | W7 | Contact details on the printed sheet | a) no; b) add WhatsApp and phone | Site rule 3 allows only WhatsApp and +966 50 970 4040. |
 
@@ -60,3 +60,7 @@ To answer, write the option letter (or your own wording) next to each number.
 | S3 | QR code on each printed sheet | Decided 2026-11-27: yes. `qrcode` added; page 1 of every printed guide carries two codes, this guide online and the other language. |
 | S4 | Arabic text | All Arabic is a draft translation and needs a native-speaker read-aloud before any sheet is approved. |
 | S5 | Unconfirmed sources | Several primary guideline PDFs were blocked (members-only or bot checks): AACE/TOS/ASMBS 2019, ASMBS 2016 micronutrients, ASMBS 2025 Wernicke full text, Saudi SCFHS nutrition pathway. Claims resting only on them are off the public sheets or marked. If you have member access, a copy of these four would let Ali close the gaps. |
+
+## Applied 2026-11-27 from the web validation
+
+On the owner's instruction (see `warning-signs-validation.md`): Bellorin 2011 added as a source for the heart-rate items; a "how to count your pulse" line opens the emergency panel; key number "About 8 in 10 vitamin B1 emergencies start in the first 6 months" (Oudman 2018). A fourth evidence tag, "Published study", now marks items backed by research that no guideline states.

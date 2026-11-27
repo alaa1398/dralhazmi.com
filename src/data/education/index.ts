@@ -74,6 +74,7 @@ export const learnUi = {
 export const evidenceLabel: Record<Evidence | 'fact', T> = {
   guideline: { en: 'Guideline', ar: 'إرشادات' },
   consensus: { en: 'Expert consensus', ar: 'إجماع الخبراء' },
+  study: { en: 'Published study', ar: 'دراسة منشورة' },
   opinion: { en: 'Expert opinion', ar: 'رأي الخبراء' },
   fact: { en: 'Fact', ar: 'معلومة' },
 };
@@ -86,6 +87,10 @@ export const evidenceHelp: Record<Evidence, T> = {
   consensus: {
     en: 'A published agreement among expert panels says this.',
     ar: 'ينص على ذلك اتفاق منشور بين لجان من الخبراء.',
+  },
+  study: {
+    en: 'Published research supports this, but no guideline states it.',
+    ar: 'تدعم ذلك أبحاث منشورة، ولا تنص عليه إرشادات.',
   },
   opinion: {
     en: 'Common surgical practice; no published guideline states it directly.',
