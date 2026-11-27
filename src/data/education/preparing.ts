@@ -32,7 +32,7 @@ export const preparing: Sheet = {
         { text: { en: 'Meet the psychologist to talk about habits and support.', ar: 'قابل الأخصائي النفسي للحديث عن العادات والدعم.' }, ev: 'guideline', refs: ['R1'] },
         { text: { en: 'Have the blood tests and other checks your doctors order.', ar: 'أجرِ تحاليل الدم والفحوصات التي يطلبها أطباؤك.' }, ev: 'opinion' },
         { text: { en: 'Answer sleep apnea questions (breathing stops during sleep).', ar: 'أجب عن أسئلة انقطاع النفس أثناء النوم.' }, ev: 'guideline', refs: ['R1', 'R2'] },
-        { text: { en: `You may need a camera test of the stomach (endoscopy). ${PENDING}`, ar: `قد تحتاج إلى منظار للمعدة. ${PENDING}` }, ev: 'guideline', refs: ['R8'] },
+        { text: { en: 'You will have a camera test of the stomach (endoscopy).', ar: 'سيُجرى لك منظار للمعدة.' }, ev: 'guideline', refs: ['R8'] },
       ],
     },
     {
@@ -116,6 +116,6 @@ export const preparing: Sheet = {
     { id: 'R11', cite: 'American Society for Metabolic and Bariatric Surgery. Life after bariatric surgery; FAQs of bariatric surgery (patient pages). Accessed 25 November 2026.', url: 'https://asmbs.org/patients/life-after-bariatric-surgery/' },
   ],
   status: 'draft',
-  version: '0.3',
+  version: '0.4',
   drafters: ['Noura (Bariatric Nurse Coordinator)', 'Tariq (Anesthesia & Perioperative Medicine)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };
