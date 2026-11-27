@@ -27,7 +27,7 @@ export const vitamins: Sheet = {
       heading: { en: 'Every day, for life', ar: 'كل يوم، مدى الحياة' },
       items: [
         { text: { en: 'Take a complete multivitamin with minerals every day.', ar: 'تناول فيتامينات متعددة كاملة مع المعادن كل يوم.' }, ev: 'guideline', refs: ['R1', 'R2'] },
-        { text: { en: `How many a day: your team will tell you. ${PENDING}`, ar: `عدد الحبات يوميًا: يحدده فريقك. ${PENDING}` }, ev: 'guideline', refs: ['R2'] },
+        { text: { en: 'How many: 2 a day.', ar: 'العدد: حبتان يوميًا.' }, ev: 'guideline', refs: ['R7'] },
         { text: { en: 'Early on, chewable or liquid forms are easier to take.', ar: 'في البداية، الأشكال القابلة للمضغ أو السائلة أسهل في التناول.' }, ev: 'guideline', refs: ['R8'] },
         { text: { en: 'Never stop on your own. Vitamins are for life.', ar: 'لا توقفها من تلقاء نفسك. الفيتامينات مدى الحياة.' }, ev: 'guideline', refs: ['R2'] },
         { text: { en: 'Buy supplements only from a licensed pharmacy.', ar: 'اشترِ المكمّلات من صيدلية مرخّصة فقط.' }, ev: 'opinion' },
@@ -64,11 +64,11 @@ export const vitamins: Sheet = {
     },
     {
       tone: 'neutral', icon: 'list',
-      heading: { en: 'Sleeve or bypass: what differs', ar: 'التكميم أو تحويل المسار: ما الفرق' },
+      heading: { en: 'Sleeve or bypass: mostly the same', ar: 'التكميم أو تحويل المسار: النصائح متشابهة غالبًا' },
       items: [
         { text: { en: 'Most vitamin advice is the same for both operations.', ar: 'معظم نصائح الفيتامينات واحدة للعمليتين.' }, ev: 'guideline', refs: ['R2'] },
-        { text: { en: 'After bypass, selenium (a mineral) is also checked.', ar: 'بعد تحويل المسار، يُفحص السيلينيوم (معدن) أيضًا.' }, ev: 'guideline', refs: ['R2'] },
-        { text: { en: 'After bypass, some people need extra vitamin A.', ar: 'بعد تحويل المسار، يحتاج بعض المرضى إلى فيتامين أ إضافي.' }, ev: 'guideline', refs: ['R2'] },
+        { text: { en: 'Zinc, copper and selenium are checked if you have symptoms, or yearly as your team decides.', ar: 'يُفحص الزنك والنحاس والسيلينيوم عند ظهور أعراض، أو سنويًا حسب ما يقرره فريقك.' }, ev: 'guideline', refs: ['R2', 'R9'] },
+        { text: { en: 'Your multivitamin should include vitamin A.', ar: 'يجب أن تحتوي الفيتامينات المتعددة على فيتامين أ.' }, ev: 'guideline', refs: ['R1'] },
       ],
     },
     {
@@ -114,9 +114,11 @@ export const vitamins: Sheet = {
     { id: 'R1', cite: 'Parrott J, et al. American Society for Metabolic and Bariatric Surgery Integrated Health Nutritional Guidelines for the Surgical Weight Loss Patient 2016 Update: Micronutrients. Surg Obes Relat Dis. 2017;13:727–741.', url: 'https://doi.org/10.1016/j.soard.2016.12.018' },
     { id: 'R2', cite: 'O’Kane M, et al. British Obesity and Metabolic Surgery Society guidelines on perioperative and postoperative biochemical monitoring and micronutrient replacement for patients undergoing bariatric surgery: 2020 update. Obes Rev. 2020;21:e13087.', url: 'https://doi.org/10.1111/obr.13087' },
     { id: 'R3', cite: 'Steenackers N, et al. Current clinical practice guidelines for nutritional screening before and after sleeve gastrectomy and Roux-en-Y gastric bypass: a scoping review. Curr Obes Rep. 2025;14:16.', url: 'https://doi.org/10.1007/s13679-025-00606-2' },
+    { id: 'R7', cite: 'Mechanick JI, et al. Clinical practice guidelines for the perioperative nutrition, metabolic, and nonsurgical support of patients undergoing bariatric procedures, 2019 update (AACE/TOS/ASMBS/OMA/ASA). Endocr Pract. 2019;25:1346–1359.', url: 'https://doi.org/10.4158/GL-2019-0406' },
     { id: 'R8', cite: 'Benson-Davies S, Frederiksen K, Patel R. Bariatric nutrition and evaluation of the metabolic surgical patient: update to the 2022 Obesity Medicine Association (OMA) clinical practice statement. Obes Pillars. 2025;13:100154.', url: 'https://doi.org/10.1016/j.obpill.2024.100154' },
+    { id: 'R9', cite: 'British Obesity and Metabolic Surgery Society. Post-bariatric surgery nutritional guidance for GPs. Updated 2023.', url: 'https://bomss.org/bomss-post-bariatric-surgery-nutritional-guidance-for-gps' },
   ],
   status: 'draft',
-  version: '0.2',
+  version: '0.3',
   drafters: ['Anas (Clinical Pharmacist)', 'Dana (Clinical Nutrition)', 'Ali (Evidence, Guidelines & Outcomes)'],
 };

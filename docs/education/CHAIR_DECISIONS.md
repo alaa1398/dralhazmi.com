@@ -30,7 +30,7 @@ To answer, write the option letter (or your own wording) next to each number.
 
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
-| V1 | Multivitamins per day | a) state a number (e.g. 2); b) "your team will tell you" | Confirmed 2026-11-27 from the primary text: AACE 2019 R39 and Table 9 say 2 adult multivitamins a day after sleeve or bypass, chewable at first. BOMSS: 1 complete tablet, doubled if it lacks enough zinc and copper. See `vitamins-validation.md`. |
+| V1 | **Decided 2026-11-27: 2 a day.** Multivitamins per day | a) state a number (e.g. 2); b) "your team will tell you" | Confirmed 2026-11-27 from the primary text: AACE 2019 R39 and Table 9 say 2 adult multivitamins a day after sleeve or bypass, chewable at first. BOMSS: 1 complete tablet, doubled if it lacks enough zinc and copper. See `vitamins-validation.md`. |
 | V2 | Vitamin D | a) at least 3,000 IU a day; b) 2,000–4,000 IU a day | AACE 2019 vs BOMSS 2020. Both target the same blood level (30 ng/mL = 75 nmol/L). |
 | V3 | Vitamin B12 route | a) daily tablet or monthly injection; b) injection every 3 months | AACE 2019: 350–1,000 mcg daily by mouth or 1,000 mcg monthly injection. BOMSS: injection every 3 months. |
 | V4 | Extra iron | a) 45–60 mg a day in total (from all supplements) after sleeve or bypass and for women with periods, at least 18 mg for low-risk men (ASMBS 2016); b) a separate iron tablet for everyone after sleeve or bypass, 50–100 mg for women with periods (BOMSS 2020) | Corrected 2026-11-27: the earlier wording said the US position covered only higher-risk patients and women with periods; ASMBS 2016 also names everyone after sleeve or bypass. See `vitamins-validation.md`. |
@@ -64,3 +64,5 @@ To answer, write the option letter (or your own wording) next to each number.
 ## Applied 2026-11-27 from the web validation
 
 On the owner's instruction (see `warning-signs-validation.md`): Bellorin 2011 added as a source for the heart-rate items; a "how to count your pulse" line opens the emergency panel; key number "About 8 in 10 vitamin B1 emergencies start in the first 6 months" (Oudman 2018). A fourth evidence tag, "Published study", now marks items backed by research that no guideline states.
+
+Vitamins guide, 2026-11-27 (owner's instruction, from `vitamins-validation.md`): the selenium and vitamin A lines replaced; panel heading changed from "Sleeve or bypass: what differs" to "Sleeve or bypass: mostly the same" to match.
