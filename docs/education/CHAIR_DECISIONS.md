@@ -10,7 +10,7 @@ To answer, write the option letter (or your own wording) next to each number.
 
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
-| P1 | Pre-op low-calorie diet length | a) 2–4 weeks; b) your fixed plan (state weeks) | ERAS 2021: 2–4 weeks, 1,000–1,200 kcal or 800 kcal a day. ASMBS patient FAQ: "usually 2 or 3 weeks". |
+| P1 | Pre-op low-calorie diet length | a) 2–4 weeks; b) your fixed plan (state weeks) | ERAS 2021: 2–4 weeks, 1,000–1,200 kcal or 800 kcal a day. ASMBS patient FAQ: "usually 2 or 3 weeks". Saudi SCFHS pathway: 2–6 weeks (800–1,500 kcal a day), up to 3 months if assessed (added 2026-11-27). |
 | P2 | Stop smoking before surgery | a) at least 4 weeks; b) 6–8 weeks | ERAS 2021 Table 1: at least 4 weeks; its text also cites 4–8 weeks from non-bariatric surgery. |
 | P3 | GLP-1 medicines before surgery | a) most continue; 24-hour liquid diet only for higher risk (2024 US multi-society); b) continue, and 24-hour clear fluids for everyone (2025 ANZCA); c) decide with anesthesia | Two current documents disagree. Choose with Tariq's anesthesia input. |
 | P4 | Wait before pregnancy | a) 12–18 months; b) at least 12 months | ASMBS patient page: 12 to 18 months. Pregnancy consensus 2019: until weight is stable, "typically 1 year". |
@@ -21,9 +21,9 @@ To answer, write the option letter (or your own wording) next to each number.
 
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
-| D1 | Stage timing | a) OMA 2025 schedule (used in the draft): clear day 0–1, full liquids to day 7–14, soft from week 2–3, regular from week 4–6; b) your own schedule; c) "your team will tell you" with no weeks | OMA 2025 itself says "there is no evidence to support a specific protocol". ERAS and AACE: each program sets its own. The Saudi SCFHS pathway could not be opened to confirm its timings. |
+| D1 | Stage timing | a) OMA 2025 schedule (used in the draft): clear day 0–1, full liquids to day 7–14, soft from week 2–3, regular from week 4–6; b) your own schedule; c) "your team will tell you" with no weeks | OMA 2025 itself says "there is no evidence to support a specific protocol". ERAS and AACE: each program sets its own. Updated 2026-11-27: the Saudi SCFHS pathway (read via Tavily) gives clear 24–48 h, liquids 3–7 days, puree 1–2 weeks from week 3, soft about 2 weeks, solid from about week 7. Options now include d) the SCFHS schedule. See `diet-stages-validation.md`. |
 | D2 | Protein target | a) at least 60 g a day; b) 60–80 g a day | OMA 2025: at least 60 g, up to 1.5 g/kg ideal weight. ERAS 2021: 60–80 g or 1.0–1.5 g/kg. |
-| D3 | Drinks and meals | a) wait 30 minutes after eating; b) "don't drink with meals"; c) small sips with meals allowed | The 30-minute wait in the dumping consensus applies only to people with dumping. OMA allows small sips. ERAS: don't drink with food. |
+| D3 | Drinks and meals | a) wait 30 minutes after eating; b) "don't drink with meals"; c) small sips with meals allowed | Updated 2026-11-27: AACE 2019 Table 10 says both "Do not drink liquids during meals" and "Wait 30 minutes after eating before resuming fluid intake" for all patients (a and b together). OMA allows small sips. See `diet-stages-validation.md`. |
 | D4 | Fluid target | a) 6–8 cups (about 1.4–1.9 L); b) more than 1.5 L | OMA 2025: 48–64 oz. AACE 2019 (as quoted): more than 1.5 L. |
 
 ## 3. Vitamins after surgery (`vitamins`)
