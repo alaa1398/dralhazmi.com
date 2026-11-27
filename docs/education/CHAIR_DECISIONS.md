@@ -11,11 +11,11 @@ To answer, write the option letter (or your own wording) next to each number.
 | # | Decision | Options | What the sources say |
 |---|---|---|---|
 | P1 | Pre-op low-calorie diet length | a) 2–4 weeks; b) your fixed plan (state weeks) | ERAS 2021: 2–4 weeks, 1,000–1,200 kcal or 800 kcal a day. ASMBS patient FAQ: "usually 2 or 3 weeks". Saudi SCFHS pathway: 2–6 weeks (800–1,500 kcal a day), up to 3 months if assessed (added 2026-11-27). |
-| P2 | Stop smoking before surgery | a) at least 4 weeks; b) 6–8 weeks | ERAS 2021 Table 1: at least 4 weeks; its text also cites 4–8 weeks from non-bariatric surgery. |
-| P3 | GLP-1 medicines before surgery | a) most continue; 24-hour liquid diet only for higher risk (2024 US multi-society); b) continue, and 24-hour clear fluids for everyone (2025 ANZCA); c) decide with anesthesia | Two current documents disagree. Choose with Tariq's anesthesia input. |
-| P4 | Wait before pregnancy | a) 12–18 months; b) at least 12 months | ASMBS patient page: 12 to 18 months. Pregnancy consensus 2019: until weight is stable, "typically 1 year". |
-| P5 | Endoscopy before surgery | a) routine for all; b) selective | IFSO 2025: 61% of pre-op scopes abnormal; symptoms predict poorly. |
-| P6 | Sweet clear drinks up to 2 hours before anesthesia | a) water only; b) as your anesthesia team decides | ERAS 2021: not enough evidence in bariatric surgery. ASA 2023 update covers carbohydrate drinks (abstract only read). |
+| P2 | Stop smoking before surgery | a) at least 4 weeks; b) 6–8 weeks | ERAS 2021 Table 1: at least 4 weeks; its text also cites 4–8 weeks from non-bariatric surgery. Added 2026-11-27: ASMBS 2021 and AACE 2013 ask for at least 6 weeks; AACE 2019 says stop at any time, even within 6 weeks. See `preparing-validation.md`. |
+| P3 | GLP-1 medicines before surgery | a) most continue; 24-hour liquid diet only for higher risk (2024 US multi-society); b) continue, and 24-hour clear fluids for everyone (2025 ANZCA); c) decide with anesthesia | Two current documents disagree. Choose with Tariq's anesthesia input. Added 2026-11-27: SPAQI 2025 (endorsed by AACE) says continue, with 24 hours without solids for everyone; a UK 2025 consensus says continue without changes. See `preparing-validation.md`. |
+| P4 | Wait before pregnancy | a) 12–18 months; b) at least 12 months | ASMBS patient page: 12 to 18 months. Pregnancy consensus 2019: until weight is stable, "typically 1 year". Added 2026-11-27: AACE 2019 R17 states 12–18 months as a guideline (Grade D). |
+| P5 | Endoscopy before surgery | a) routine for all; b) selective | IFSO 2025: 61% of pre-op scopes abnormal; symptoms predict poorly. Added 2026-11-27: IFSO 2025 says endoscopy "should be strongly considered" before surgery for all. |
+| P6 | Sweet clear drinks up to 2 hours before anesthesia | a) water only; b) as your anesthesia team decides | ERAS 2021: not enough evidence in bariatric surgery. ASA 2023 update covers carbohydrate drinks (abstract only read). Added 2026-11-27: ASA 2023 strongly recommends carbohydrate clear liquids until 2 hours for healthy adults, with care in diabetes. |
 
 ## 2. Diet stages after surgery (`diet-stages`)
 
