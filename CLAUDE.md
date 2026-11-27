@@ -19,7 +19,8 @@ Files kept off GitHub (documents, media, sensitive files) are listed in `FILES.m
 
 - Build: `timeout 300 npx -y node@24 node_modules/.bin/astro build` (Node 22.22 is too old).
 - Preview: `python3 -m http.server -d dist`.
-- Before reporting: rebuild, run axe-core on every page in both languages (baseline 0 violations), check no horizontal overflow at 375px and 320px, screenshot both languages.
+- Check: `npx -y node@24 scripts/check.mjs` (or `npm run check`) after a build. It runs axe-core 4.10.2 on every page in both languages at 1440 and 375 px (baseline 0 violations), overflow at 375 and 320 px, header nav on one row, guide print length (one A4 sheet), homepage weight against the budget below, and third-party requests; exits 1 on any problem.
+- Before reporting: rebuild, run the check script, screenshot both languages.
 - Budget: English homepage at or under about 300 KB, Arabic at or under about 450 KB, fonts included.
 
 ## Workflow
