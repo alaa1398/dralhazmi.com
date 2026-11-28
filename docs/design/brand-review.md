@@ -69,7 +69,7 @@ Checks on this build: axe-core 4.10.2 (WCAG 2.0 to 2.2 A and AA) on 39 pages at 
 
 ## Update: concept 22 Kufi palette (28 November 2026)
 
-On 27 November 2026 Dr. Alhazmi chose a new logo direction, concept 22 Kufi (his family name in square Kufi; alaa1398/dralhazmi-brand, board `2026-11-27_Logo_Concepts/08_Logo_Concept_22_Kufi_Developed.html`). The site palette now follows that board instead of the 2017 colors above. Token names in `global.css` stay the same so components don't change; only their values and comments do.
+On 28 November 2026 Dr. Alhazmi asked for this pull request to use the palette of logo concept 22 Kufi (his family name in square Kufi; alaa1398/dralhazmi-brand, board `2026-11-27_Logo_Concepts/08_Logo_Concept_22_Kufi_Developed.html`). Correction, 28 November 2026: concept 22 was developed for review, not chosen as the logo, and new logo rounds are under way, so this palette may change again. He also set a rule that the website background must be white; `--paper` is still #fbf8f2 pending his decision. Token names in `global.css` stay the same so components don't change; only their values and comments do.
 
 | Token | Before (2017) | Now (Kufi) | Contrast |
 |---|---|---|---|
