@@ -35,7 +35,7 @@
 :root {
   color-scheme: light;
   /* Brand: concept 22 Kufi palette (dralhazmi-brand board 08). Soot and ivory do the work; bronze for links and small type; pale brass is decoration only (2.1:1 on white). */
-  --paper: #fbf8f2;
+  --paper: #ffffff;        /* white: owner rule, 28 Nov 2026 */
   --sand: #f5efe2;          /* ivory panel */
   --sand-deep: #ebe2cf;
   --ink: #1f1c18;           /* soot */

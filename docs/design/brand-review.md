@@ -69,19 +69,19 @@ Checks on this build: axe-core 4.10.2 (WCAG 2.0 to 2.2 A and AA) on 39 pages at 
 
 ## Update: concept 22 Kufi palette (28 November 2026)
 
-On 28 November 2026 Dr. Alhazmi asked for this pull request to use the palette of logo concept 22 Kufi (his family name in square Kufi; alaa1398/dralhazmi-brand, board `2026-11-27_Logo_Concepts/08_Logo_Concept_22_Kufi_Developed.html`). Correction, 28 November 2026: concept 22 was developed for review, not chosen as the logo, and new logo rounds are under way, so this palette may change again. He also set a rule that the website background must be white; `--paper` is still #fbf8f2 pending his decision. Token names in `global.css` stay the same so components don't change; only their values and comments do.
+On 28 November 2026 Dr. Alhazmi asked for this pull request to use the palette of logo concept 22 Kufi (his family name in square Kufi; alaa1398/dralhazmi-brand, board `2026-11-27_Logo_Concepts/08_Logo_Concept_22_Kufi_Developed.html`). Correction, 28 November 2026: concept 22 was developed for review, not chosen as the logo, and new logo rounds are under way, so this palette may change again. He also set a rule that the website background must be white; `--paper` is #ffffff from the same day. Token names in `global.css` stay the same so components don't change; only their values and comments do.
 
 | Token | Before (2017) | Now (Kufi) | Contrast |
 |---|---|---|---|
-| `--paper` | #fdfcfc | #fbf8f2 | |
+| `--paper` | #fdfcfc | #ffffff white (owner rule) | |
 | `--sand` (panels) | #f3f1f6 | #f5efe2 ivory | |
 | `--sand-deep` | #e9e5f0 | #ebe2cf | |
-| `--ink` | #1c1530 | #1f1c18 soot | 16.0:1 on paper, 13.2:1 on sand-deep |
+| `--ink` | #1c1530 | #1f1c18 soot | 17.0:1 on white, 13.2:1 on sand-deep |
 | `--body` | #3a3547 | #3b362e | 9.3:1 on sand-deep |
 | `--muted` | #5d5868 | #5f574a | 5.5:1 on sand-deep |
 | `--accent` (buttons, large figures) | #3a2560 | #1f1c18 soot | white on it 17.0:1 |
 | `--accent-deep` (dark band, closing call) | #2a1b47 | #1f1c18 soot | |
-| `--teal` (links, figures, button hover) | #17727c | #7b5a1e bronze | 6.0:1 on paper, 4.9:1 on sand-deep; white on it 6.3:1 |
+| `--teal` (links, figures, button hover) | #17727c | #7b5a1e bronze | 6.3:1 on white, 4.9:1 on sand-deep; white on it 6.3:1 |
 | `--teal-light`, `--brass`, `--accent-tint` | #44c3d2 / #b9a6d9 | #d2b06a pale brass | 2.1:1 on white: decoration only |
 | `--on-dark` | #f3eefb | #f5efe2 ivory | 14.8:1 on soot |
 | `--on-dark-muted` | #c9bfdc | #d4ccbc | 10.6:1 on soot |
@@ -90,6 +90,6 @@ Contrast is the WCAG 2.x ratio, computed for each pair. Other changes in the sam
 
 - Text that used the light teal on the dark band (eyebrows, accent words, section and point numbers) now uses ivory, because pale brass is decoration only and never carries text.
 - Button hover is bronze (soot on soot would show no change); FAQ hover colors are bronze.
-- Hero spheres are pale brass and bronze; text selection is a pale brass tint; shadows are soot-based; the BMI input border is #857b6b (3.2:1 or more on every background, for the 3:1 non-text rule).
-- `theme-color` is #fbf8f2 on every page.
+- Hero spheres are pale brass and bronze; text selection is a pale brass tint; shadows are soot-based; the BMI input border is #857b6b (3.2:1 or more on every background, 4.2:1 on white, for the 3:1 non-text rule).
+- `theme-color` is #ffffff on every page.
 - Not changed: the 2017 leaf mark in the header (`src/assets/brand/leaf-mark.svg`) and the leaf favicon (`public/favicon.svg`) keep their purple and teal. The Kufi mark is still a sketch; the designer's final SVG replaces both.
