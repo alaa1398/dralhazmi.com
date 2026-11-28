@@ -9,13 +9,18 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "node scripts/check.mjs"
   },
   "dependencies": {
     "@fontsource-variable/alexandria": "^5.3.0",
     "@fontsource/ibm-plex-sans-arabic": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
-    "@fontsource/newsreader": "^5.3.0",
-    "astro": "^7.4.2"
+    "astro": "^7.4.2",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "puppeteer-core": "^25.19.0"
   }
 }

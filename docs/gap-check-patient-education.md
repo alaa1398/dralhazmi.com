@@ -1,0 +1,29 @@
+# Gap check: patient education library
+
+Date: 2026-11-25. Purpose: best practices and recent options for printable, web-based patient education sheets, checked before building `/learn/`. Source: cloud session, built-in web search only.
+
+"Have" means the site or the plan already covers it.
+
+| # | Item | Why it matters | Effort | Have | Source |
+|---|---|---|---|---|---|
+| 1 | Score every sheet with PEMAT-P (understandability and actionability) before approval | AHRQ's tool for printable materials; gives a percentage on each scale and flags missing items such as "tells the reader one clear action" | Low: about 15 minutes per sheet, free Excel scorer | No | [AHRQ PEMAT](https://www.ahrq.gov/health-literacy/patient-education/pemat.html); Shoemaker, Wolf, Brach 2014 ([PMC5085258](https://pmc.ncbi.nlm.nih.gov/articles/PMC5085258)) |
+| 2 | Score with the CDC Clear Communication Index; 90 or more passes | 20-item check on main message, calls to action and risk wording; complements PEMAT | Low | No | [CDC Clear Communication Index FAQ](https://www.cdc.gov/ccindex/tool/faq.html); [user guide](https://Cdc.gov/ccindex/pdf/clear-communication-user-guide.pdf) |
+| 3 | Write English at about a 6th-grade reading level and measure it | Bariatric materials usually miss this: none of 11 ASMBS patient publications reached 6th grade in a 2024 study | Low: run Flesch-Kincaid in the build | Partly (brief asks for 6th to 8th grade) | Massie, Arshad, Auyang. J Surg Res 2024;293:727-732 ([DOI 10.1016/j.jss.2023.09.018](https://doi.org/10.1016/j.jss.2023.09.018), PMID 37862852): mean FKGL 13.1; Srinivasan et al. Surg Endosc 2024;38:2522-2532 ([DOI 10.1007/s00464-024-10720-2](https://doi.org/10.1007/s00464-024-10720-2), PMID 38472531): institutional bariatric FAQs read at 9th grade to college graduate level |
+| 4 | Measure the Arabic text with OSMAN, the validated Arabic readability tool | Standard English formulas do not work for Arabic | Low to medium (open source, needs a Python run) | No | Malik, El-Haj, Paasche-Orlow 2019 ([DOAJ](https://doaj.org/article/3af1ab38fa464d1b9b142622fc010b1b)); Saudi WMI study 2018 ([PMC5828313](https://pmc.ncbi.nlm.nih.gov/articles/PMC5828313)) |
+| 5 | Pair every key message with a simple pictograph placed next to its text | Pictures tied closely to text raise attention, comprehension and recall, most for people with low health literacy; effects are moderate and vary | Medium: draw a small consistent icon set | Planned (infographic style) | Houts et al. Patient Educ Couns 2006;61:173-90 ([DOI 10.1016/j.pec.2005.05.004](https://doi.org/10.1016/j.pec.2005.05.004), PMID 16122896); pictograms in medication counselling review ([PMC8417421](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8417421/)) |
+| 6 | Test each sheet with a few patients or family members before it goes live, and test icons with them | Both the PIF TICK standard and the pictogram literature say materials work better when the intended readers help shape them | Medium: 5 short interviews per sheet in clinic | No | [PIF TICK criteria at a glance 2024](https://smauk.org.uk/wp-content/uploads/2025/08/PIF-TICK-Criteria-at-a-Glance-2024.pdf) |
+| 7 | Add 2 to 3 teach-back questions per sheet for clinic staff ("Tell me in your own words...") | Teach-back is the AHRQ toolkit's main check that the patient understood; the sheet becomes a teaching script, not just a handout | Low | No | [AHRQ Health Literacy Universal Precautions Toolkit, 3rd ed., March 2024](https://www.ahrq.gov/health-literacy/improve/precautions/index.html); [AHRQ teach-back tool](https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/teachback.html) |
+| 8 | Show a per-sheet "reviewed on" date, version and next review date; review at least every 3 years | PIF TICK minimum; the site now has one site-wide "Updated November 2026" line only | Low | Partly | [PIF TICK criteria at a glance 2024](https://smauk.org.uk/wp-content/uploads/2025/08/PIF-TICK-Criteria-at-a-Glance-2024.pdf) |
+| 9 | Print layout: body text 12 pt or more on A4; a large-print option at 16 pt | 12 pt is the common floor; 14 to 16 pt for poor vision | Low (print stylesheet plus a toggle) | Planned (A4 print) | [PIF health-literacy checklist](https://pifonline.org.uk/download/file/VmMrMVlYSm5lYU1VUnJFYS9GRHptdz09/health-literacy-checklist/); [HSE plain language](https://healthservice.hse.ie/staff/procedures-guidelines/plain-language-guidelines/writing-in-plain-language); [PMC8492593 table 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC8492593/table/Tab1) |
+| 10 | Mark each sheet up as `MedicalWebPage` with `lastReviewed` and `reviewedBy` | Machine-readable review date and reviewer; I found no Google statement that it changes search ranking, so treat it as good hygiene only | Low | No | [schema.org lastReviewed](https://schema.org/lastReviewed); [Google MedicalWebPage reference](https://developers.google.com/gmail/markup/reference/types/MedicalWebPage) |
+| 11 | Printed QR code linking to the web and Arabic versions of the same sheet | Opinion, no source found: lets a patient keep the sheet on their phone and switch language; generated at build time, so no third-party requests | Low | No | Opinion |
+| 12 | WCAG 2.2 AA, keyboard use, reduced motion, real RTL | Already a site rule; applies to the new pages too | None extra | Yes | `CLAUDE.md` content rule 8 |
+
+## Recommendation
+
+Opinion: build items 3, 7, 8, 9, 10 and 11 into the template now, since each is cheap once and then automatic. Run 1 and 2 (PEMAT-P and CDC index) on each sheet as part of your approval step. Plan 6 (patient testing) in clinic once the first sheets are printed.
+
+## Not confirmed
+
+- AHRQ pages differ on the PEMAT-P item count (17 or 19 understandability items); check the current user guide.
+- I found no 2025 update to the AHRQ toolkit or a Saudi-specific readability standard.

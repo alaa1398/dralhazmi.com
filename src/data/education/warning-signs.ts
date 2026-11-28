@@ -1,0 +1,102 @@
+// Drafted by Amal (Quality & Patient Safety) with Khalid (Surgical Lead), 2026-11-25.
+// Evidence review by Ali, 2026-11-25 (docs/education/warning-signs.md). Arabic: draft translation [ARABIC REVIEW] - needs a native-speaker read-aloud before approval.
+import { PENDING, type Sheet } from './types';
+
+export const warningSigns: Sheet = {
+  slug: 'warning-signs',
+  hue: 'coral',
+  icon: 'alert',
+  topics: ['after', 'safety'],
+  title: { en: 'Warning signs after surgery', ar: 'علامات الخطر بعد العملية' },
+  subtitle: {
+    en: 'Know which symptoms are normal, which need a call today, and which are an emergency.',
+    ar: 'اعرف أي الأعراض طبيعية، وأيها يستدعي التواصل مع فريقك اليوم، وأيها حالة طارئة.',
+  },
+  appliesTo: { en: 'Sleeve gastrectomy and gastric bypass', ar: 'تكميم المعدة وتحويل المسار' },
+  keyNumbers: [
+    { value: { en: '997', ar: '997' }, label: { en: 'Saudi ambulance (Red Crescent)', ar: 'الإسعاف في المملكة (الهلال الأحمر)' }, ev: 'fact', refs: ['R13'] },
+    { value: { en: 'Over 120', ar: 'أكثر من 120' }, label: { en: 'heartbeats a minute at rest: an emergency', ar: 'نبضة في الدقيقة أثناء الراحة: حالة طارئة' }, ev: 'study', refs: ['R15', 'R3'] },
+    { value: { en: '38.5 °C', ar: '38.5 °م' }, label: { en: 'temperature or higher: an emergency', ar: 'أو أعلى: حالة طارئة' }, ev: 'opinion' },
+    { value: { en: 'About 8 in 10', ar: 'نحو 8 من 10' }, label: { en: 'vitamin B1 emergencies start in the first 6 months', ar: 'من حالات نقص فيتامين ب1 الطارئة تبدأ في أول 6 أشهر' }, ev: 'study', refs: ['R16'] },
+    { value: { en: 'Over 8 in 10', ar: 'أكثر من 8 من 10' }, label: { en: 'blood clots after weight-loss surgery that start after going home', ar: 'من الجلطات بعد جراحة السمنة تبدأ بعد الخروج من المستشفى' }, ev: 'guideline', refs: ['R1'] },
+  ],
+  panels: [
+    {
+      tone: 'green', icon: 'check',
+      heading: { en: 'Normal in the first weeks', ar: 'طبيعي في الأسابيع الأولى' },
+      items: [
+        { text: { en: 'Mild pain at the small cuts, easing day by day', ar: 'ألم خفيف مكان الجروح الصغيرة يخفّ يومًا بعد يوم' }, ev: 'opinion' },
+        { text: { en: 'Feeling tired for a few weeks', ar: 'الشعور بالتعب لبضعة أسابيع' }, ev: 'opinion' },
+        { text: { en: 'Feeling full after a few spoonfuls', ar: 'الشعور بالشبع بعد ملاعق قليلة' }, ev: 'opinion' },
+      ],
+    },
+    {
+      tone: 'amber', icon: 'phone', whatsapp: true,
+      heading: { en: 'Contact your surgical team today', ar: 'تواصل مع فريقك الجراحي اليوم' },
+      items: [
+        { text: { en: 'Nausea or vomiting that keeps coming back', ar: 'غثيان أو قيء يتكرر' }, ev: 'guideline', refs: ['R7', 'R6'] },
+        { text: { en: 'Cannot keep fluids or vitamins down for 12 hours', ar: 'لا تستطيع الاحتفاظ بالسوائل أو الفيتامينات لمدة 12 ساعة' }, ev: 'opinion', refs: ['R6'] },
+        { text: { en: 'Drying out: dark or little urine, dizzy when standing', ar: 'علامات الجفاف: بول داكن أو قليل، ودوخة عند الوقوف' }, ev: 'opinion' },
+        { text: { en: 'Wound red, swollen, warm, or leaking', ar: 'الجرح أحمر أو متورم أو ساخن أو يخرج منه سائل' }, ev: 'opinion' },
+        { text: { en: 'Temperature of 38.0 °C or higher', ar: 'حرارة 38.0 درجة مئوية أو أعلى' }, ev: 'opinion' },
+        { text: { en: 'New trouble swallowing food you managed before', ar: 'صعوبة جديدة في بلع طعام كنت تتناوله من قبل' }, ev: 'opinion' },
+        { text: { en: 'Cannot reach your team today? Go to the emergency department', ar: 'لم تتمكن من التواصل مع فريقك اليوم؟ توجّه إلى قسم الطوارئ' }, ev: 'opinion' },
+      ],
+    },
+    {
+      tone: 'red', icon: 'alert',
+      heading: { en: 'Call 997 or go to the emergency department now', ar: 'اتصل على 997 أو توجّه إلى الطوارئ فورًا' },
+      intro: { en: 'To count your pulse: count the beats at your wrist for 15 seconds, then multiply by 4.', ar: 'لقياس النبض: عُدّ النبضات في معصمك لمدة 15 ثانية، ثم اضرب العدد في 4.' },
+      items: [
+        { text: { en: 'Heart racing at rest, over 120 beats a minute', ar: 'تسارع ضربات القلب أثناء الراحة، أكثر من 120 نبضة في الدقيقة' }, ev: 'study', refs: ['R15', 'R3', 'R4'] },
+        { text: { en: 'Severe stomach pain, or pain that keeps getting worse', ar: 'ألم شديد في البطن، أو ألم يزداد سوءًا' }, ev: 'opinion', refs: ['R4'] },
+        { text: { en: 'Shoulder or back pain with stomach pain or fever', ar: 'ألم في الكتف أو الظهر مع ألم في البطن أو حرارة' }, ev: 'study', refs: ['R4'] },
+        { text: { en: 'Cannot swallow your saliva, or cannot keep down any sips', ar: 'لا تستطيع بلع ريقك، أو لا تستطيع الاحتفاظ بأي رشفة' }, ev: 'opinion' },
+        { text: { en: 'Short of breath or breathing fast', ar: 'ضيق في التنفس أو تنفس سريع' }, ev: 'opinion', refs: ['R3', 'R4'] },
+        { text: { en: 'Any chest pain', ar: 'أي ألم في الصدر' }, ev: 'opinion' },
+        { text: { en: 'One leg swollen, painful, or warm', ar: 'تورم إحدى الساقين أو ألمها أو سخونتها' }, ev: 'opinion', refs: ['R1'] },
+        { text: { en: 'Vomiting blood, or black, tar-like stools', ar: 'قيء دموي، أو براز أسود كالقطران' }, ev: 'opinion', refs: ['R14'] },
+        { text: { en: 'Temperature of 38.5 °C or higher, or shaking chills', ar: 'حرارة 38.5 درجة مئوية أو أعلى، أو قشعريرة ورجفة' }, ev: 'opinion' },
+        { text: { en: 'Confusion, hard to wake, or fainting', ar: 'تشوّش، أو صعوبة في الاستيقاظ، أو إغماء' }, ev: 'guideline', refs: ['R7'] },
+        { text: { en: 'Tell staff: “I had a sleeve (or bypass) on this date.”', ar: 'أخبر الطاقم: «أجريت عملية تكميم (أو تحويل مسار) بتاريخ كذا».' }, ev: 'opinion', refs: ['R4'] },
+      ],
+    },
+    {
+      tone: 'neutral', icon: 'calendar',
+      heading: { en: 'Later warning signs (months or years after)', ar: 'علامات خطر لاحقة (بعد أشهر أو سنوات)' },
+      items: [
+        { text: { en: 'Days of vomiting with confusion, unsteady walking or double vision: emergency', ar: 'قيء لأيام مع تشوّش أو عدم اتزان أو رؤية مزدوجة: حالة طارئة' }, ev: 'guideline', refs: ['R7', 'R16'] },
+        { text: { en: 'Numbness or weakness while eating poorly: contact your team today', ar: 'تنميل أو ضعف مع قلة الأكل: تواصل مع فريقك اليوم' }, ev: 'opinion', refs: ['R7'] },
+        { text: { en: 'Bypass: sudden cramping belly pain that comes and goes: emergency', ar: 'بعد تحويل المسار: مغص مفاجئ في البطن يأتي ويذهب: حالة طارئة' }, ev: 'guideline', refs: ['R8', 'R9'] },
+        { text: { en: 'Sleeve: new heartburn, or food coming back up: tell your team', ar: 'بعد التكميم: حرقة جديدة أو رجوع الطعام: أخبر فريقك' }, ev: 'guideline', refs: ['R10'] },
+        { text: { en: 'Up to an hour after sweets: sweating, fast heartbeat, cramps, diarrhea: tell your team', ar: 'خلال ساعة من تناول الحلويات: تعرّق وتسارع النبض ومغص وإسهال: أخبر فريقك' }, ev: 'consensus', refs: ['R11'] },
+        { text: { en: '1–3 hours after eating: shaky, sweaty, confused: tell your team', ar: 'بعد 1–3 ساعات من الأكل: رجفة وتعرّق وتشوّش: أخبر فريقك' }, ev: 'consensus', refs: ['R11', 'R12'] },
+        { text: { en: 'Low blood sugar with fainting or confusion: call 997', ar: 'انخفاض السكر مع إغماء أو تشوّش: اتصل على 997' }, ev: 'opinion', refs: ['R12'] },
+      ],
+    },
+  ],
+  teachBack: [
+    { en: 'Which symptoms mean you should call 997 instead of waiting for the clinic?', ar: 'ما الأعراض التي تعني أن تتصل على 997 بدل انتظار العيادة؟' },
+    { en: 'What will you tell the emergency staff about your operation?', ar: 'ماذا ستقول لطاقم الطوارئ عن عمليتك؟' },
+    { en: 'What would you do if you could not keep fluids down today?', ar: 'ماذا ستفعل إن لم تستطع الاحتفاظ بالسوائل اليوم؟' },
+  ],
+  refs: [
+    { id: 'R1', cite: 'Stenberg E, et al. Guidelines for perioperative care in bariatric surgery: Enhanced Recovery After Surgery (ERAS) Society recommendations: a 2021 update. World J Surg. 2022;46:729–751.', url: 'https://doi.org/10.1007/s00268-021-06394-9' },
+    { id: 'R3', cite: 'Hamilton EC, et al. Clinical predictors of leak after laparoscopic Roux-en-Y gastric bypass for morbid obesity. Surg Endosc. 2003;17:679–684.', url: 'https://pubmed.ncbi.nlm.nih.gov/12618940/' },
+    { id: 'R4', cite: 'Al Zoubi M, et al. Challenges in the diagnosis of leak after sleeve gastrectomy: clinical presentation, laboratory, and radiological findings. Obes Surg. 2021;31:612–616.', url: 'https://pubmed.ncbi.nlm.nih.gov/33025538/' },
+    { id: 'R6', cite: 'Sippey M, et al. 30-day readmissions after sleeve gastrectomy versus Roux-en-Y gastric bypass. Surg Obes Relat Dis. 2016;12:991–996.', url: 'https://pubmed.ncbi.nlm.nih.gov/27067353/' },
+    { id: 'R7', cite: 'Patterson E, et al. (ASMBS Wernicke’s Task Force). ASMBS literature review & clinical guidelines on prevention, diagnosis, and treatment of Wernicke’s encephalopathy and Wernicke-Korsakoff syndrome. Surg Obes Relat Dis. 2025;21:707–718.', url: 'https://doi.org/10.1016/j.soard.2025.03.009' },
+    { id: 'R8', cite: 'Oviedo RJ, et al. (ASMBS Clinical Issues Committee). Diagnosis and treatment options for chronic abdominal pain after Roux-en-Y gastric bypass. Surg Obes Relat Dis. 2026;22:309–316.', url: 'https://doi.org/10.1016/j.soard.2025.11.019' },
+    { id: 'R9', cite: 'Murakami K, et al. Closure of mesenteric defects for prevention of internal hernia after Roux-en-Y gastric bypass in bariatric surgery. Cochrane Database Syst Rev. 2025;4:CD014612.', url: 'https://pubmed.ncbi.nlm.nih.gov/40197535/' },
+    { id: 'R10', cite: 'Campos GM, et al. ASMBS position statement on the rationale for performance of upper gastrointestinal endoscopy before and after metabolic and bariatric surgery. Surg Obes Relat Dis. 2021;17:837–847.', url: 'https://pubmed.ncbi.nlm.nih.gov/33875361/' },
+    { id: 'R11', cite: 'Scarpellini E, et al. International consensus on the diagnosis and management of dumping syndrome. Nat Rev Endocrinol. 2020;16:448–466.', url: 'https://pubmed.ncbi.nlm.nih.gov/32457534/' },
+    { id: 'R12', cite: 'Abdelgadir E, et al. Post-bariatric hypoglycemia management: a Gulf Cooperation Council consensus statement. J Endocr Soc. 2026;10:bvaf225.', url: 'https://pubmed.ncbi.nlm.nih.gov/41647132/' },
+    { id: 'R13', cite: 'Aljabri D, Albinali H. Public awareness and use of 997 emergency medical service phone number during the COVID-19 pandemic. Front Public Health. 2022;10:937202.', url: 'https://pubmed.ncbi.nlm.nih.gov/36262224/' },
+    { id: 'R14', cite: 'Dick A, et al. Gastrointestinal bleeding after gastric bypass surgery: nuisance or catastrophe? Surg Obes Relat Dis. 2010;6:643–647.', url: 'https://pubmed.ncbi.nlm.nih.gov/21111381/' },
+    { id: 'R15', cite: 'Bellorin O, et al. Understanding the significance, reasons and patterns of abnormal vital signs after gastric bypass for morbid obesity. Obes Surg. 2011;21:707–713.', url: 'https://doi.org/10.1007/s11695-010-0221-0' },
+    { id: 'R16', cite: 'Oudman E, et al. Preventing Wernicke encephalopathy after bariatric surgery. Obes Surg. 2018;28:2060–2068.', url: 'https://doi.org/10.1007/s11695-018-3262-4' },
+  ],
+  status: 'draft',
+  version: '0.4',
+  drafters: ['Amal (Quality & Patient Safety)', 'Khalid (Surgical Lead)', 'Ali (Evidence, Guidelines & Outcomes)'],
+};

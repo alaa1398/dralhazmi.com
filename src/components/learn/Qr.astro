@@ -1,0 +1,11 @@
+---
+// QR code drawn at build time as inline SVG (no script, no third-party request).
+import QRCode from 'qrcode';
+interface Props { url: string; label: string; lang: string }
+const { url, label, lang } = Astro.props;
+const svg = await QRCode.toString(url, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#000000', light: '#ffffff' } });
+---
+<figure class="qr" lang={lang}>
+  <span class="qr-code" aria-hidden="true" set:html={svg} />
+  <figcaption>{label}</figcaption>
+</figure>

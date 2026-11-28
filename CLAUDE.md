@@ -2,6 +2,8 @@
 
 Bilingual (English, Arabic RTL) static website for Dr. Alaa Alhazmi, built with Astro and deployed by GitHub Pages on every push to `main`. See `AGENTS.md` for Astro dev-server notes.
 
+Files kept off GitHub (documents, media, sensitive files) are listed in `FILES.md`.
+
 ## Key files
 
 - `src/data/site.ts`: shared copy, navigation, treatments, UI strings.
@@ -9,13 +11,16 @@ Bilingual (English, Arabic RTL) static website for Dr. Alaa Alhazmi, built with 
 - `src/styles/global.css`: the whole design system (tokens, components, both languages).
 - `src/components/`: `PageHero`, `ContactBox`, `TreatmentList`, `Arcs`, `Wa`.
 - `src/pages/[lang]/`: one file per page; `team.astro` is intentionally hidden.
+- `src/data/education/`: patient education guides (one file per guide) shown at `/learn/`. Every item carries an evidence tag and references; guides stay `draft` until the owner approves them. Source drafts, evidence reviews and open decisions are in `docs/education/`.
+- `src/styles/learn.css`: styles for the library, guides and their two-sided A4 print layout.
 - `public/faisal/`: two static noindex pages required for a Google app review. Do not restyle or reword their Google API sections.
 
 ## Build and check
 
 - Build: `timeout 300 npx -y node@24 node_modules/.bin/astro build` (Node 22.22 is too old).
 - Preview: `python3 -m http.server -d dist`.
-- Before reporting: rebuild, run axe-core on every page in both languages (baseline 0 violations), check no horizontal overflow at 375px and 320px, screenshot both languages.
+- Check: `npx -y node@24 scripts/check.mjs` (or `npm run check`) after a build. It runs axe-core 4.10.2 on every page in both languages at 1440 and 375 px (baseline 0 violations), overflow at 375 and 320 px, header nav on one row, guide print length (one A4 sheet), homepage weight against the budget below, and third-party requests; exits 1 on any problem.
+- Before reporting: rebuild, run the check script, screenshot both languages.
 - Budget: English homepage at or under about 300 KB, Arabic at or under about 450 KB, fonts included.
 
 ## Workflow

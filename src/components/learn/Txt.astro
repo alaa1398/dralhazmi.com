@@ -1,0 +1,11 @@
+---
+// Renders sheet text; a value still awaiting Dr. Alhazmi's decision shows as a marked gap.
+import { PENDING, learnUi } from '../../data/education';
+import type { Lang } from '../../data/site';
+interface Props { text: string; lang: Lang }
+const { text, lang } = Astro.props;
+const parts = text.split(PENDING);
+---
+{parts.map((p, i) => (
+  <>{p}{i < parts.length - 1 && <mark class="pending">{learnUi.pending[lang]}</mark>}</>
+))}
